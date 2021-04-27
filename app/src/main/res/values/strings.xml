@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Dr Huellon</string>
+    <string name="imagen">Imagen</string>
+    <string name="bienvenido">Bienvenido a Dr Huellitas</string>
+    <string name="continuar">Para continuar inicie sesión</string>
+    <string name="ingresarC">INGRESE CORREO</string>
+    <string name="ingresarContra">INGRESE CONTRASEÑA</string>
+    <string name="iniciar">INICIAR SESIÓN</string>
+    <string name="crearU">¿NO TIENES CUENTA? REGISTRATE</string>
+    <string name="ingreNom">INGRESE NOMBRE</string>
+    <string name="confContr">CONFIRMAR CONTRASEÑA</string>
+    <string name="creU">CREAR USUARIO</string>
+    <string name="cuentaCreada">¿YA TIENES UNA CUENTA? INICIA SESIÓN</string>
+</resources>
