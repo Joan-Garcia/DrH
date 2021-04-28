@@ -34,7 +34,7 @@ public class crearUsuario extends AppCompatActivity {
     }
 
     public void patras() {
-        Intent a = new Intent(this, loggin.class);
+        Intent a = new Intent(this, Login.class);
         startActivity(a);
     }
 
