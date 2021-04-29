@@ -21,7 +21,7 @@ public class VerifyUser extends AsyncTask<Void,Integer,Boolean> {
     private ModalProgressDialog progressDialog;
     private ModalDialog modalDialog;
     private EditText edEmail, edPass;
-    private boolean userExist = false;
+    private boolean userExist, isAdmin;
     Context context;
 
     public VerifyUser(Context context, EditText edEmail, EditText edPass){
@@ -31,7 +31,8 @@ public class VerifyUser extends AsyncTask<Void,Integer,Boolean> {
         modalDialog= new ModalDialog(this.context);
         this.edEmail = edEmail;
         this.edPass = edPass;
-
+        userExist = false;
+        isAdmin = false;
     }
 
     @Override
@@ -53,8 +54,11 @@ public class VerifyUser extends AsyncTask<Void,Integer,Boolean> {
 
                 rs.next();
                 Log.println(Log.INFO, "Dato", "Rows: "+ rs.getRow());
-                if(rs.getRow() == 1)
+                if(rs.getRow() == 1) {
                     userExist = true;
+                    if(rs.getString("tipoUsuario").equals("A"))
+                        isAdmin = true;
+                }
                 Log.println(Log.INFO,"VerifyUser","Usuario encontrado"+ userExist);
                 rs.close();
                 st.close();
@@ -78,8 +82,14 @@ public class VerifyUser extends AsyncTask<Void,Integer,Boolean> {
         progressDialog.hideProgressDialog();
         if(userExist) {
             //modalDialog.setMessage("Usuario Encontrado");
-            Intent a = new Intent(context, primerActivity.class);
-            context.startActivity(a);
+            if(isAdmin){
+                //Cambiar a activity de admin
+                Log.println(Log.INFO, "UserType", "Administrador");
+            }else {
+                //Cambiar a activity de usuario
+                Intent a = new Intent(context, primerActivity.class);
+                context.startActivity(a);
+            }
         }else{
             modalDialog.setMessage("Usuario No Encontrado");
             modalDialog.showModalDialog();
