@@ -7,6 +7,8 @@ import android.os.AsyncTask;
 import android.util.Log;
 import android.widget.EditText;
 
+import com.example.drh.admin2;
+import com.example.drh.administrador;
 import com.example.drh.primerActivity;
 import com.example.drh.utils.Connection;
 import com.example.drh.utils.ModalDialog;
@@ -84,7 +86,8 @@ public class VerifyUser extends AsyncTask<Void,Integer,Boolean> {
             //modalDialog.setMessage("Usuario Encontrado");
             if(isAdmin){
                 //Cambiar a activity de admin
-                Log.println(Log.INFO, "UserType", "Administrador");
+                Intent a= new Intent(context, admin2.class);
+                context.startActivity(a);
             }else {
                 //Cambiar a activity de usuario
                 Intent a = new Intent(context, primerActivity.class);

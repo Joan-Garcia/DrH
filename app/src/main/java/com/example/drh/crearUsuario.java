@@ -12,11 +12,14 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.drh.commands.VerifyUser;
+
 public class crearUsuario extends AppCompatActivity {
     private EditText et_Correo, et_Nombre, et_Contra, et_confC;
     private conexionSQL admin;
     private SQLiteDatabase baseD;
     private Cursor fila;
+    private VerifyUser vu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

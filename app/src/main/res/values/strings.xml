@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Dr Huellon</string>
+    <string name="app_name">Dr Huellitas</string>
     <string name="imagen">Imagen</string>
     <string name="bienvenido">Bienvenido a Dr Huellitas</string>
     <string name="continuar">Para continuar inicie sesión</string>
@@ -11,4 +11,9 @@
     <string name="confContr">CONFIRMAR CONTRASEÑA</string>
     <string name="creU">CREAR USUARIO</string>
     <string name="cuentaCreada">¿YA TIENES UNA CUENTA? INICIA SESIÓN</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">CONSULTAR</string>
+    <string name="hello_blank_fragment2">CREAR</string>
+    <string name="hello_blank_fragment3">ELIMINAR</string>
+
 </resources>

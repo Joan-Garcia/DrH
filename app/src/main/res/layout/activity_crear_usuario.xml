@@ -28,7 +28,7 @@
         android:hint="@string/ingresarC"
         android:inputType="textPersonName"
         android:textColor="#FFFFFF"
-        android:textColorHint="#FFD600"
+        android:textColorHint="@android:color/darker_gray"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
@@ -44,7 +44,7 @@
         android:hint="@string/ingreNom"
         android:inputType="textPersonName"
         android:textColor="#FFFFFF"
-        android:textColorHint="#FFD600"
+        android:textColorHint="@android:color/darker_gray"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editCo" />
@@ -59,7 +59,7 @@
         android:hint="@string/ingresarContra"
         android:inputType="textPassword"
         android:textColor="#FFFFFF"
-        android:textColorHint="#FFD600"
+        android:textColorHint="@android:color/darker_gray"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editNombre" />
@@ -74,7 +74,7 @@
         android:hint="@string/confContr"
         android:inputType="textPassword"
         android:textColor="#FFFFFF"
-        android:textColorHint="#FFD600"
+        android:textColorHint="@android:color/darker_gray"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editPass" />
@@ -87,6 +87,8 @@
         android:fontFamily="@font/balthazar"
         android:onClick="buscarU"
         android:text="@string/creU"
+        android:textColor="#000000"
+        app:backgroundTint="#02DFCB"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editConfCon" />
@@ -99,7 +101,7 @@
         android:fontFamily="@font/balthazar"
         android:onClick="alLoggin"
         android:text="@string/cuentaCreada"
-        android:textColor="#F50057"
+        android:textColor="#FFFFFF"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

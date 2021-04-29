@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/primerFragmento"
+        android:icon="@drawable/crear"
+        android:title="CREAR"/>
+
+    <item
+        android:id="@+id/segundoFragmento"
+        android:icon="@drawable/editarpng"
+        android:title="MODIFICAR"/>
+
+    <item
+        android:id="@+id/tercerFragmento"
+        android:icon="@drawable/consultar"
+        android:title="BUSCAR"/>
+
+
+
+</menu>
