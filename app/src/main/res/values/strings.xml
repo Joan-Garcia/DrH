@@ -1,19 +1,52 @@
 <resources>
-    <string name="app_name">Dr Huellitas</string>
+    <string name="app_name">Dr Huellitas2</string>
     <string name="imagen">Imagen</string>
     <string name="bienvenido">Bienvenido a Dr Huellitas</string>
     <string name="continuar">Para continuar inicie sesión</string>
-    <string name="ingresarC">INGRESE CORREO</string>
-    <string name="ingresarContra">INGRESE CONTRASEÑA</string>
     <string name="iniciar">INICIAR SESIÓN</string>
     <string name="crearU">¿NO TIENES CUENTA? REGISTRATE</string>
+    <!-- DATOS PARA CREAR A CLIENTE -->
     <string name="ingreNom">INGRESE NOMBRE</string>
+    <string name="apPaterno">INGRESE APELLIDO PATERNO</string>
+    <string name="apMaterno">INGRESE APELLIDO MATERNO</string>
+    <string name="domicilio">INGRESE DOMICILIO</string>
+    <string name="colonia">INGRESE COLONIA</string>
+    <string name="ciudad">INGRESE CIUDAD</string>
+    <string name="estado">INGRESE ESTADO</string>
+    <string name="cp">INGRESE CP</string>
+    <string name="pais">INGRESE PAIS</string>
+    <string name="teleCasa">INGRESE TELÉFONO FIJO</string>
+    <string name="teleCel">INGRESE TELÉFONO CELULAR</string>
+    <string name="ingresarC">INGRESE CORREO</string>
+    <string name="ingresarContra">INGRESE CONTRASEÑA</string>
     <string name="confContr">CONFIRMAR CONTRASEÑA</string>
+    <string name="tipoUsuario">INGRESE TIPO USUARIO</string>
     <string name="creU">CREAR USUARIO</string>
     <string name="cuentaCreada">¿YA TIENES UNA CUENTA? INICIA SESIÓN</string>
+    <string name="insertar">ELIJE LA TABLA A INSERTAR</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">CONSULTAR</string>
-    <string name="hello_blank_fragment2">CREAR</string>
     <string name="hello_blank_fragment3">ELIMINAR</string>
-
+    <!-- DATOS PARA CREAR MASCOTA -->
+    <string name="idPropietario">INGRESE IDPROPIETARIO</string>
+    <string name="nombreMascota">INGRESE EL NOMBRE DE LA MASCOTA</string>
+    <string name="fechaNac">INGRESE FECHA DE NACIMIENTO</string>
+    <string name="especie">INGRESE ESPECIE DE MASCOTA</string>
+    <string name="raza">INGRESE RAZA DE MASCOTA</string>
+    <string name="sexo">INGRESE SEXO DE MASCOTA</string>
+    <string name="color">INGRESE COLOR DE MASCOTA</string>
+    <string name="tatuaje">¿TIENE TATUAJES?</string>
+    <string name="microchip">¿TIENE MICROCHIP?</string>
+    <string name="crearM">CREAR MASCOTA</string>
+    <!-- DATOS PARA CREAR VACUNA -->
+    <string name="idMascota">INGRESE EL IDMASCOTA</string>
+    <string name="fechaVac">FECHA VACUNACIÓN</string>
+    <string name="vacuna">INGRESE NOMBRE VACUNA APLICADA</string>
+    <string name="proxFecha">INGRESE PRÓXIMA FECHA A VACUNAR</string>
+    <string name="aplicarV">APLICAR VACUNA</string>
+    <!-- DATOS PARA CREAR Desparacitar -->
+    <string name="fechaDes">FECHA DESPARACITACIÓN</string>
+    <string name="producto">INGRESE NOMBRE DEL PRODUCTO APLICADO</string>
+    <string name="proxDes">INGRESE PRÓXIMA FECHA PARA DESPARACITAR</string>
+    <string name="aplicarD">APLICAR DESPARACITACIÓN</string>
 </resources>

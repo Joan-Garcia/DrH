@@ -7,6 +7,8 @@ import android.os.AsyncTask;
 import android.util.Log;
 import android.widget.EditText;
 
+import androidx.fragment.app.FragmentTransaction;
+
 import com.example.drh.admin2;
 import com.example.drh.administrador;
 import com.example.drh.primerActivity;
@@ -53,7 +55,6 @@ public class VerifyUser extends AsyncTask<Void,Integer,Boolean> {
                 String email = edEmail.getText().toString();
                 String pass = edPass.getText().toString();
                 ResultSet rs = st.executeQuery("SELECT * FROM freedbtech_dbVeterinaria.propietario WHERE email = '"+email+"' AND pass = '"+pass+"'; ");
-
                 rs.next();
                 Log.println(Log.INFO, "Dato", "Rows: "+ rs.getRow());
                 if(rs.getRow() == 1) {

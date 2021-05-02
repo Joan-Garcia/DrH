@@ -3,17 +3,35 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#3B4341"
     tools:context=".primerFragmento">
 
     <!-- TODO: Update blank fragment layout -->
+
     <TextView
+        android:id="@+id/textView7"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/balthazar"
+        android:gravity="center"
+        android:text="@string/insertar"
+        android:textColor="#FFFFFF"
+        android:textSize="20dp" />
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="35dp"
+        android:animateLayoutChanges="true"
+        android:spinnerMode="dropdown" />
+    <FrameLayout
+        android:id="@+id/contenedor1"
+        android:layout_marginTop="85dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center_horizontal"
-        android:layout_marginTop="30dp"
-        android:fontFamily="@font/balthazar"
-        android:textColor="@color/green_normal"
-        android:textSize="40sp"
-        android:text="@string/hello_blank_fragment2" />
+        android:background="#3B4341">
+
+    </FrameLayout>
 
 </FrameLayout>

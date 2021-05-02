@@ -24,12 +24,12 @@ public class crearUsuario extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_crear_usuario);
+       /* setContentView(R.layout.activity_crear_usuario);
         et_Correo = (EditText) findViewById(R.id.editCo);
         et_Nombre = (EditText) findViewById(R.id.editNombre);
         et_Contra = (EditText) findViewById(R.id.editPass);
         et_confC = (EditText) findViewById(R.id.editConfCon);
-
+*/
     }
 
     public void alLoggin(View view) {
