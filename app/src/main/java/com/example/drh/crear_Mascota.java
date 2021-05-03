@@ -2,16 +2,17 @@ package com.example.drh;
 
 import android.os.Bundle;
 
+import androidx.annotation.UiThread;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Spinner;
 import android.widget.Toast;
+
+import com.example.drh.commands.InsertMascota;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -34,6 +35,7 @@ public class crear_Mascota extends Fragment {
     String usuario, nombreMascota, fechaNac,raza, especie, color, tatuaje,microchip, sexo;
     Button btnCrearM;
     View vista;
+    InsertMascota vui;
 
     public crear_Mascota() {
         // Required empty public constructor
@@ -95,8 +97,10 @@ public class crear_Mascota extends Fragment {
                 obtenerDatos();
                 if(validar()){
                     //INSERTAR MÉTODO QUE COMPRUEBE EN LA BASE DE DATOS SI EL USUARIO YA EXISTE
-                    Toast.makeText(vista.getContext(),"USUARIO CREADO",Toast.LENGTH_SHORT).show();
-                    vaciar();//DESPUÉS DE VALIDAR Y HABER INSERTADO LOS DATOS
+                    vui = new InsertMascota(getActivity(), usuario, nombreMascota, fechaNac,raza, especie, color, tatuaje,microchip, sexo);
+                    vui.execute();
+
+                    //vaciar();//DESPUÉS DE VALIDAR Y HABER INSERTADO LOS DATOS
                 }
             }
         });
@@ -147,12 +151,12 @@ public class crear_Mascota extends Fragment {
         editMicrochip.setText("");
         editSexo.setText("");
     }
-public boolean validarS(){
-    if(sexo.equals("H")){
-        return false;
-    }else if (sexo.equals("M")){
-        return false;
+    public boolean validarS(){
+        if(sexo.equals("H")){
+            return false;
+        }else if (sexo.equals("M")){
+            return false;
+        }
+            return true;
     }
-        return true;
-}
 }
