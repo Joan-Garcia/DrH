@@ -28,7 +28,7 @@ public class crear_Despa extends Fragment {
     private String mParam2;
     EditText editIdMasDes, editFechaDes, editProducto, editProxFec;
     String idMasDes, fechaDes,producto, proxFec;
-    Button btnDes;
+    Button btnDes, btnLimpiar;
     View vista;
     public crear_Despa() {
         // Required empty public constructor
@@ -75,7 +75,7 @@ public class crear_Despa extends Fragment {
         editProducto=(EditText)vista.findViewById(R.id.editDes);
         editProxFec=(EditText)vista.findViewById(R.id.editProxDes);
         btnDes=(Button)vista.findViewById(R.id.btnDes);
-
+        btnLimpiar=(Button) vista.findViewById(R.id.btnVaciarD);
         btnDes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -83,8 +83,15 @@ public class crear_Despa extends Fragment {
                 if (validar()) {
                     //INSERTAR MÉTODO PARA INGRESAR A LA BASE DE DATOS
                     Toast.makeText(vista.getContext(),"DESPARACITACIÓN APLICADA",Toast.LENGTH_SHORT).show();
-                    vaciar();
+                    btnLimpiar.setVisibility(View.VISIBLE);
                 }
+            }
+        });
+        btnLimpiar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                vaciar();
+                btnLimpiar.setVisibility(View.INVISIBLE);
             }
         });
     }

@@ -31,7 +31,7 @@ public class crearP extends Fragment {
 
     String [] tipoUsuario= new String[]{"","ADMINISTRADOR","USUARIO"};
     View vista;
-    Button btnCrearP;
+    Button btnCrearP, btnLimpiar;
     EditText et_Nombre, et_APater, et_AMater,et_Domicilio, et_Colonia,et_Ciudad,et_Estado
             ,et_CP, et_Pais, et_TelFijo, et_TelCel, et_Correo, et_Contra, et_ConfContra, et_tipoUsuario;
     String nombre, aPater, aMater, domicilio, colonia,ciudad, estado,cp,pais,telFijo,telCel,
@@ -96,6 +96,7 @@ public class crearP extends Fragment {
         et_Correo= (EditText)v.findViewById(R.id.editEmail);
         et_Contra= (EditText)v.findViewById(R.id.editContra);
         et_ConfContra= (EditText)v.findViewById(R.id.editConfContra);
+        btnLimpiar=(Button) v.findViewById(R.id.btnVaciarP);
         btnCrearP= (Button)v.findViewById(R.id.btnCrearU);
         et_tipoUsuario= (EditText)vista.findViewById(R.id.editTipoUsuario);
 
@@ -108,21 +109,28 @@ public class crearP extends Fragment {
                 if(validar()){
                     if(contra.equals(confcontra)){
 
-                        //INSERTAR MÉTODO QUE COMPRUEBE EN LA BASE DE DATOS SI EL USUARIO YA EXISTE
+
                         if(tUsuario==""){
                             tUsuario="U";
                         }
+                        //INSERTAR MÉTODO QUE COMPRUEBE EN LA BASE DE DATOS SI EL USUARIO YA EXISTE
                         Toast.makeText(vista.getContext(),"USUARIO CREADO",Toast.LENGTH_SHORT).show();
-                                vaciar();//DESPUÉS DE VALIDAR Y HABER INSERTADO LOS DATOS
+                        btnLimpiar.setVisibility(View.VISIBLE);
 
                     }else{
                         Toast.makeText(vista.getContext(),"LAS CONTRASEÑAS NO COINCIDEN",Toast.LENGTH_SHORT).show();
                     }
-                }else{
-//REVISAR SPINNER PRIMERFRAGMENTO
                 }
             }
         });
+
+       btnLimpiar.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+               vaciar();
+               btnLimpiar.setVisibility(View.INVISIBLE);
+           }
+       });
     }
 
     public boolean validar() {
@@ -148,7 +156,7 @@ public class crearP extends Fragment {
         } else if (confcontra.isEmpty()) {
             et_ConfContra.setError("EL CAMPO CONFIRMAR CONTRASEÑA NO PUEDE QUEDAR VACÍO");
             return false;
-        } else if(tUsuario!=""||tUsuario!="U"||tUsuario!="A"){
+        } else if(validarUsuario()){
                 et_tipoUsuario.setError("LLENE EL CAMPO CON U/A");
             return false;
         }
@@ -189,7 +197,18 @@ public class crearP extends Fragment {
         et_Correo.setText("");
         et_Contra.setText("");
         et_ConfContra.setText("");
+        et_tipoUsuario.setText("");
 
+    }
+    public boolean validarUsuario(){
+        if(tUsuario.equals("")){
+            return false;
+        }else if(tUsuario.equals("U")){
+            return false;
+        }else if(tUsuario.equals("A")){
+            return false;
+        }
+        return true;
     }
 
 }

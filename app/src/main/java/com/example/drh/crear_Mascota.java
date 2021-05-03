@@ -5,9 +5,12 @@ import android.os.Bundle;
 import androidx.annotation.UiThread;
 import androidx.fragment.app.Fragment;
 
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -33,9 +36,11 @@ public class crear_Mascota extends Fragment {
     EditText editIdusuario, editNombreMascota,editFechaNac, editRaza,editEspecie,editColor,
             edirTatuaje, editMicrochip,editSexo;
     String usuario, nombreMascota, fechaNac,raza, especie, color, tatuaje,microchip, sexo;
-    Button btnCrearM;
+    Button btnCrearM, btnVaciar;
     View vista;
     InsertMascota vui;
+    Integer a=0;
+
 
     public crear_Mascota() {
         // Required empty public constructor
@@ -89,6 +94,7 @@ public class crear_Mascota extends Fragment {
         editMicrochip = (EditText)vista.findViewById(R.id.editMicrochip);
         editSexo= (EditText) vista.findViewById(R.id.editSexo1);
         btnCrearM = (Button) vista.findViewById(R.id.btnCrearMascota);
+        btnVaciar=(Button) vista.findViewById(R.id.btnVaciarM);
 
 
         btnCrearM.setOnClickListener(new View.OnClickListener() {
@@ -100,8 +106,17 @@ public class crear_Mascota extends Fragment {
                     vui = new InsertMascota(getActivity(), usuario, nombreMascota, fechaNac,raza, especie, color, tatuaje,microchip, sexo);
                     vui.execute();
 
-                    //vaciar();//DESPUÉS DE VALIDAR Y HABER INSERTADO LOS DATOS
+                    btnVaciar.setVisibility(View.VISIBLE);
                 }
+            }
+        });
+
+       btnVaciar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                vaciar();
+                btnVaciar.setVisibility(View.INVISIBLE);
             }
         });
 
@@ -121,36 +136,44 @@ public class crear_Mascota extends Fragment {
         sexo=editSexo.getText().toString().trim();
     }
 
-    public boolean validar(){
-        if(usuario.isEmpty()){
+    public boolean validar() {
+        if (usuario.isEmpty()) {
             editIdusuario.setError("EL CAMPO IDPROPIETARIO NO PUEDE QUEDAR VACÍO");
             return false;
-        }else if(especie.isEmpty()){
-            editEspecie.setError("EL CAMPO ESPECIE NO PUEDE QUEDAR VACÍO");
-            return false;
-        }else if(raza.isEmpty()){
-            editRaza.setError("EL CAMPO RAZA NO PUEDE QUEDAR VACÍO");
-            return false;
-        }else if(color.isEmpty()){
-            editColor.setError("EL CAMPO COLOR NO PUEDE QUEDAR VACÍO");
-            return false;
-        }else if(validarS()){
-            editSexo.setError("INGRESE M/H");
-            return false;
-        }
+            } else if (fechaNac.length()!=10) {
+                editFechaNac.setError("INGRESA LOS DATOS EN EL FORMATO PEDIDO AAAA-MM-DD");
+                return false;
+            } else if (especie.isEmpty()) {
+                editEspecie.setError("EL CAMPO ESPECIE NO PUEDE QUEDAR VACÍO");
+                return false;
+            } else if (raza.isEmpty()) {
+                editRaza.setError("EL CAMPO RAZA NO PUEDE QUEDAR VACÍO");
+                return false;
+            } else if (color.isEmpty()) {
+                editColor.setError("EL CAMPO COLOR NO PUEDE QUEDAR VACÍO");
+                return false;
+            } else if (validarS()) {
+                editSexo.setError("INGRESE M/H");
+                return false;
+            }
             return true;
-    }
+        }
+
     public void vaciar(){
-        editIdusuario.setText("");
-        editNombreMascota.setText("");
-        editFechaNac.setText("");
-        editRaza.setText("");
-        editEspecie.setText("");
-        editColor.setText("");
-        edirTatuaje.setText("");
-        editMicrochip.setText("");
-        editSexo.setText("");
-    }
+
+
+                editIdusuario.setText("");
+                editNombreMascota.setText("");
+                editFechaNac.setText("");
+                editRaza.setText("");
+                editEspecie.setText("");
+                editColor.setText("");
+                edirTatuaje.setText("");
+                editMicrochip.setText("");
+                editSexo.setText("");
+            }
+
+
     public boolean validarS(){
         if(sexo.equals("H")){
             return false;
@@ -159,4 +182,7 @@ public class crear_Mascota extends Fragment {
         }
             return true;
     }
+
+
+
 }

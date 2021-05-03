@@ -105,8 +105,8 @@
 
     <Button
         android:id="@+id/btnVac"
-        android:layout_width="150dp"
-        android:layout_height="50dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="130dp"
         android:layout_marginTop="520dp"
         android:background="#02DFCB"
@@ -114,4 +114,17 @@
         android:text="@string/aplicarV"
         android:textColor="#000000"
         app:backgroundTint="#02DFCB" />
+
+    <Button
+        android:id="@+id/btnVaciarV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="130dp"
+        android:layout_marginTop="610dp"
+        android:textColor="#000000"
+        app:backgroundTint="#02DFCB"
+        android:text="@string/vaciar"
+        android:fontFamily="@font/balthazar"
+        android:visibility="invisible"
+        />
 </FrameLayout>

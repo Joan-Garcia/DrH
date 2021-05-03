@@ -7,6 +7,7 @@ import android.os.AsyncTask;
 import android.util.Log;
 
 import com.example.drh.admin2;
+import com.example.drh.crear_Mascota;
 import com.example.drh.primerActivity;
 import com.example.drh.utils.Connection;
 import com.example.drh.utils.ModalDialog;
@@ -38,6 +39,8 @@ public class InsertMascota extends AsyncTask<Void,Integer,Integer> {
         this.tatuaje = tatuaje;
         this.microchip = microchip;
         this.sexo = sexo;
+
+
     }
 
     @Override
@@ -92,12 +95,14 @@ public class InsertMascota extends AsyncTask<Void,Integer,Integer> {
         progressDialog.hideProgressDialog();
         if(userExist == 1) {
             modalDialog.setMessage("Registro insertado con exito!");
+
         }else{
-            modalDialog.setMessage("El ID del usuario no existe.");
+            modalDialog.setMessage("El ID del usuario no existe");
             modalDialog.showModalDialog();
         }
         modalDialog.showModalDialog();
     }
 
     public int getUserExist(){ return userExist;}
+
 }

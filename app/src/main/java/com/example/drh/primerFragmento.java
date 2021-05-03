@@ -96,7 +96,7 @@ public class primerFragmento extends Fragment {
 
     public void llenar() {
 
-        String [] tablas= new String[]{"Seleccione","Propietario","Mascota","Vacuna","Desparacitacion"};
+        String [] tablas= new String[]{"Seleccione","CREAR USUARIO","INGRESAR MASCOTA","APLICAR VACUNA","APLICAR DESPARACITACIÓN"};
         ArrayAdapter<String> adapter= new ArrayAdapter<String>(vista.getContext(),
                 R.layout.spinner_item_prueba,tablas);
 
@@ -120,21 +120,22 @@ public class primerFragmento extends Fragment {
 
     public void mostrar(String a) {
         FragmentTransaction fragManager = myContext.getSupportFragmentManager().beginTransaction();
-        if (a.equals("Propietario")) {
+        //"CREAR USUARIO","INGRESAR MASCOTA","APLICAR VACUNA","APLICAR DESPARACITACIÓN"};
+        if (a.equals("CREAR USUARIO")) {
             fragManager.replace(R.id.contenedor1,uF);
             fragManager.addToBackStack(null);
 
-        } else if (a.equals("Mascota")) {
+        } else if (a.equals("INGRESAR MASCOTA")) {
 
             fragManager.replace(R.id.contenedor1,mF);
             fragManager.addToBackStack(null);
 
-        } else if (a.equals("Vacuna")) {
+        } else if (a.equals("APLICAR VACUNA")) {
 
             fragManager.replace(R.id.contenedor1,vF);
             fragManager.addToBackStack(null);
 
-        } else if (a.equals("Desparacitacion")) {
+        } else if (a.equals("APLICAR DESPARACITACIÓN")) {
 
             fragManager.replace(R.id.contenedor1,dF);
             fragManager.addToBackStack(null);

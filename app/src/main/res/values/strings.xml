@@ -23,14 +23,14 @@
     <string name="tipoUsuario">INGRESE TIPO USUARIO</string>
     <string name="creU">CREAR USUARIO</string>
     <string name="cuentaCreada">¿YA TIENES UNA CUENTA? INICIA SESIÓN</string>
-    <string name="insertar">ELIJE LA TABLA A INSERTAR</string>
+    <string name="insertar">BIENVENIDO ¿QUÉ DESEA HACER?</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">CONSULTAR</string>
     <string name="hello_blank_fragment3">ELIMINAR</string>
     <!-- DATOS PARA CREAR MASCOTA -->
     <string name="idPropietario">INGRESE IDPROPIETARIO</string>
     <string name="nombreMascota">INGRESE EL NOMBRE DE LA MASCOTA</string>
-    <string name="fechaNac">INGRESE FECHA DE NACIMIENTO</string>
+    <string name="fechaNac">INGRESE FECHA DE NACIMIENTO(AAAA-MM-DD)</string>
     <string name="especie">INGRESE ESPECIE DE MASCOTA</string>
     <string name="raza">INGRESE RAZA DE MASCOTA</string>
     <string name="sexo">INGRESE SEXO DE MASCOTA</string>
@@ -38,6 +38,7 @@
     <string name="tatuaje">¿TIENE TATUAJES?</string>
     <string name="microchip">¿TIENE MICROCHIP?</string>
     <string name="crearM">CREAR MASCOTA</string>
+    <string name="vaciar">VACIAR CAMPOS</string>
     <!-- DATOS PARA CREAR VACUNA -->
     <string name="idMascota">INGRESE EL IDMASCOTA</string>
     <string name="fechaVac">FECHA VACUNACIÓN</string>

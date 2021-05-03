@@ -28,7 +28,7 @@ public class crearVacuna extends Fragment {
     private String mParam2;
     EditText editIdMascota, editFechVac, editNomVac, editProxFechVac;
     String idMascota, fechVac, nomVac, proxFech;
-    Button btnVac;
+    Button btnVac, btnLimpiar;
     View vista;
     public crearVacuna() {
         // Required empty public constructor
@@ -76,6 +76,7 @@ public class crearVacuna extends Fragment {
         editNomVac=(EditText)vista.findViewById(R.id.editVacuna);
         editProxFechVac=(EditText)vista.findViewById(R.id.editProxVac);
         btnVac=(Button)vista.findViewById(R.id.btnVac);
+        btnLimpiar=(Button) vista.findViewById(R.id.btnVaciarV);
 
         btnVac.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -83,9 +84,16 @@ public class crearVacuna extends Fragment {
                 obtenerDatos();
                 if(validar()){
                     //INSERTAR MÉTODO PARA INGRESAR A LA BASE DE DATOS
-                    Toast.makeText(vista.getContext(),"VACUNA APLICADA",Toast.LENGTH_SHORT).show();
-                    vaciar();
+                    btnLimpiar.setVisibility(View.VISIBLE);
+
                 }
+            }
+        });
+        btnLimpiar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                vaciar();
+                btnLimpiar.setVisibility(View.INVISIBLE);
             }
         });
     }
