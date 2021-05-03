@@ -11,6 +11,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.drh.commands.InsertDesparasitacion;
+
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link crear_Despa#newInstance} factory method to
@@ -30,6 +32,7 @@ public class crear_Despa extends Fragment {
     String idMasDes, fechaDes,producto, proxFec;
     Button btnDes, btnLimpiar;
     View vista;
+    InsertDesparasitacion id;
     public crear_Despa() {
         // Required empty public constructor
     }
@@ -82,7 +85,8 @@ public class crear_Despa extends Fragment {
                 obtenerDatos();
                 if (validar()) {
                     //INSERTAR MÉTODO PARA INGRESAR A LA BASE DE DATOS
-                    Toast.makeText(vista.getContext(),"DESPARACITACIÓN APLICADA",Toast.LENGTH_SHORT).show();
+                    id = new InsertDesparasitacion(getActivity(), idMasDes, producto, proxFec);
+                    id.execute();
                     btnLimpiar.setVisibility(View.VISIBLE);
                 }
             }

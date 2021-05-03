@@ -13,6 +13,8 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.drh.commands.InsertUsuario;
+
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link crearP#newInstance} factory method to
@@ -36,6 +38,7 @@ public class crearP extends Fragment {
             ,et_CP, et_Pais, et_TelFijo, et_TelCel, et_Correo, et_Contra, et_ConfContra, et_tipoUsuario;
     String nombre, aPater, aMater, domicilio, colonia,ciudad, estado,cp,pais,telFijo,telCel,
             correo,contra,confcontra,tUsuario;
+    InsertUsuario iu;
     public crearP() {
         // Required empty public constructor
     }
@@ -108,13 +111,12 @@ public class crearP extends Fragment {
                 obtenerDatos();
                 if(validar()){
                     if(contra.equals(confcontra)){
-
-
-                        if(tUsuario==""){
+                        if(tUsuario=="")
                             tUsuario="U";
-                        }
                         //INSERTAR MÉTODO QUE COMPRUEBE EN LA BASE DE DATOS SI EL USUARIO YA EXISTE
-                        Toast.makeText(vista.getContext(),"USUARIO CREADO",Toast.LENGTH_SHORT).show();
+                        iu = new InsertUsuario(getActivity(), nombre, aPater, aMater, domicilio, colonia,
+                                ciudad, estado, cp, pais, telFijo, telCel, correo, contra, tUsuario);
+                        iu.execute();
                         btnLimpiar.setVisibility(View.VISIBLE);
 
                     }else{

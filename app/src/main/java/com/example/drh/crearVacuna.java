@@ -11,6 +11,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.drh.commands.InsertVacuna;
+
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link crearVacuna#newInstance} factory method to
@@ -30,6 +32,7 @@ public class crearVacuna extends Fragment {
     String idMascota, fechVac, nomVac, proxFech;
     Button btnVac, btnLimpiar;
     View vista;
+    InsertVacuna iv;
     public crearVacuna() {
         // Required empty public constructor
     }
@@ -84,6 +87,8 @@ public class crearVacuna extends Fragment {
                 obtenerDatos();
                 if(validar()){
                     //INSERTAR MÉTODO PARA INGRESAR A LA BASE DE DATOS
+                    iv = new InsertVacuna(getActivity(), idMascota, nomVac, proxFech);
+                    iv.execute();
                     btnLimpiar.setVisibility(View.VISIBLE);
 
                 }

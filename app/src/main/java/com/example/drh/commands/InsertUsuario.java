@@ -2,13 +2,9 @@ package com.example.drh.commands;
 
 import android.app.ProgressDialog;
 import android.content.Context;
-import android.content.Intent;
 import android.os.AsyncTask;
 import android.util.Log;
 
-import com.example.drh.admin2;
-import com.example.drh.crear_Mascota;
-import com.example.drh.primerActivity;
 import com.example.drh.utils.Connection;
 import com.example.drh.utils.ModalDialog;
 import com.example.drh.utils.ModalProgressDialog;
@@ -17,30 +13,35 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class InsertMascota extends AsyncTask<Void,Integer,Integer> {
+public class InsertUsuario extends AsyncTask<Void,Integer,Integer> {
     private Connection cn;
     private ModalProgressDialog progressDialog;
     private ModalDialog modalDialog;
-    private String usuarioId, nombreMascota, fechaNac,raza, especie, color, tatuaje,microchip, sexo;
+    private String nombre, aPater, aMater, domicilio, colonia, ciudad, estado, cp, pais, telFijo, telCel,
+    correo, contra, confcontra, tUsuario;
     private int userExist;
 
-    public InsertMascota(Context context, String usuarioId, String nombreMascota, String fechaNac,
-                         String raza, String especie, String color, String tatuaje, String microchip,
-                         String sexo){
+    public InsertUsuario(Context context, String nombre, String aPater, String aMater, String domicilio,
+                         String colonia, String ciudad, String estado, String cp, String pais, String telFijo,
+                         String telCel, String correo, String contra, String tUsuario){
         progressDialog = new ModalProgressDialog(context,"Insertando Registro",
                 "Por favor espere...", ProgressDialog.STYLE_SPINNER);
         modalDialog= new ModalDialog(context);
-        this.usuarioId = usuarioId;
-        this.nombreMascota = nombreMascota;
-        this.fechaNac = fechaNac;
-        this.raza = raza;
-        this.especie = especie;
-        this.color = color;
-        this.tatuaje = tatuaje;
-        this.microchip = microchip;
-        this.sexo = sexo;
         userExist = -1;
-
+        this.nombre = nombre;
+        this.aPater = aPater;
+        this.aMater = aMater;
+        this.domicilio = domicilio;
+        this.colonia = colonia;
+        this.ciudad = ciudad;
+        this.estado = estado;
+        this.cp = cp;
+        this.pais = pais;
+        this.telFijo = telFijo;
+        this.telCel = telCel;
+        this.correo = correo;
+        this.contra = contra;
+        this.tUsuario = tUsuario;
     }
 
     @Override
@@ -53,22 +54,26 @@ public class InsertMascota extends AsyncTask<Void,Integer,Integer> {
         cn = new Connection();
         java.sql.Connection cnEnv = cn.connect();
         if(cnEnv!=null){
-            Log.println(Log.INFO,"MySQLConnection","Conexión para Verificar idPropietario OK");
+            Log.println(Log.INFO,"MySQLConnection","Conexión para Verificar email user OK");
             try {
                 Statement st = cnEnv.createStatement();
-                ResultSet rs = st.executeQuery("SELECT * FROM freedbtech_dbVeterinaria.propietario WHERE idPropietario = "+usuarioId+"; ");
+                ResultSet rs = st.executeQuery("SELECT * FROM freedbtech_dbVeterinaria.propietario WHERE email = '"+correo+"'; ");
                 rs.next();
                 Log.println(Log.INFO, "Dato", "Rows: "+ rs.getRow());
                 if(rs.getRow() == 1)
                     userExist = 1;
                 else
                     userExist = 0;
-                Log.println(Log.INFO,"VerifyUser","Usuario encontrado"+ userExist);
+                Log.println(Log.INFO,"VerifyUser","Usuario encontrado: "+ userExist);
                 rs.close();
                 st.close();
-                if(userExist == 1){
+                if(userExist == 0){
                     st = cnEnv.createStatement();
-                    st.executeUpdate("INSERT INTO mascota(idPropietario, nombre, fechaNac, especie, raza, sexo, color, tatuaje, microchip) VALUES ("+usuarioId+",'"+nombreMascota+"','"+fechaNac+"','"+especie+"','"+raza+"','"+sexo+"','"+color+"','"+tatuaje+"','"+microchip+"')");
+                    st.executeUpdate("INSERT INTO freedbtech_dbVeterinaria.propietario(nombre, " +
+                            "aPaterno, aMaterno, domicilio, colonia, ciudad, estado, cp, pais, tel, cel, email, " +
+                            "pass, tipoUsuario) VALUES('"+nombre+"','"+aPater+"','"+aMater+"','"+domicilio+"','"+
+                            colonia+"','"+ciudad+"','"+estado+"','"+cp+"','"+pais+"','"+telFijo+"','"+telCel+"','"+
+                            correo+"','"+contra+"','"+tUsuario+"');");
                     st.close();
                 }
                 cnEnv.close();
@@ -89,16 +94,13 @@ public class InsertMascota extends AsyncTask<Void,Integer,Integer> {
     protected void onPostExecute(Integer userExist) {
         modalDialog.setTitle("Insertando Registro");
         progressDialog.hideProgressDialog();
-        if(userExist == 1) {
+        if(userExist == 0) {
             modalDialog.setMessage("Registro insertado con exito!");
 
-        }else{
-            modalDialog.setMessage("El ID del usuario no existe");
+        }else if(userExist == 1){
+            modalDialog.setMessage("El email ya se encuentra registrado");
             modalDialog.showModalDialog();
         }
         modalDialog.showModalDialog();
     }
-
-    public int getUserExist(){ return userExist;}
-
 }
