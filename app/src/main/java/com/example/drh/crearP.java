@@ -148,7 +148,7 @@ public class crearP extends Fragment {
         } else if (confcontra.isEmpty()) {
             et_ConfContra.setError("EL CAMPO CONFIRMAR CONTRASEÑA NO PUEDE QUEDAR VACÍO");
             return false;
-        } else if(tUsuario!=""||tUsuario!="U"||tUsuario!="A"){
+        } else if(!tUsuario.equals("")||!tUsuario.equals("U")||!tUsuario.equals("A")){
                 et_tipoUsuario.setError("LLENE EL CAMPO CON U/A");
             return false;
         }
@@ -171,7 +171,7 @@ public class crearP extends Fragment {
         correo=et_Correo.getText().toString();
         contra=et_Contra.getText().toString();
         confcontra=et_ConfContra.getText().toString();
-        tUsuario=et_tipoUsuario.getText().toString();
+        tUsuario=et_tipoUsuario.getText().toString().trim();
     }
 
     public void vaciar(){

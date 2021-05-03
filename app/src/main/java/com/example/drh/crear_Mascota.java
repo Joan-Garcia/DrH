@@ -85,7 +85,7 @@ public class crear_Mascota extends Fragment {
         editColor = (EditText)vista.findViewById(R.id.editColor);
         edirTatuaje = (EditText)vista.findViewById(R.id.editTatuaje);
         editMicrochip = (EditText)vista.findViewById(R.id.editMicrochip);
-        editSexo= (EditText) vista.findViewById(R.id.editSexo);
+        editSexo= (EditText) vista.findViewById(R.id.editSexo1);
         btnCrearM = (Button) vista.findViewById(R.id.btnCrearMascota);
 
 
@@ -114,7 +114,7 @@ public class crear_Mascota extends Fragment {
         color= editColor.getText().toString();
         tatuaje= edirTatuaje.getText().toString();
         microchip= editMicrochip.getText().toString();
-        sexo=editSexo.getText().toString();
+        sexo=editSexo.getText().toString().trim();
     }
 
     public boolean validar(){
@@ -130,11 +130,11 @@ public class crear_Mascota extends Fragment {
         }else if(color.isEmpty()){
             editColor.setError("EL CAMPO COLOR NO PUEDE QUEDAR VACÍO");
             return false;
-        }else if(sexo!="H"||sexo!="M"){
+        }else if(validarS()){
             editSexo.setError("INGRESE M/H");
             return false;
         }
-        return true;
+            return true;
     }
     public void vaciar(){
         editIdusuario.setText("");
@@ -147,5 +147,12 @@ public class crear_Mascota extends Fragment {
         editMicrochip.setText("");
         editSexo.setText("");
     }
-
+public boolean validarS(){
+    if(sexo.equals("H")){
+        return false;
+    }else if (sexo.equals("M")){
+        return false;
+    }
+        return true;
+}
 }

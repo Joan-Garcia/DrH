@@ -192,7 +192,7 @@
                 app:boxStrokeColor="#FF03DAC5"
                 app:hintTextColor="@android:color/darker_gray">
                 <EditText
-                    android:id="@+id/editSexo"
+                    android:id="@+id/editSexo1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="text"

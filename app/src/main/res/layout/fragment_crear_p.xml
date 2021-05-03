@@ -10,7 +10,7 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="662dp">
+        android:layout_height="400dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -21,7 +21,7 @@
                 android:id="@+id/textInputLayout0"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="10dp"
+
                 android:gravity="center"
                 android:textColorHint="@android:color/black"
                 app:boxStrokeColor="#FF03DAC5"
@@ -42,7 +42,7 @@
                 android:id="@+id/textInputLayout2"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="10dp"
+
                 android:gravity="center"
                 android:textColorHint="@android:color/black"
                 app:boxStrokeColor="#FF03DAC5"
@@ -62,7 +62,7 @@
                 android:id="@+id/textInputLayout"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="10dp"
+
                 android:gravity="center"
                 android:textColorHint="@android:color/black"
                 app:boxStrokeColor="#FF03DAC5"
@@ -82,7 +82,7 @@
                 android:id="@+id/textInputLayout3"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="10dp"
+
                 android:gravity="center"
                 android:textColorHint="@android:color/black"
                 app:boxStrokeColor="#FF03DAC5"
@@ -103,7 +103,7 @@
                 android:id="@+id/textInputLayout1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="10dp"
+
                 android:gravity="center"
                 android:textColorHint="@android:color/black"
                 app:boxStrokeColor="#FF03DAC5"
@@ -123,7 +123,7 @@
                 android:id="@+id/textInputLayout4"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="10dp"
+
                 android:gravity="center"
                 android:textColorHint="@android:color/black"
                 app:boxStrokeColor="#FF03DAC5"
@@ -143,7 +143,7 @@
                 android:id="@+id/textInputLayout5"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="10dp"
+
                 android:gravity="center"
                 android:textColorHint="@android:color/black"
                 app:boxStrokeColor="#FF03DAC5"
@@ -163,7 +163,6 @@
                 android:id="@+id/textInputLayout6"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="10dp"
                 android:gravity="center"
                 android:textColorHint="@android:color/black"
                 app:boxStrokeColor="#FF03DAC5"
@@ -183,7 +182,6 @@
                 android:id="@+id/textInputLayout7"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="10dp"
                 android:gravity="center"
                 android:textColorHint="@android:color/black"
                 app:boxStrokeColor="#FF03DAC5"
@@ -203,7 +201,7 @@
                 android:id="@+id/textInputLayout8"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="10dp"
+
                 android:gravity="center"
                 android:textColorHint="@android:color/black"
                 app:boxStrokeColor="#FF03DAC5"
@@ -223,7 +221,7 @@
                 android:id="@+id/textInputLayout9"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="10dp"
+
                 android:gravity="center"
                 android:textColorHint="@android:color/black"
                 app:boxStrokeColor="#FF03DAC5"
@@ -243,7 +241,6 @@
                 android:id="@+id/textInputLayout10"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="10dp"
                 android:gravity="center"
                 android:textColorHint="@android:color/black"
                 app:boxStrokeColor="#FF03DAC5"
@@ -263,7 +260,7 @@
                 android:id="@+id/textInputLayout11"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="10dp"
+
                 android:gravity="center"
                 android:textColorHint="@android:color/black"
                 app:boxStrokeColor="#FF03DAC5"
@@ -286,7 +283,7 @@
                 android:id="@+id/textInputLayout12"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="10dp"
+
                 android:gravity="center"
                 android:textColorHint="@android:color/black"
                 app:boxStrokeColor="#FF03DAC5"
@@ -307,7 +304,7 @@
                 android:id="@+id/textInputLayout13"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="10dp"
+
                 android:gravity="center"
                 android:textColorHint="@android:color/black"
                 app:boxStrokeColor="#FF03DAC5"
@@ -317,10 +314,9 @@
                     android:id="@+id/editTipoUsuario"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-
                     android:fontFamily="@font/balthazar"
                     android:hint="@string/tipoUsuario"
-                    android:inputType="textPassword"
+                    android:inputType="text"
                     android:textColor="@android:color/black"
                     android:textColorHint="@android:color/darker_gray" />
 
