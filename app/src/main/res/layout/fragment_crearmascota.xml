@@ -9,7 +9,7 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="510dp">
+        android:layout_height="470dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -203,36 +203,37 @@
                     android:textColorHint="@android:color/darker_gray"
                     />
             </com.google.android.material.textfield.TextInputLayout>
+            <Button
+                android:id="@+id/btnCrearMascota"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="130dp"
+                android:layout_marginTop="10dp"
+                android:background="#02DFCB"
+                android:fontFamily="@font/balthazar"
+                android:text="@string/crearM"
+                android:textColor="#000000"
+                app:backgroundTint="#02DFCB" />
 
+            <Button
+                android:id="@+id/btnVaciarM"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="130dp"
+                android:layout_marginTop="10dp"
+                android:textColor="#000000"
+                app:backgroundTint="#02DFCB"
+                android:text="@string/vaciar"
+                android:fontFamily="@font/balthazar"
+                android:visibility="invisible"
+                android:layout_marginBottom="10dp"
+                />
 
 
         </LinearLayout>
 
     </ScrollView>
-    <Button
-        android:id="@+id/btnCrearMascota"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="130dp"
-        android:layout_marginTop="540dp"
-        android:background="#02DFCB"
-        android:fontFamily="@font/balthazar"
-        android:text="@string/crearM"
-        android:textColor="#000000"
-        app:backgroundTint="#02DFCB" />
 
-    <Button
-        android:id="@+id/btnVaciarM"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="130dp"
-        android:layout_marginTop="610dp"
-        android:textColor="#000000"
-        app:backgroundTint="#02DFCB"
-        android:text="@string/vaciar"
-        android:fontFamily="@font/balthazar"
-        android:visibility="invisible"
-        />
 
 
 </FrameLayout>

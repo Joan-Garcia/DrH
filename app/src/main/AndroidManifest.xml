@@ -13,7 +13,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.DrH">
-        <activity android:name=".admin2"></activity>
+        <activity android:name=".admin2"
+            android:windowSoftInputMode="adjustPan"/>
         <activity android:name=".administrador" />
         <activity android:name=".primerActivity" />
         <activity android:name=".crearUsuario" />

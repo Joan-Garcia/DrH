@@ -90,4 +90,8 @@ public class Login extends AppCompatActivity {
         }
         return true;
     }
+    public void vaciar(){
+        et_correo.setText("");
+        et_contra.setText("");
+    }
 }

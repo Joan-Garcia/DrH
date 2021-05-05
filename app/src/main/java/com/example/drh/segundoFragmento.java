@@ -1,5 +1,9 @@
 package com.example.drh;
 
+import android.annotation.SuppressLint;
+import android.content.ActivityNotFoundException;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -7,12 +11,13 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import android.widget.Toast;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link segundoFragmento#newInstance} factory method to
- * create an instance of this fragment.
- */
+
 public class segundoFragmento extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
@@ -23,6 +28,12 @@ public class segundoFragmento extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    TextView a;
+    View vista;
+    String correo;
+    ImageButton btnSalir;
+    LinearLayout ly;
+
 
     public segundoFragmento() {
         // Required empty public constructor
@@ -50,15 +61,51 @@ public class segundoFragmento extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+            correo = getArguments().getString("correo");
         }
     }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_segundo_fragmento, container, false);
+
+        vista = inflater.inflate(R.layout.fragment_segundo_fragmento, container, false);
+        a = (TextView) vista.findViewById(R.id.textAdmin);
+        btnSalir = (ImageButton) vista.findViewById(R.id.btnSalir);
+        ly =(LinearLayout) vista.findViewById(R.id.layoutP);
+        a.setText(correo);
+        btnSalir.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                salirCuenta();
+            }
+        });
+
+      ly.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                tutorial();
+            }
+        });
+        return vista;
+    }
+
+    public void salirCuenta() {
+        Toast.makeText(vista.getContext(), "CERRANDO SESIÓN", Toast.LENGTH_SHORT).show();
+        Intent a = new Intent(vista.getContext(), Login.class);
+        startActivity(a);
+
+    }
+
+    public void tutorial(){
+        Uri uri= Uri.parse("https://www.youtube.com/playlist?list=PLWHjFiWxfNZ8v3raZrdJPWVlk-5YPefuM");
+        Intent instagram = new Intent(Intent.ACTION_VIEW,uri);
+        try {
+            startActivity(instagram);
+        }catch(ActivityNotFoundException a){
+            startActivity(new Intent
+                    (Intent.ACTION_VIEW,Uri.parse("https://www.youtube.com/playlist?list=PLWHjFiWxfNZ8v3raZrdJPWVlk-5YPefuM")));
+        }
     }
 }

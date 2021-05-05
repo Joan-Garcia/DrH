@@ -36,26 +36,7 @@
                 android:textColorHint="@android:color/darker_gray" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/textInputLayout1"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="10dp"
-                android:gravity="center"
-                android:textColorHint="@android:color/black"
-                app:boxStrokeColor="#FF03DAC5"
-                app:hintTextColor="@android:color/darker_gray">
 
-            <EditText
-                android:id="@+id/editFechavac"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/balthazar"
-                android:hint="@string/fechaVac"
-                android:inputType="date"
-                android:textColor="@android:color/black"
-                android:textColorHint="@android:color/darker_gray" />
-            </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/textInputLayout2"
@@ -99,32 +80,34 @@
                 android:textColorHint="@android:color/darker_gray" />
             </com.google.android.material.textfield.TextInputLayout>
 
+
+            <Button
+                android:id="@+id/btnVac"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="130dp"
+                android:layout_marginTop="10dp"
+                android:background="#02DFCB"
+                android:fontFamily="@font/balthazar"
+                android:text="@string/aplicarV"
+                android:textColor="#000000"
+                app:backgroundTint="#02DFCB" />
+
+            <Button
+                android:id="@+id/btnVaciarV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="130dp"
+                android:layout_marginTop="10dp"
+                android:textColor="#000000"
+                app:backgroundTint="#02DFCB"
+                android:text="@string/vaciar"
+                android:fontFamily="@font/balthazar"
+                android:visibility="invisible"
+                android:layout_marginBottom="10dp"
+                />
         </LinearLayout>
 
     </ScrollView>
 
-    <Button
-        android:id="@+id/btnVac"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="130dp"
-        android:layout_marginTop="520dp"
-        android:background="#02DFCB"
-        android:fontFamily="@font/balthazar"
-        android:text="@string/aplicarV"
-        android:textColor="#000000"
-        app:backgroundTint="#02DFCB" />
-
-    <Button
-        android:id="@+id/btnVaciarV"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="130dp"
-        android:layout_marginTop="610dp"
-        android:textColor="#000000"
-        app:backgroundTint="#02DFCB"
-        android:text="@string/vaciar"
-        android:fontFamily="@font/balthazar"
-        android:visibility="invisible"
-        />
 </FrameLayout>

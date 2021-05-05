@@ -75,7 +75,7 @@ public class crearVacuna extends Fragment {
 
     public void asignaciones(){
         editIdMascota= (EditText)vista.findViewById(R.id.editIdMascota);
-        editFechVac= (EditText)vista.findViewById(R.id.editFechavac);
+
         editNomVac=(EditText)vista.findViewById(R.id.editVacuna);
         editProxFechVac=(EditText)vista.findViewById(R.id.editProxVac);
         btnVac=(Button)vista.findViewById(R.id.btnVac);
@@ -105,7 +105,7 @@ public class crearVacuna extends Fragment {
 
     public void obtenerDatos(){
         idMascota=editIdMascota.getText().toString();
-        fechVac=editFechVac.getText().toString();
+
         nomVac=editNomVac.getText().toString();
         proxFech=editProxFechVac.getText().toString();
     }
@@ -113,9 +113,6 @@ public class crearVacuna extends Fragment {
     public boolean validar(){
         if(idMascota.isEmpty()){
             editIdMascota.setError("EL CAMPO IDMASCOTA NO PUEDE QUEDAR VACÍO");
-            return false;
-        }else if(fechVac.isEmpty()){
-            editFechVac.setError("EL CAMPO FECHA VACUNA NO PUEDE QUEDAR VACÍO");
             return false;
         }else if(nomVac.isEmpty()){
             editNomVac.setError("EL CAMPO NOMBRE DE LA VACUNA NO PUEDE QUEDAR VACÍO");

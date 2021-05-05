@@ -50,4 +50,8 @@
     <string name="producto">INGRESE NOMBRE DEL PRODUCTO APLICADO</string>
     <string name="proxDes">INGRESE PRÓXIMA FECHA PARA DESPARACITAR</string>
     <string name="aplicarD">APLICAR DESPARACITACIÓN</string>
+
+    <string name="hola">HOLA, BIENVENIDO</string>
+    <string name="guiaU">GUIA DE USUARIO</string>
+
 </resources>

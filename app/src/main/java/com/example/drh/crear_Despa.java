@@ -74,7 +74,6 @@ public class crear_Despa extends Fragment {
     }
     public void asignaciones(){
         editIdMasDes=(EditText)vista.findViewById(R.id.editIdMascotDes);
-        editFechaDes=(EditText)vista.findViewById(R.id.editFechaDes);
         editProducto=(EditText)vista.findViewById(R.id.editDes);
         editProxFec=(EditText)vista.findViewById(R.id.editProxDes);
         btnDes=(Button)vista.findViewById(R.id.btnDes);
@@ -102,16 +101,12 @@ public class crear_Despa extends Fragment {
 
     public void obtenerDatos(){
         idMasDes=editIdMasDes.getText().toString();
-        fechaDes=editFechaDes.getText().toString();
         producto=editProducto.getText().toString();
         proxFec=editProxFec.getText().toString();
     }
     public boolean validar(){
         if(idMasDes.isEmpty()){
             editIdMasDes.setError("EL CAMPO IDMASCOTA NO PUEDE QUEDAR VACÍO");
-            return false;
-        }else if(fechaDes.isEmpty()){
-            editFechaDes.setError("EL CAMPO FECHA VACUNACION NO PUEDE QUEDAR VACÍO");
             return false;
         }else if(producto.isEmpty()){
             editProducto.setError("EL CAMPO NOMBRE PRODUCTO NO PUEDE QUEDAR VACÍO");
