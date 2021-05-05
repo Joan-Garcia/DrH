@@ -22,14 +22,15 @@
         />
 
     <TextView
+        android:id="@+id/textNombre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="-60dp"
         android:layout_gravity="center"
-        android:textColor="@color/white"
+        android:layout_marginTop="-60dp"
         android:fontFamily="@font/balthazar"
-        android:textSize="25sp"
-        android:text="@string/hola"/>
+        android:text="@string/hola"
+        android:textColor="@color/white"
+        android:textSize="25sp" />
 
     <TextView
         android:id="@+id/textAdmin"

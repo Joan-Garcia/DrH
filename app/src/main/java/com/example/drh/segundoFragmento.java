@@ -28,9 +28,9 @@ public class segundoFragmento extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-    TextView a;
+    TextView a, b;
     View vista;
-    String correo;
+    String correo, nombre;
     ImageButton btnSalir;
     LinearLayout ly;
 
@@ -62,6 +62,7 @@ public class segundoFragmento extends Fragment {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
             correo = getArguments().getString("correo");
+            nombre = getArguments().getString("nombre");
         }
     }
 
@@ -72,9 +73,11 @@ public class segundoFragmento extends Fragment {
 
         vista = inflater.inflate(R.layout.fragment_segundo_fragmento, container, false);
         a = (TextView) vista.findViewById(R.id.textAdmin);
+        b = (TextView) vista.findViewById(R.id.textNombre);
         btnSalir = (ImageButton) vista.findViewById(R.id.btnSalir);
         ly =(LinearLayout) vista.findViewById(R.id.layoutP);
         a.setText(correo);
+        b.setText("Bienvenido, " + nombre);
         btnSalir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

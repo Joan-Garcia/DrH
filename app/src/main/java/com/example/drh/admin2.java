@@ -5,9 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
-import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -17,14 +15,15 @@ public class admin2 extends AppCompatActivity {
     primerFragmento pF = new primerFragmento();
     segundoFragmento sF = new segundoFragmento();
     tercerFragmento tF = new tercerFragmento();
-    String f;
+    String email, name;
     Bundle bundle= new Bundle();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin2);
-        f=getIntent().getStringExtra("correo");
+        email = getIntent().getStringExtra("correo");
+        name = getIntent().getStringExtra("nombre");
         BottomNavigationView navigation = findViewById(R.id.fondoBoton);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         navigation.setSelectedItemId(R.id.segundoFragmento);
@@ -54,7 +53,8 @@ public class admin2 extends AppCompatActivity {
 };
 
     public void cargarFragmento(Fragment a){
-        bundle.putString("correo",f);
+        bundle.putString("correo", email);
+        bundle.putString("nombre", name);
         a.setArguments(bundle);
         FragmentTransaction transaction =getSupportFragmentManager().beginTransaction();//.detach(a);
         transaction.replace(R.id.contenedor, a);

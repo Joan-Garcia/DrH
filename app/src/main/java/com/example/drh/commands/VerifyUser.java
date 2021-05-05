@@ -27,7 +27,7 @@ public class VerifyUser extends AsyncTask<Void,Integer,Boolean> {
     private EditText edEmail, edPass;
     private boolean userExist, isAdmin;
     Context context;
-    String email;
+    String email, name;
 
     public VerifyUser(Context context, EditText edEmail, EditText edPass) {
         this.context = context;
@@ -57,6 +57,8 @@ public class VerifyUser extends AsyncTask<Void,Integer,Boolean> {
                 String pass = edPass.getText().toString();
                 ResultSet rs = st.executeQuery("SELECT * FROM freedbtech_dbVeterinaria.propietario WHERE email = '" + email + "' AND pass = '" + pass + "'; ");
                 rs.next();
+                name = rs.getString("nombre") + " " + rs.getString("aPaterno");
+                Log.println(Log.INFO, "Dato", "Nombre: " + name);
                 Log.println(Log.INFO, "Dato", "Rows: " + rs.getRow());
                 if (rs.getRow() == 1) {
                     userExist = true;
@@ -90,6 +92,7 @@ public class VerifyUser extends AsyncTask<Void,Integer,Boolean> {
                 //Cambiar a activity de admin
                 Intent a = new Intent(context, admin2.class);
                 a.putExtra("correo", email);
+                a.putExtra("nombre", name);
                 context.startActivity(a);
             } else {
                 //Cambiar a activity de usuario
