@@ -117,7 +117,6 @@ public class crear_Despa extends Fragment {
     }
     public void vaciar(){
         editIdMasDes.setText("");
-        editFechaDes.setText("");
         editProducto.setText("");
         editProxFec.setText("");
     }

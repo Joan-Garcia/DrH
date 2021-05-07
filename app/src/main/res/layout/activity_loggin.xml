@@ -62,7 +62,8 @@
             android:inputType="textPersonName"
             android:textColor="@color/black"
             android:textColorHint="@android:color/darker_gray"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:textColorLink="@color/black"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -87,8 +88,8 @@
             android:textColor="@color/black"
             android:textColorHighlight="#FF03DAC5"
             android:textColorHint="@android:color/darker_gray"
-            android:textColorLink="#FFFFFF"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:textColorLink="@color/black"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 

@@ -76,8 +76,8 @@ public class segundoFragmento extends Fragment {
         b = (TextView) vista.findViewById(R.id.textNombre);
         btnSalir = (ImageButton) vista.findViewById(R.id.btnSalir);
         ly =(LinearLayout) vista.findViewById(R.id.layoutP);
-        a.setText(correo);
-        b.setText("Bienvenido, " + nombre);
+        a.setText(nombre);
+        b.setText("Bienvenido");
         btnSalir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

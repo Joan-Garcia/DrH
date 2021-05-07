@@ -74,7 +74,7 @@ public class crearVacuna extends Fragment {
     }
 
     public void asignaciones(){
-        editIdMascota= (EditText)vista.findViewById(R.id.editIdMascota);
+        editIdMascota= (EditText)vista.findViewById(R.id.editIdMascotaVac);
 
         editNomVac=(EditText)vista.findViewById(R.id.editVacuna);
         editProxFechVac=(EditText)vista.findViewById(R.id.editProxVac);
@@ -123,7 +123,6 @@ public class crearVacuna extends Fragment {
     }
     public void vaciar(){
         editIdMascota.setText("");
-        editFechVac.setText("");
         editNomVac.setText("");
         editProxFechVac.setText("");
     }
