@@ -13,21 +13,22 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class InsertUsuario extends AsyncTask<Void,Integer,Integer> {
+public class UpdateUsuario extends AsyncTask<Void,Integer,Integer> {
     private Connection cn;
     private ModalProgressDialog progressDialog;
     private ModalDialog modalDialog;
-    private String nombre, aPater, aMater, domicilio, colonia, ciudad, estado, cp, pais, telFijo, telCel,
-    correo, contra, tUsuario;
+    private String id, nombre, aPater, aMater, domicilio, colonia, ciudad, estado, cp, pais, telFijo, telCel,
+            correo, contra, tUsuario;
     private int userExist;
 
-    public InsertUsuario(Context context, String nombre, String aPater, String aMater, String domicilio,
+    public UpdateUsuario(Context context,String id, String nombre, String aPater, String aMater, String domicilio,
                          String colonia, String ciudad, String estado, String cp, String pais, String telFijo,
                          String telCel, String correo, String contra, String tUsuario){
-        progressDialog = new ModalProgressDialog(context,"Insertando Registro",
+        progressDialog = new ModalProgressDialog(context,"Actualizando Registro",
                 "Por favor espere...", ProgressDialog.STYLE_SPINNER);
         modalDialog= new ModalDialog(context);
         userExist = -1;
+        this.id = id;
         this.nombre = nombre;
         this.aPater = aPater;
         this.aMater = aMater;
@@ -60,20 +61,20 @@ public class InsertUsuario extends AsyncTask<Void,Integer,Integer> {
                 ResultSet rs = st.executeQuery("SELECT * FROM freedbtech_dbVeterinaria.propietario WHERE email = '"+correo+"'; ");
                 rs.next();
                 Log.println(Log.INFO, "Dato", "Rows: "+ rs.getRow());
-                if(rs.getRow() == 1)
-                    userExist = 1;
-                else
+                if(rs.getRow() == 1) {
+                    if (!rs.getString("idPropietario").equals(id))
+                        userExist = 1;
+                }else
                     userExist = 0;
                 Log.println(Log.INFO,"VerifyUser","Usuario encontrado: "+ userExist);
                 rs.close();
                 st.close();
                 if(userExist == 0){
                     st = cnEnv.createStatement();
-                    st.executeUpdate("INSERT INTO freedbtech_dbVeterinaria.propietario(nombre, " +
-                            "aPaterno, aMaterno, domicilio, colonia, ciudad, estado, cp, pais, tel, cel, email, " +
-                            "pass, tipoUsuario) VALUES('"+nombre+"','"+aPater+"','"+aMater+"','"+domicilio+"','"+
-                            colonia+"','"+ciudad+"','"+estado+"','"+cp+"','"+pais+"','"+telFijo+"','"+telCel+"','"+
-                            correo+"','"+contra+"','"+tUsuario+"');");
+                    st.executeUpdate("UPDATE freedbtech_dbVeterinaria.propietario SET nombre='"+nombre+"',aPaterno='"+aPater+"',aMaterno='"+
+                            aMater+"',domicilio='"+domicilio+"',colonia='"+colonia+"',ciudad='"+ciudad+"',estado='"+
+                            estado+"',cp='"+cp+"',pais='"+pais+"',tel='"+telFijo+"',cel='"+telCel+"',email='"+
+                            correo+"',pass='"+contra+"',tipoUsuario='"+tUsuario+"' WHERE idPropietario = "+id+"; ");
                     st.close();
                 }
                 cnEnv.close();
@@ -92,14 +93,16 @@ public class InsertUsuario extends AsyncTask<Void,Integer,Integer> {
 
     @Override
     protected void onPostExecute(Integer userExist) {
-        modalDialog.setTitle("Insertando Registro");
+        modalDialog.setTitle("Actualizando Registro");
         progressDialog.hideProgressDialog();
         if(userExist == 0) {
-            modalDialog.setMessage("Registro insertado con exito!");
+            modalDialog.setMessage("Registro actualizado con exito!");
 
         }else if(userExist == 1){
             modalDialog.setMessage("El email ya se encuentra registrado");
             modalDialog.showModalDialog();
+        }else if(userExist == -1){
+            modalDialog.setMessage("Error al intentar actualizar el registro");
         }
         modalDialog.showModalDialog();
     }

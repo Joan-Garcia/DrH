@@ -10,6 +10,9 @@ import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.Toast;
 
+import com.example.drh.commands.SelectUsuario;
+import com.example.drh.commands.UpdateUsuario;
+
 public class buscarUsuario extends AppCompatActivity {
 
     Button btnBuscar, btnActualizar, btnVaciar;
@@ -19,6 +22,8 @@ public class buscarUsuario extends AppCompatActivity {
     String nombre, aPater, aMater, domicilio, colonia,ciudad, estado,cp,pais,telFijo,telCel,
     correo,contra,tUsuario;
     FrameLayout fy;
+    SelectUsuario su;
+    UpdateUsuario uu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,14 +62,12 @@ public class buscarUsuario extends AppCompatActivity {
                 obtenerId();
                 if(validarId()){
                     //INSERTAR MÉTODO DE BÚSQUEDA e inserción en los campos
-
+                    su = new SelectUsuario(v.getContext(), textId, textNombre,textAPater, textAMater,textDom, textColo,textCiu, textEdo, textCP,
+                            textPais,textTel, textTelCel,textCorreo,textContra,textTUser);
+                    su.execute();
                     btnActualizar.setEnabled(true);
                     btnActualizar.setVisibility(View.VISIBLE);
-                    Toast.makeText(v.getContext(),"BUSCANDO REGISTROS",Toast.LENGTH_SHORT).show();
                     fy.setVisibility(View.VISIBLE);
-                    ponerTexto();//Método para poner en los EditText los valores devueltos por la consulta
-                                //a la bd
-
                 }
             }
         });
@@ -74,7 +77,10 @@ public class buscarUsuario extends AppCompatActivity {
                 obtenerDatos();
                 if(validar()){
                     //Insertar método para validar el correo si exxiste ya en la bd
-                    actualiza();
+                    uu = new UpdateUsuario(v.getContext(), id, nombre, aPater, aMater, domicilio, colonia,ciudad, estado,cp,pais,telFijo,telCel,
+                            correo,contra,tUsuario);
+                    uu.execute();
+                    //actualiza();
                     btnVaciar.setVisibility(View.VISIBLE);
                 }
                 }
