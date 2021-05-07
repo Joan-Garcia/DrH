@@ -64,6 +64,8 @@ public class UpdateUsuario extends AsyncTask<Void,Integer,Integer> {
                 if(rs.getRow() == 1) {
                     if (!rs.getString("idPropietario").equals(id))
                         userExist = 1;
+                    else
+                        userExist = 0;
                 }else
                     userExist = 0;
                 Log.println(Log.INFO,"VerifyUser","Usuario encontrado: "+ userExist);
