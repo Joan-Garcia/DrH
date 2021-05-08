@@ -9,12 +9,17 @@ import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.Toast;
 
+import com.example.drh.commands.SelectMascota;
+import com.example.drh.commands.UpdateMascota;
+
 public class buscar_mascota extends AppCompatActivity {
     EditText editIdMascota,editIdusuario, editNombreMascota,editFechaNac, editRaza,editEspecie,editColor,
             editTatuaje, editMicrochip,editSexo;
     String usuario, nombreMascota, fechaNac,raza, especie, color, tatuaje,microchip, sexo, idMas;
     Button btnBuscaM, btnVaciarM, btnActualizarM;
     FrameLayout fy;
+    SelectMascota sm;
+    UpdateMascota um;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,7 +48,9 @@ public class buscar_mascota extends AppCompatActivity {
             public void onClick(View v) {
                 idMas=editIdMascota.getText().toString();
                 if(!idMas.isEmpty()){
-
+                    sm = new SelectMascota(v.getContext(), editIdMascota, editIdusuario, editNombreMascota,
+                            editFechaNac, editRaza, editEspecie, editColor, editTatuaje, editMicrochip, editSexo);
+                    sm.execute();
                     btnActualizarM.setVisibility(View.VISIBLE);
                     fy.setVisibility(View.VISIBLE);
                 }else{
@@ -56,6 +63,9 @@ public class buscar_mascota extends AppCompatActivity {
             public void onClick(View v) {
                 obtenerDatos();
                 if(validar()){
+                    um = new UpdateMascota(v.getContext(), idMas, usuario, nombreMascota, fechaNac,
+                            raza, especie, color, tatuaje, microchip, sexo);
+                    um.execute();
                     btnVaciarM.setVisibility(View.VISIBLE);
                 }
             }
