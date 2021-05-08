@@ -58,6 +58,7 @@ public class admin2 extends AppCompatActivity {
         a.setArguments(bundle);
         FragmentTransaction transaction =getSupportFragmentManager().beginTransaction();//.detach(a);
         transaction.replace(R.id.contenedor, a);
+        transaction.addToBackStack(null);
         transaction.commit();
     }
 

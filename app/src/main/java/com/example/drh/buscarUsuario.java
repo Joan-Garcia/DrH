@@ -65,7 +65,7 @@ public class buscarUsuario extends AppCompatActivity {
                     su = new SelectUsuario(v.getContext(), textId, textNombre,textAPater, textAMater,textDom, textColo,textCiu, textEdo, textCP,
                             textPais,textTel, textTelCel,textCorreo,textContra,textTUser);
                     su.execute();
-                    btnActualizar.setEnabled(true);
+
                     btnActualizar.setVisibility(View.VISIBLE);
                     fy.setVisibility(View.VISIBLE);
                 }
@@ -106,13 +106,8 @@ public class buscarUsuario extends AppCompatActivity {
         return true;
     }
 
-    public void actualiza(){
-        Toast.makeText(this,"ACTUALIZANDO REGISTROS",Toast.LENGTH_SHORT).show();
-        //Insertar método para insertar en la base de datos con los nuevos atributos
-
-
-    }
     public void vaciar(){
+        textId.setText("");
         textNombre.setText("");
         textAPater.setText("");
         textAMater.setText("");
@@ -151,10 +146,6 @@ public class buscarUsuario extends AppCompatActivity {
         tUsuario=textTUser.getText().toString();
     }
 
-    public void ponerTexto(){
-        textNombre.setText("NOMBRE PRUEBA");
-        textAPater.setText("APELLIDO PRUEBA");
-    }
 
     public boolean validar() {
         if (nombre.isEmpty()) {
@@ -188,6 +179,5 @@ public class buscarUsuario extends AppCompatActivity {
         }
         return true;
     }
-/*
- */
+
 }

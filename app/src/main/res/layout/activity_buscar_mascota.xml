@@ -4,8 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".buscarUsuario"
+    tools:context=".buscar_mascota"
     android:background="#3B4341">
+
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="100dp">
@@ -18,11 +19,11 @@
 
             <EditText
 
-                android:id="@+id/editIdUsuario"
+                android:id="@+id/editIdMascota"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/balthazar"
-                android:hint="@string/ingreseIdU"
+                android:hint="@string/ingreseIdM"
                 android:inputType="number"
                 android:textColor="@color/black"
                 android:textColorHint="@android:color/darker_gray" />
@@ -33,17 +34,17 @@
                 android:orientation="horizontal"
                 >
 
-            <Button
-                android:id="@+id/btnBuscar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/buscar"
-
-                android:fontFamily="@font/balthazar"
-                android:backgroundTint="#02DFCB"
-                android:textColor="@color/black"/>
                 <Button
-                    android:id="@+id/btnActualizar"
+                    android:id="@+id/btnBuscarMas"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/buscar"
+
+                    android:fontFamily="@font/balthazar"
+                    android:backgroundTint="#02DFCB"
+                    android:textColor="@color/black"/>
+                <Button
+                    android:id="@+id/btnActualizarMas"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
@@ -53,7 +54,7 @@
                     android:textColor="@color/black"
                     android:visibility="invisible"/>
                 <Button
-                    android:id="@+id/btnLimpiar"
+                    android:id="@+id/btnLimpiarMas"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
@@ -62,17 +63,18 @@
                     android:backgroundTint="#02DFCB"
                     android:textColor="@color/black"
                     android:visibility="invisible"/>
-                    />
+                />
 
             </LinearLayout>
         </com.google.android.material.textfield.TextInputLayout>
     </FrameLayout>
     <FrameLayout
-        android:id="@+id/frame1"
+        android:id="@+id/frame1Mas"
         android:layout_marginTop="120dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="invisible">
+        android:visibility="invisible"
+        >
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -81,28 +83,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/textInputLayout0"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:textColorHint="@android:color/black"
-                    app:hintTextColor="@android:color/darker_gray"
-                    app:boxStrokeColor="#FF03DAC5">
-
-                    <EditText
-                        android:id="@+id/editNombreMod"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:fontFamily="@font/balthazar"
-                        android:hint="@string/ingreNom"
-                        android:inputType="text"
-                        android:textColor="@android:color/black"
-                        android:textColorHint="@android:color/darker_gray" />
-                </com.google.android.material.textfield.TextInputLayout>
-
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/textInputLayout2"
                     android:layout_width="match_parent"
@@ -113,54 +93,31 @@
                     app:boxStrokeColor="#FF03DAC5"
                     app:hintTextColor="@android:color/darker_gray">
                     <EditText
-                        android:id="@+id/editAppaterMod"
+                        android:id="@+id/editIdUMas"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/balthazar"
                         android:layout_marginTop="10dp"
-                        android:hint="@string/apPaterno"
-                        android:inputType="text"
+                        android:hint="@string/idPropietario"
+                        android:inputType="number"
                         android:textColor="@android:color/black"
                         android:textColorHint="@android:color/darker_gray" />
                 </com.google.android.material.textfield.TextInputLayout>
-
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/textInputLayout"
+                    android:id="@+id/textInputLayout0"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-
+                    android:layout_marginTop="10dp"
                     android:gravity="center"
                     android:textColorHint="@android:color/black"
                     app:boxStrokeColor="#FF03DAC5"
                     app:hintTextColor="@android:color/darker_gray">
                     <EditText
-                        android:id="@+id/editApMaterMod"
+                        android:id="@+id/editNMasco"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/balthazar"
-                        android:layout_marginTop="10dp"
-                        android:hint="@string/apMaterno"
-                        android:inputType="text"
-                        android:textColor="@android:color/black"
-                        android:textColorHint="@android:color/darker_gray" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/textInputLayout3"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-
-                    android:gravity="center"
-                    android:textColorHint="@android:color/black"
-                    app:boxStrokeColor="#FF03DAC5"
-                    app:hintTextColor="@android:color/darker_gray">
-                    <EditText
-                        android:id="@+id/editDomicilioMod"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:fontFamily="@font/balthazar"
-                        android:hint="@string/domicilio"
+                        android:hint="@string/nombreMascota"
                         android:inputType="text"
                         android:textColor="@android:color/black"
                         android:textColorHint="@android:color/darker_gray" />
@@ -176,11 +133,31 @@
                     app:boxStrokeColor="#FF03DAC5"
                     app:hintTextColor="@android:color/darker_gray">
                     <EditText
-                        android:id="@+id/editColoniaMod"
+                        android:id="@+id/editFNacMas"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/balthazar"
-                        android:hint="@string/colonia"
+                        android:hint="@string/fechaNac"
+                        android:inputType="date"
+                        android:textColor="@android:color/black"
+                        android:textColorHint="@android:color/darker_gray" />
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:textColorHint="@android:color/black"
+                    app:boxStrokeColor="#FF03DAC5"
+                    app:hintTextColor="@android:color/darker_gray">
+
+                    <EditText
+                        android:id="@+id/editEsMas"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/balthazar"
+                        android:hint="@string/especie"
                         android:inputType="text"
                         android:textColor="@android:color/black"
                         android:textColorHint="@android:color/darker_gray" />
@@ -195,16 +172,18 @@
                     android:textColorHint="@android:color/black"
                     app:boxStrokeColor="#FF03DAC5"
                     app:hintTextColor="@android:color/darker_gray">
+
                     <EditText
-                        android:id="@+id/editCiudadMod"
+                        android:id="@+id/editRaMas"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/balthazar"
-                        android:hint="@string/ciudad"
+                        android:hint="@string/raza"
                         android:inputType="text"
                         android:textColor="@android:color/black"
                         android:textColorHint="@android:color/darker_gray" />
                 </com.google.android.material.textfield.TextInputLayout>
+
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/textInputLayout5"
@@ -216,11 +195,11 @@
                     app:boxStrokeColor="#FF03DAC5"
                     app:hintTextColor="@android:color/darker_gray">
                     <EditText
-                        android:id="@+id/editEstadoMod"
+                        android:id="@+id/editCoMas"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/balthazar"
-                        android:hint="@string/estado"
+                        android:hint="@string/color"
                         android:inputType="text"
                         android:textColor="@android:color/black"
                         android:textColorHint="@android:color/darker_gray" />
@@ -230,40 +209,21 @@
                     android:id="@+id/textInputLayout6"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:gravity="center"
                     android:layout_marginTop="10dp"
-                    android:textColorHint="@android:color/black"
-                    app:boxStrokeColor="#FF03DAC5"
-                    app:hintTextColor="@android:color/darker_gray">
-                    <EditText
-                        android:id="@+id/editCPMod"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/balthazar"
-                        android:hint="@string/cp"
-                        android:inputType="number"
-                        android:textColor="@android:color/black"
-                        android:textColorHint="@android:color/darker_gray" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/textInputLayout7"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
                     android:gravity="center"
                     android:textColorHint="@android:color/black"
                     app:boxStrokeColor="#FF03DAC5"
                     app:hintTextColor="@android:color/darker_gray">
                     <EditText
-                        android:id="@+id/editPaisMod"
+                        android:id="@+id/editTatMas"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/balthazar"
-                        android:hint="@string/pais"
-                        android:layout_marginTop="10dp"
                         android:inputType="text"
-                        android:textColor="@android:color/black"
-                        android:textColorHint="@android:color/darker_gray" />
+                        android:fontFamily="@font/balthazar"
+                        android:textSize="18sp"
+                        android:hint="@string/tatuaje" android:textColor="@android:color/black"
+                        android:textColorHint="@android:color/darker_gray"
+                        />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -276,14 +236,16 @@
                     app:boxStrokeColor="#FF03DAC5"
                     app:hintTextColor="@android:color/darker_gray">
                     <EditText
-                        android:id="@+id/editTelFijoMod"
+                        android:id="@+id/editMiMas"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:inputType="text"
                         android:fontFamily="@font/balthazar"
-                        android:hint="@string/teleCasa"
-                        android:inputType="number"
                         android:textColor="@android:color/black"
-                        android:textColorHint="@android:color/darker_gray" />
+                        android:textSize="18sp"
+                        android:hint="@string/microchip"
+                        android:textColorHint="@android:color/darker_gray"
+                        />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -296,79 +258,19 @@
                     app:boxStrokeColor="#FF03DAC5"
                     app:hintTextColor="@android:color/darker_gray">
                     <EditText
-                        android:id="@+id/editTelCeluMod"
+                        android:id="@+id/editSexMas"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/balthazar"
-                        android:hint="@string/teleCel"
-                        android:inputType="number"
-                        android:textColor="@android:color/black"
-                        android:textColorHint="@android:color/darker_gray" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/textInputLayout10"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:textColorHint="@android:color/black"
-                    app:boxStrokeColor="#FF03DAC5"
-                    app:hintTextColor="@android:color/darker_gray">
-                    <EditText
-                        android:id="@+id/editEmailMod"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/balthazar"
-                        android:layout_marginTop="10dp"
-                        android:hint="@string/ingresarC"
                         android:inputType="text"
-                        android:textColor="@android:color/black"
-                        android:textColorHint="@android:color/darker_gray" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/textInputLayout11"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="10dp"
-                    android:gravity="center"
-                    android:textColorHint="@android:color/black"
-                    app:boxStrokeColor="#FF03DAC5"
-                    app:hintTextColor="@android:color/darker_gray"
-                    app:passwordToggleEnabled="true"
-                    app:passwordToggleTint="@android:color/darker_gray">
-                    <EditText
-                        android:id="@+id/editContraMod"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
                         android:fontFamily="@font/balthazar"
-                        android:hint="@string/ingresarContra"
-                        android:inputType="textPassword"
                         android:textColor="@android:color/black"
-                        android:textColorHint="@android:color/darker_gray" />
+                        android:textSize="18sp"
+                        android:hint="@string/sexo"
+                        android:textColorHint="@android:color/darker_gray"
+                        />
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/textInputLayout13"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="10dp"
-                    android:gravity="center"
-                    android:textColorHint="@android:color/black"
-                    app:boxStrokeColor="#FF03DAC5"
-                    app:hintTextColor="@android:color/darker_gray">
 
-                    <EditText
-                        android:id="@+id/editTipoUsuarioMod"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/balthazar"
-                        android:hint="@string/tipoUsuario"
-                        android:inputType="text"
-                        android:textColor="@android:color/black"
-                        android:textColorHint="@android:color/darker_gray" />
-
-                </com.google.android.material.textfield.TextInputLayout>
 
             </LinearLayout>
         </ScrollView>

@@ -64,4 +64,7 @@
     <string name="buscar">BUSCAR</string>
     <string name="actualizar">ACTUALIZAR</string>
     <string name="limpiar">VACIAR CAMPOS</string>
+
+    <!-- DATOS PARA BUSCAR USUARIO -->
+    <string name="ingreseIdM">INGRESE EL IDMASCOTA QUE DESEA BUSCAR</string>
 </resources>

@@ -83,7 +83,8 @@ public class tercerFragmento extends Fragment {
         btnConM.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+            Intent a = new Intent(vista.getContext(),buscar_mascota.class);
+            startActivity(a);
             }
         });
         btnConTablas.setOnClickListener(new View.OnClickListener() {

@@ -111,4 +111,5 @@ public class segundoFragmento extends Fragment {
                     (Intent.ACTION_VIEW,Uri.parse("https://www.youtube.com/playlist?list=PLWHjFiWxfNZ8v3raZrdJPWVlk-5YPefuM")));
         }
     }
+
 }
