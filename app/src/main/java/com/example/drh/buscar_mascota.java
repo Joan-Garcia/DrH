@@ -16,7 +16,7 @@ public class buscar_mascota extends AppCompatActivity {
     EditText editIdMascota,editIdusuario, editNombreMascota,editFechaNac, editRaza,editEspecie,editColor,
             editTatuaje, editMicrochip,editSexo;
     String usuario, nombreMascota, fechaNac,raza, especie, color, tatuaje,microchip, sexo, idMas;
-    Button btnBuscaM, btnVaciarM, btnActualizarM;
+    Button btnBuscaM, btnVaciarM, btnActualizarM, btnEliminar;
     FrameLayout fy;
     SelectMascota sm;
     UpdateMascota um;
@@ -41,6 +41,7 @@ public class buscar_mascota extends AppCompatActivity {
         btnBuscaM=(Button)findViewById(R.id.btnBuscarMas);
         btnActualizarM=(Button)findViewById(R.id.btnActualizarMas);
         btnVaciarM=(Button)findViewById(R.id.btnLimpiarMas);
+        btnEliminar=(Button)findViewById(R.id.btnEliminarMas);
         fy=(FrameLayout)findViewById(R.id.frame1Mas);
 
         btnBuscaM.setOnClickListener(new View.OnClickListener() {
@@ -52,6 +53,7 @@ public class buscar_mascota extends AppCompatActivity {
                             editFechaNac, editRaza, editEspecie, editColor, editTatuaje, editMicrochip, editSexo);
                     sm.execute();
                     btnActualizarM.setVisibility(View.VISIBLE);
+                    btnEliminar.setVisibility(View.VISIBLE);
                     fy.setVisibility(View.VISIBLE);
                 }else{
                     editIdMascota.setError("EL CAMPO IDMASCOTA NO PUEDE QUEDAR VACÍO");
@@ -74,7 +76,25 @@ public class buscar_mascota extends AppCompatActivity {
         btnVaciarM.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 vaciar();
+                editIdMascota.setText("");
+            }
+        });
+
+        btnEliminar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Insertar método de eliminar, usar  idMas
+
+                fy.setVisibility(View.INVISIBLE);
+                btnActualizarM.setVisibility(View.INVISIBLE);
+                btnEliminar.setVisibility(View.INVISIBLE);
+                btnVaciarM.setVisibility(View.INVISIBLE);
+                fy.setVisibility(View.INVISIBLE);
+                vaciar();
+                editIdMascota.setText("");
+                Toast.makeText(v.getContext(),"REGISTRO ELIMINADO",Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -92,7 +112,6 @@ public class buscar_mascota extends AppCompatActivity {
 
     }
     public void vaciar(){
-        editIdMascota.setText("");
         editIdusuario.setText("");
         editNombreMascota.setText("");
         editFechaNac.setText("");
@@ -104,6 +123,7 @@ public class buscar_mascota extends AppCompatActivity {
         editSexo.setText("");
 
         btnActualizarM.setVisibility(View.INVISIBLE);
+        btnEliminar.setVisibility(View.INVISIBLE);
         fy.setVisibility(View.INVISIBLE);
         btnVaciarM.setVisibility(View.INVISIBLE);
     }

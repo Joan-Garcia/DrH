@@ -36,12 +36,12 @@
         android:id="@+id/textAdmin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="-18dp"
         android:layout_gravity="center"
+        android:layout_marginTop="-18dp"
         android:fontFamily="@font/balthazar"
+        android:text="NOMBRE VETERINARIO"
         android:textColor="@color/white"
-        android:textSize="30sp"
-        android:text="ASASASSA"/>
+        android:textSize="30sp" />
 
     <LinearLayout
         android:id="@+id/layoutP"

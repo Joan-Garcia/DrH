@@ -8,33 +8,85 @@
     android:background="#3B4341">
 
     <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:text="MODIFICAR"
+        android:textColor="@color/white"
+        android:textSize="35sp"
+        android:layout_gravity="center"
+        android:layout_marginTop="-340dp"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:fontFamily="@font/balthazar"
+        >
+    </TextView>
+
     <Button
         android:id="@+id/botonConUsuario"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="-180dp"
+        android:layout_marginTop="-250dp"
         android:fontFamily="@font/balthazar"
         android:text="@string/btnConU"
         android:textColor="#000000"
         app:backgroundTint="#02DFCB" />
 
     <Button
-        android:id="@+id/botonConMasc"
+        android:id="@+id/botonConMas"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:layout_marginTop="-190dp"
         android:fontFamily="@font/balthazar"
         android:text="@string/btnConM"
         android:textColor="#000000"
         app:backgroundTint="#02DFCB" />
+    <Button
+        android:id="@+id/botonConVac"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="-130dp"
+        android:fontFamily="@font/balthazar"
+        android:text="@string/btnConV"
+        android:textColor="#000000"
+        app:backgroundTint="#02DFCB"  />
+    <Button
+        android:id="@+id/botonConDes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="-70dp"
+        android:fontFamily="@font/balthazar"
+        android:text="@string/btnConD"
+        android:textColor="#000000"
+        app:backgroundTint="#02DFCB"  />
 
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="50dp"
+        android:background="@android:color/darker_gray"
+         />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/balthazar"
+        android:text="CONSULTAR"
+        android:textColor="@color/white"
+        android:layout_gravity="center"
+        android:layout_marginTop="100dp"
+        android:textSize="35sp"
+        />
     <Button
         android:id="@+id/botonConR"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="180dp"
+        android:layout_marginTop="230dp"
         android:fontFamily="@font/balthazar"
         android:text="@string/btnConTablas"
         android:textColor="#000000"

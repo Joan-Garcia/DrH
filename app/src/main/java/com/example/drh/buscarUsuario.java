@@ -15,7 +15,7 @@ import com.example.drh.commands.UpdateUsuario;
 
 public class buscarUsuario extends AppCompatActivity {
 
-    Button btnBuscar, btnActualizar, btnVaciar;
+    Button btnBuscar, btnActualizar, btnVaciar, btnEliminar;
     EditText textId, textNombre,textAPater, textAMater,textDom, textColo,textCiu, textEdo, textCP,
             textPais,textTel, textTelCel,textCorreo,textContra,textTUser;
     String id;
@@ -36,6 +36,7 @@ public class buscarUsuario extends AppCompatActivity {
         btnBuscar=(Button) findViewById(R.id.btnBuscar);
         btnActualizar=(Button) findViewById(R.id.btnActualizar);
         btnVaciar=(Button)findViewById(R.id.btnLimpiar);
+        btnEliminar=(Button)findViewById(R.id.btnEliminarUser);
         textId=(EditText) findViewById(R.id.editIdUsuario);
         fy=(FrameLayout) findViewById(R.id.frame1);
 
@@ -68,6 +69,7 @@ public class buscarUsuario extends AppCompatActivity {
 
                     btnActualizar.setVisibility(View.VISIBLE);
                     fy.setVisibility(View.VISIBLE);
+                    btnEliminar.setVisibility(View.VISIBLE);
                 }
             }
         });
@@ -89,7 +91,24 @@ public class buscarUsuario extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 vaciar();
+                textId.setText("");
 
+            }
+        });
+
+        btnEliminar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Insertar método para eliminar, usar id
+
+                fy.setVisibility(View.INVISIBLE);
+                btnActualizar.setVisibility(View.INVISIBLE);
+                btnEliminar.setVisibility(View.INVISIBLE);
+                btnVaciar.setVisibility(View.INVISIBLE);
+                fy.setVisibility(View.INVISIBLE);
+                vaciar();
+                textId.setText("");
+                Toast.makeText(v.getContext(),"REGISTRO ELIMINADO",Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -107,7 +126,7 @@ public class buscarUsuario extends AppCompatActivity {
     }
 
     public void vaciar(){
-        textId.setText("");
+
         textNombre.setText("");
         textAPater.setText("");
         textAMater.setText("");
@@ -127,6 +146,7 @@ public class buscarUsuario extends AppCompatActivity {
         btnActualizar.setVisibility(View.INVISIBLE);
         btnActualizar.setEnabled(false);
         btnVaciar.setVisibility(View.INVISIBLE);
+        btnEliminar.setVisibility(View.INVISIBLE);
         fy.setVisibility(View.INVISIBLE);
     }
     public void obtenerDatos(){

@@ -25,7 +25,7 @@ public class tercerFragmento extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-    Button btnConu, btnConM,btnConTablas;
+    Button btnConu, btnConM,btnConTablas, btnVacunas, btnDespa;
     View vista;
 
     public tercerFragmento() {
@@ -69,8 +69,11 @@ public class tercerFragmento extends Fragment {
     }
     public void asignar(){
         btnConu=(Button) vista.findViewById(R.id.botonConUsuario);
-        btnConM=(Button) vista.findViewById(R.id.botonConMasc);
+        btnConM=(Button) vista.findViewById(R.id.botonConMas);
+        btnVacunas=(Button) vista.findViewById(R.id.botonConVac);
+        btnDespa=(Button) vista.findViewById(R.id.botonConDes);
         btnConTablas=(Button) vista.findViewById(R.id.botonConR);
+
 
         btnConu.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -91,6 +94,21 @@ public class tercerFragmento extends Fragment {
             @Override
             public void onClick(View v) {
 
+            }
+        });
+        btnVacunas.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent a = new Intent (vista.getContext(),buscarVacuna.class);
+                startActivity(a);
+            }
+        });
+
+        btnDespa.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent a = new Intent(vista.getContext(),buscarDesp.class);
+                startActivity(a);
             }
         });
     }

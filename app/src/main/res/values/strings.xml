@@ -57,6 +57,8 @@
     <!-- DATOS PARA Tercer Fragment -->
     <string name="btnConU">CONSULTAR USUARIO</string>
     <string name="btnConM">CONSULTAR MASCOTA</string>
+    <string name="btnConD">CONSULTAR DESPARACITACIONES</string>
+    <string name="btnConV">CONSULTAR VACUNAS</string>
     <string name="btnConTablas">CONSULTAR TODOS LOS REGISTROS</string>
 
     <!-- DATOS PARA BUSCAR USUARIO -->
@@ -64,7 +66,10 @@
     <string name="buscar">BUSCAR</string>
     <string name="actualizar">ACTUALIZAR</string>
     <string name="limpiar">VACIAR CAMPOS</string>
+    <string name="eliminar">ELIMINAR REGISTRO</string>
 
-    <!-- DATOS PARA BUSCAR USUARIO -->
+    <!-- DATOS PARA BUSCAR VACUNA, MASCOTA, DESPARACITACIÓN -->
     <string name="ingreseIdM">INGRESE EL IDMASCOTA QUE DESEA BUSCAR</string>
+    <string name="ingreseIdV">INGRESE EL IDVACUNA QUE DESEA BUSCAR</string>
+    <string name="ingreseIdD">INGRESE EL IDDESPARACITACIÓN QUE DESEA BUSCAR</string>
 </resources>

@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".buscarDesp"
+    android:background="#3B4341">
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="170dp">
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColorHint="@android:color/black"
+            app:boxStrokeColor="#FF03DAC5"
+            app:hintTextColor="@android:color/darker_gray">
+
+            <EditText
+
+                android:id="@+id/editIdDesMod"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/balthazar"
+                android:hint="@string/ingreseIdD"
+                android:inputType="number"
+                android:textColor="@color/black"
+                android:textColorHint="@android:color/darker_gray" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="55dp">
+
+            <Button
+                android:id="@+id/btnBuscarDes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/buscar"
+                android:fontFamily="@font/balthazar"
+                android:backgroundTint="#02DFCB"
+                android:textColor="@color/black"/>
+            <Button
+                android:id="@+id/btnActualizarD"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="@string/actualizar"
+                android:fontFamily="@font/balthazar"
+                android:backgroundTint="#02DFCB"
+                android:textColor="@color/black"
+                android:visibility="invisible"/>
+            <Button
+                android:id="@+id/btnLimpiarD"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:fontFamily="@font/balthazar"
+                android:text="@string/limpiar"
+                android:backgroundTint="#02DFCB"
+                android:textColor="@color/black"
+                android:visibility="invisible"/>
+            />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnEliminarD"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@android:color/holo_red_light"
+            android:fontFamily="@font/balthazar"
+            android:text="@string/eliminar"
+            android:textColor="@color/white"
+            android:layout_marginLeft="100dp"
+            android:layout_marginTop="105dp"
+            android:visibility="invisible"/>
+
+
+    </FrameLayout>
+    <FrameLayout
+        android:id="@+id/frameDes"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="170dp"
+        android:visibility="invisible">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColorHint="@android:color/black"
+            app:boxStrokeColor="#FF03DAC5"
+            app:hintTextColor="@android:color/darker_gray">
+
+            <EditText
+                android:id="@+id/editIdMascotaDes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/balthazar"
+                android:hint="@string/idMascota"
+                android:inputType="number"
+                android:textColor="@android:color/black"
+                android:textColorHint="@android:color/darker_gray" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="70dp"
+            android:gravity="center"
+            android:textColorHint="@android:color/black"
+            app:boxStrokeColor="#FF03DAC5"
+            app:hintTextColor="@android:color/darker_gray">
+
+            <EditText
+                android:id="@+id/editDesMod"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/balthazar"
+                android:hint="@string/producto"
+                android:inputType="text"
+                android:textColor="@android:color/black"
+                android:textColorHint="@android:color/darker_gray" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="140dp"
+            android:gravity="center"
+            android:textColorHint="@android:color/black"
+            app:boxStrokeColor="#FF03DAC5"
+            app:hintTextColor="@android:color/darker_gray">
+
+            <EditText
+                android:id="@+id/editProxDesMod"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/balthazar"
+                android:hint="@string/proxDes"
+                android:inputType="date"
+                android:textColor="@android:color/black"
+                android:textColorHint="@android:color/darker_gray" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </FrameLayout>
+
+
+</FrameLayout>
