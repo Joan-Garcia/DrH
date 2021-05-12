@@ -9,12 +9,19 @@ import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.Toast;
 
+import com.example.drh.commands.DeleteDespa;
+import com.example.drh.commands.SelectDespa;
+import com.example.drh.commands.UpdateDespa;
+
 public class buscarDesp extends AppCompatActivity {
 
     Button btnActualizar, btnBuscar, btnLimpiar,btnEliminar;
     FrameLayout fy;
     EditText editIdMas,editDes, editProxFe, editidDes;
     String idMas, despa, proxF, idDes;
+    SelectDespa sd;
+    UpdateDespa ud;
+    DeleteDespa dd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +54,8 @@ public class buscarDesp extends AppCompatActivity {
                 obtnerDatos();
                 if(validar()){
                     //Insertar método para actualizar vacuna
+                    ud = new UpdateDespa(v.getContext(), idDes, idMas, despa, proxF);
+                    ud.execute();
                     btnLimpiar.setVisibility(View.VISIBLE);
                 }
             }
@@ -66,13 +75,14 @@ public class buscarDesp extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //Insertar método de eliminar
+                dd = new DeleteDespa(v.getContext(), idDes);
+                dd.execute();
                 vaciar();
                 editidDes.setText("");
                 btnLimpiar.setVisibility(View.INVISIBLE);
                 btnEliminar.setVisibility(View.INVISIBLE);
                 btnActualizar.setVisibility(View.INVISIBLE);
                 fy.setVisibility(View.INVISIBLE);
-                Toast.makeText(v.getContext(),"REGISTRO ELIMINADO",Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -81,6 +91,8 @@ public class buscarDesp extends AppCompatActivity {
         idDes=editidDes.getText().toString();
         if(!idDes.isEmpty()){
             //Insertar método de busqueda
+            sd = new SelectDespa(this, editidDes,editIdMas,editDes, editProxFe);
+            sd.execute();
             btnActualizar.setVisibility(View.VISIBLE);
             btnEliminar.setVisibility(View.VISIBLE);
             fy.setVisibility(View.VISIBLE);

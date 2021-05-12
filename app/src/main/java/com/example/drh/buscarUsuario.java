@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.Toast;
 
+import com.example.drh.commands.DeleteUsuario;
 import com.example.drh.commands.SelectUsuario;
 import com.example.drh.commands.UpdateUsuario;
 
@@ -24,6 +25,7 @@ public class buscarUsuario extends AppCompatActivity {
     FrameLayout fy;
     SelectUsuario su;
     UpdateUsuario uu;
+    DeleteUsuario du;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -100,7 +102,8 @@ public class buscarUsuario extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //Insertar método para eliminar, usar id
-
+                du = new DeleteUsuario(v.getContext(), id);
+                du.execute();
                 fy.setVisibility(View.INVISIBLE);
                 btnActualizar.setVisibility(View.INVISIBLE);
                 btnEliminar.setVisibility(View.INVISIBLE);

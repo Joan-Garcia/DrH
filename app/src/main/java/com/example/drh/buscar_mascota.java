@@ -9,6 +9,7 @@ import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.Toast;
 
+import com.example.drh.commands.DeleteMascota;
 import com.example.drh.commands.SelectMascota;
 import com.example.drh.commands.UpdateMascota;
 
@@ -20,6 +21,7 @@ public class buscar_mascota extends AppCompatActivity {
     FrameLayout fy;
     SelectMascota sm;
     UpdateMascota um;
+    DeleteMascota dm;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -86,7 +88,8 @@ public class buscar_mascota extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //Insertar método de eliminar, usar  idMas
-
+                dm = new DeleteMascota(v.getContext(), idMas);
+                dm.execute();
                 fy.setVisibility(View.INVISIBLE);
                 btnActualizarM.setVisibility(View.INVISIBLE);
                 btnEliminar.setVisibility(View.INVISIBLE);

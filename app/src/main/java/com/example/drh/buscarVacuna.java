@@ -9,12 +9,21 @@ import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.Toast;
 
+import com.example.drh.commands.DeleteVacuna;
+import com.example.drh.commands.SelectVacuna;
+import com.example.drh.commands.UpdateVacuna;
+
 public class buscarVacuna extends AppCompatActivity {
 
     Button btnActualizar, btnBuscar, btnLimpiar,btnEliminar;
     FrameLayout fy;
     EditText editIdMas,editVacuna, editProxFe, editidVac;
     String idMas, vacuna, proxF, idVac;
+
+    SelectVacuna sv;
+    UpdateVacuna uv;
+    DeleteVacuna dv;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,6 +55,8 @@ public class buscarVacuna extends AppCompatActivity {
                 obtnerDatos();
                 if(validar()){
                     //Insertar método para actualizar vacuna
+                    uv = new UpdateVacuna(v.getContext(), idVac, idMas, vacuna, proxF);
+                    uv.execute();
                     btnLimpiar.setVisibility(View.VISIBLE);
                 }
             }
@@ -65,13 +76,14 @@ public class buscarVacuna extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //Insertar método de eliminar
+                dv = new DeleteVacuna(v.getContext(), idVac);
+                dv.execute();
                 vaciar();
                 editidVac.setText("");
                 btnLimpiar.setVisibility(View.INVISIBLE);
                 btnEliminar.setVisibility(View.INVISIBLE);
                 btnActualizar.setVisibility(View.INVISIBLE);
                 fy.setVisibility(View.INVISIBLE);
-                Toast.makeText(v.getContext(),"REGISTRO ELIMINADO",Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -80,6 +92,8 @@ public class buscarVacuna extends AppCompatActivity {
         idVac=editidVac.getText().toString();
     if(!idVac.isEmpty()){
         //Insertar método de busqueda
+        sv = new SelectVacuna(this,editidVac, editIdMas, editVacuna, editProxFe);
+        sv.execute();
         btnActualizar.setVisibility(View.VISIBLE);
         btnEliminar.setVisibility(View.VISIBLE);
         fy.setVisibility(View.VISIBLE);
