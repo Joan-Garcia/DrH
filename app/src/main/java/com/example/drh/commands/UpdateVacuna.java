@@ -4,7 +4,10 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 
 import com.example.drh.utils.Connection;
 import com.example.drh.utils.ModalDialog;
@@ -20,8 +23,11 @@ public class UpdateVacuna extends AsyncTask<Void,Integer,Integer> {
     private ModalDialog modalDialog;
     private String idMas, vacuna, proxF, idVac;
     private int vacunaExist;
+    Button a,b;
+    FrameLayout fy;
 
-    public UpdateVacuna(Context context, String idVac, String idMas, String vacuna, String proxF){
+    public UpdateVacuna(Context context, String idVac, String idMas, String vacuna, String proxF,
+                        Button a, Button b, FrameLayout fy){
         progressDialog = new ModalProgressDialog(context,"Actualizando Registro",
                 "Por favor espere...", ProgressDialog.STYLE_SPINNER);
         modalDialog= new ModalDialog(context);
@@ -30,6 +36,9 @@ public class UpdateVacuna extends AsyncTask<Void,Integer,Integer> {
         this.idMas = idMas;
         this.vacuna = vacuna;
         this.proxF = proxF;
+        this.a=a;
+        this.b=b;
+        this.fy=fy;
     }
 
     @Override
@@ -81,6 +90,9 @@ public class UpdateVacuna extends AsyncTask<Void,Integer,Integer> {
         progressDialog.hideProgressDialog();
         if(vacunaExist == 1) {
             modalDialog.setMessage("Registro actualizado con exito!");
+            this.a.setVisibility(View.INVISIBLE);
+            this.b.setVisibility(View.INVISIBLE);
+            this.fy.setVisibility(View.INVISIBLE);
         }else if(vacunaExist == 0){
             modalDialog.setMessage("El ID de la mascota no existe");
             modalDialog.showModalDialog();

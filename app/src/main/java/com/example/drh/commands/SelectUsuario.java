@@ -5,7 +5,10 @@ import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Looper;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 
 import androidx.annotation.WorkerThread;
 import androidx.core.content.ContextCompat;
@@ -24,12 +27,15 @@ public class SelectUsuario extends AsyncTask<Void,Integer,Integer> {
     private ModalDialog modalDialog;
     private EditText id, nombre, aPater, aMater, domicilio, colonia, ciudad, estado, cp, pais, telFijo, telCel,
             correo, contra, tUsuario;
+    FrameLayout fy;
     private int userExist;
+    Button a,b;
     Context context;
 
-    public SelectUsuario(Context context, EditText id ,EditText nombre, EditText aPater, EditText aMater, EditText domicilio,
+    public SelectUsuario(Context context, EditText id , EditText nombre, EditText aPater, EditText aMater, EditText domicilio,
                          EditText colonia, EditText ciudad, EditText estado, EditText cp, EditText pais, EditText telFijo,
-                         EditText telCel, EditText correo, EditText contra, EditText tUsuario){
+                         EditText telCel, EditText correo, EditText contra, EditText tUsuario, Button actualizar,
+                         Button eliminar, FrameLayout fy){
         this.context = context;
         progressDialog = new ModalProgressDialog(this.context,"Buscando Registro",
                 "Por favor espere...", ProgressDialog.STYLE_SPINNER);
@@ -50,6 +56,9 @@ public class SelectUsuario extends AsyncTask<Void,Integer,Integer> {
         this.correo = correo;
         this.contra = contra;
         this.tUsuario = tUsuario;
+        this.a=actualizar;
+        this.b=eliminar;
+        this.fy=fy;
     }
 
     @Override
@@ -140,6 +149,9 @@ public class SelectUsuario extends AsyncTask<Void,Integer,Integer> {
             this.correo.setText(correo);
             this.contra.setText(contra);
             this.tUsuario.setText(tUsuario);
+            this.a.setVisibility(View.VISIBLE);
+            this.b.setVisibility(View.VISIBLE);
+            this.fy.setVisibility(View.VISIBLE);
         });
     }
 }

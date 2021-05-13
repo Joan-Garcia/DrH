@@ -4,7 +4,10 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 
 import androidx.annotation.WorkerThread;
 import androidx.core.content.ContextCompat;
@@ -23,9 +26,12 @@ public class SelectVacuna extends AsyncTask<Void,Integer,Integer> {
     private ModalDialog modalDialog;
     private EditText idMas, vacuna, proxF, idVac;
     Context context;
+    Button a, b;
+    FrameLayout fy;
     private int vacunaExist;
 
-    public SelectVacuna(Context context, EditText idVac, EditText idMas, EditText vacuna, EditText proxF){
+    public SelectVacuna(Context context, EditText idVac, EditText idMas, EditText vacuna,
+                        EditText proxF, Button a, Button b, FrameLayout fy){
         this.context = context;
         progressDialog = new ModalProgressDialog(this.context,"Buscando Registro",
                 "Por favor espere...", ProgressDialog.STYLE_SPINNER);
@@ -34,6 +40,9 @@ public class SelectVacuna extends AsyncTask<Void,Integer,Integer> {
         this.idMas = idMas;
         this.vacuna = vacuna;
         this.proxF = proxF;
+        this.a=a;
+        this.b=b;
+        this.fy=fy;
         vacunaExist = -1;
     }
 
@@ -105,6 +114,9 @@ public class SelectVacuna extends AsyncTask<Void,Integer,Integer> {
             this.idMas.setText(idMas);
             this.vacuna.setText(vacuna);
             this.proxF.setText(proxF);
+            this.a.setVisibility(View.VISIBLE);
+            this.b.setVisibility(View.VISIBLE);
+            this.fy.setVisibility(View.VISIBLE);
         });
     }
 }

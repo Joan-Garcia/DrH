@@ -4,7 +4,10 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 
 import androidx.annotation.WorkerThread;
 import androidx.core.content.ContextCompat;
@@ -24,10 +27,12 @@ public class SelectMascota extends AsyncTask<Void,Integer,Integer> {
     Context context;
     private EditText idMas, idUsu, nombreMascota, fechaNac, especie, raza, sexo, color, tatuaje, microchip;
     private int mascotaExist;
+    FrameLayout fy;
+    Button a,b;
 
     public SelectMascota(Context context, EditText idMas, EditText idUsu, EditText nombreMascota,
                          EditText fechaNac, EditText raza, EditText especie, EditText color, EditText tatuaje,
-                         EditText microchip, EditText sexo){
+                         EditText microchip, EditText sexo, Button a, Button b, FrameLayout fy){
         this.context = context;
         progressDialog = new ModalProgressDialog(this.context,"Buscando Registro",
                 "Por favor espere...", ProgressDialog.STYLE_SPINNER);
@@ -42,6 +47,9 @@ public class SelectMascota extends AsyncTask<Void,Integer,Integer> {
         this.color = color;
         this.tatuaje = tatuaje;
         this.microchip = microchip;
+        this.a=a;
+        this.b=b;
+        this.fy=fy;
         mascotaExist = -1;
     }
 
@@ -124,6 +132,9 @@ public class SelectMascota extends AsyncTask<Void,Integer,Integer> {
             this.color.setText(color);
             this.tatuaje.setText(tatuaje);
             this.microchip.setText(microchip);
+            this.a.setVisibility(View.VISIBLE);
+            this.b.setVisibility(View.VISIBLE);
+            this.fy.setVisibility(View.VISIBLE);
         });
     }
 }

@@ -9,7 +9,7 @@
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="170dp">
+        android:layout_height="100dp">
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -44,45 +44,37 @@
                     android:backgroundTint="#02DFCB"
                     android:textColor="@color/black"/>
                 <Button
+                    android:id="@+id/btnEliminarMas"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@android:color/holo_red_light"
+                    android:layout_marginLeft="5dp"
+                    android:fontFamily="@font/balthazar"
+                    android:text="@string/eliminar"
+                    android:textColor="@color/white"
+
+                    android:visibility="invisible"/>
+                <Button
                     android:id="@+id/btnActualizarMas"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginLeft="5dp"
                     android:text="@string/actualizar"
                     android:fontFamily="@font/balthazar"
                     android:backgroundTint="#02DFCB"
                     android:textColor="@color/black"
                     android:visibility="invisible"/>
-                <Button
-                    android:id="@+id/btnLimpiarMas"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:fontFamily="@font/balthazar"
-                    android:text="@string/limpiar"
-                    android:backgroundTint="#02DFCB"
-                    android:textColor="@color/black"
-                    android:visibility="invisible"/>
+
                 />
             </LinearLayout>
 
-        <Button
-            android:id="@+id/btnEliminarMas"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@android:color/holo_red_light"
-            android:fontFamily="@font/balthazar"
-            android:text="@string/eliminar"
-            android:textColor="@color/white"
-            android:layout_marginLeft="100dp"
-            android:layout_marginTop="105dp"
-            android:visibility="invisible"/>
+
 
 
     </FrameLayout>
     <FrameLayout
         android:id="@+id/frame1Mas"
-        android:layout_marginTop="170dp"
+        android:layout_marginTop="100dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:visibility="invisible"

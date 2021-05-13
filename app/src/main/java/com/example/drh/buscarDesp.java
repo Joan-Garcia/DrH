@@ -1,7 +1,9 @@
 package com.example.drh;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -15,7 +17,7 @@ import com.example.drh.commands.UpdateDespa;
 
 public class buscarDesp extends AppCompatActivity {
 
-    Button btnActualizar, btnBuscar, btnLimpiar,btnEliminar;
+    Button btnActualizar, btnBuscar,btnEliminar;
     FrameLayout fy;
     EditText editIdMas,editDes, editProxFe, editidDes;
     String idMas, despa, proxF, idDes;
@@ -32,7 +34,7 @@ public class buscarDesp extends AppCompatActivity {
     public void asignaciones(){
         btnActualizar=(Button)findViewById(R.id.btnActualizarD);
         btnBuscar=(Button)findViewById(R.id.btnBuscarDes);
-        btnLimpiar=(Button)findViewById(R.id.btnLimpiarD);
+
         btnEliminar=(Button)findViewById(R.id.btnEliminarD);
         fy=(FrameLayout)findViewById(R.id.frameDes);
 
@@ -54,35 +56,43 @@ public class buscarDesp extends AppCompatActivity {
                 obtnerDatos();
                 if(validar()){
                     //Insertar método para actualizar vacuna
-                    ud = new UpdateDespa(v.getContext(), idDes, idMas, despa, proxF);
+                    ud = new UpdateDespa(v.getContext(), idDes, idMas, despa, proxF, btnActualizar,btnEliminar,fy);
                     ud.execute();
-                    btnLimpiar.setVisibility(View.VISIBLE);
+
                 }
             }
         });
-        btnLimpiar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                vaciar();
-                editidDes.setText("");
-                btnLimpiar.setVisibility(View.INVISIBLE);
-                btnEliminar.setVisibility(View.INVISIBLE);
-                btnActualizar.setVisibility(View.INVISIBLE);
-                fy.setVisibility(View.INVISIBLE);
-            }
-        });
+
         btnEliminar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //Insertar método de eliminar
-                dd = new DeleteDespa(v.getContext(), idDes);
-                dd.execute();
-                vaciar();
-                editidDes.setText("");
-                btnLimpiar.setVisibility(View.INVISIBLE);
-                btnEliminar.setVisibility(View.INVISIBLE);
-                btnActualizar.setVisibility(View.INVISIBLE);
-                fy.setVisibility(View.INVISIBLE);
+                AlertDialog.Builder alerta = new AlertDialog.Builder(buscarDesp.this);
+                alerta.setMessage("¿DESEAS ELIMINAR EL REGISTRO?")
+
+                        .setCancelable(true)
+                        .setPositiveButton("SI", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dd = new DeleteDespa(v.getContext(), idDes, btnActualizar,btnEliminar,fy);
+                                dd.execute();
+
+
+
+
+                            }
+                        })
+                        .setNegativeButton("NO", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.cancel();
+                            }
+                        });
+                AlertDialog titulo= alerta.create();
+                titulo.setTitle("ELIMINAR DESPARACITACIÓN");
+                titulo.show();
+
+
             }
         });
     }
@@ -91,11 +101,9 @@ public class buscarDesp extends AppCompatActivity {
         idDes=editidDes.getText().toString();
         if(!idDes.isEmpty()){
             //Insertar método de busqueda
-            sd = new SelectDespa(this, editidDes,editIdMas,editDes, editProxFe);
+            sd = new SelectDespa(this, editidDes,editIdMas,editDes, editProxFe,btnActualizar,btnEliminar,fy);
             sd.execute();
-            btnActualizar.setVisibility(View.VISIBLE);
-            btnEliminar.setVisibility(View.VISIBLE);
-            fy.setVisibility(View.VISIBLE);
+
         }else{
             editidDes.setError("EL CAMPO IDDESPARACITACIÓN NO PUEDE QUEDAR VACÍO");
         }
@@ -118,11 +126,7 @@ public class buscarDesp extends AppCompatActivity {
             return true;
         }
     }
-    public void vaciar(){
-        editIdMas.setText("");
-        editDes.setText("");
-        editProxFe.setText("");
-    }
+
 
 
 }

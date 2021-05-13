@@ -4,6 +4,9 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.FrameLayout;
 
 import com.example.drh.utils.Connection;
 import com.example.drh.utils.ModalDialog;
@@ -19,12 +22,17 @@ public class DeleteMascota extends AsyncTask<Void,Integer,Integer> {
     private ModalDialog modalDialog;
     private String idMas;
     private int mascotaExist;
+    Button a, b;
+    FrameLayout fy;
 
-    public DeleteMascota(Context context, String idMas){
+    public DeleteMascota(Context context, String idMas, FrameLayout fy, Button a, Button b){
         progressDialog = new ModalProgressDialog(context,"Eliminando Registro",
                 "Por favor espere...", ProgressDialog.STYLE_SPINNER);
         modalDialog= new ModalDialog(context);
         this.idMas = idMas;
+        this.a=a;
+        this.b=b;
+        this.fy=fy;
         mascotaExist = -1;
     }
 
@@ -74,6 +82,9 @@ public class DeleteMascota extends AsyncTask<Void,Integer,Integer> {
         progressDialog.hideProgressDialog();
         if(mascotaExist == 1) {
             modalDialog.setMessage("Registro eliminado con exito!");
+            this.a.setVisibility(View.INVISIBLE);
+            this.b.setVisibility(View.INVISIBLE);
+            this.fy.setVisibility(View.INVISIBLE);
         }else if(mascotaExist == 0){
             modalDialog.setMessage("El ID de la mascota no existe");
             modalDialog.showModalDialog();

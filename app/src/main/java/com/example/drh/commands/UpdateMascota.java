@@ -4,7 +4,10 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 
 import com.example.drh.utils.Connection;
 import com.example.drh.utils.ModalDialog;
@@ -19,11 +22,13 @@ public class UpdateMascota extends AsyncTask<Void,Integer,Integer> {
     private ModalProgressDialog progressDialog;
     private ModalDialog modalDialog;
     private String idMas, idUsu, nombreMascota, fechaNac, especie, raza, sexo, color, tatuaje, microchip;
+    Button a, b;
+    FrameLayout fy;
     private int mascotaExist;
 
     public UpdateMascota(Context context, String idMas, String idUsu, String nombreMascota,
                          String fechaNac, String raza, String especie, String color, String tatuaje,
-                         String microchip, String sexo){
+                         String microchip, String sexo, Button a, Button b, FrameLayout fy){
         progressDialog = new ModalProgressDialog(context,"Actualizando Registro",
                 "Por favor espere...", ProgressDialog.STYLE_SPINNER);
         modalDialog= new ModalDialog(context);
@@ -38,6 +43,9 @@ public class UpdateMascota extends AsyncTask<Void,Integer,Integer> {
         this.color = color;
         this.tatuaje = tatuaje;
         this.microchip = microchip;
+        this.a=a;
+        this.b=b;
+        this.fy=fy;
     }
 
     @Override
@@ -90,6 +98,9 @@ public class UpdateMascota extends AsyncTask<Void,Integer,Integer> {
         progressDialog.hideProgressDialog();
         if(mascotaExist == 1) {
             modalDialog.setMessage("Registro actualizado con exito!");
+            this.a.setVisibility(View.INVISIBLE);
+            this.b.setVisibility(View.INVISIBLE);
+            this.fy.setVisibility(View.INVISIBLE);
         }else if(mascotaExist == 0){
             modalDialog.setMessage("El ID del propietario no existe");
             modalDialog.showModalDialog();

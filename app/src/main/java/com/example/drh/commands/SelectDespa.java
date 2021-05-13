@@ -4,7 +4,10 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 
 import androidx.annotation.WorkerThread;
 import androidx.core.content.ContextCompat;
@@ -24,8 +27,10 @@ public class SelectDespa extends AsyncTask<Void,Integer,Integer> {
     private EditText idMas, producto, proxF, idDes;
     Context context;
     private int despaExist;
-
-    public SelectDespa(Context context, EditText idDes, EditText idMas, EditText producto, EditText proxF){
+    Button a, b;
+    FrameLayout fy;
+    public SelectDespa(Context context, EditText idDes, EditText idMas, EditText producto, EditText proxF
+    , Button a, Button b, FrameLayout fy){
         this.context = context;
         progressDialog = new ModalProgressDialog(this.context,"Buscando Registro",
                 "Por favor espere...", ProgressDialog.STYLE_SPINNER);
@@ -34,6 +39,9 @@ public class SelectDespa extends AsyncTask<Void,Integer,Integer> {
         this.idMas = idMas;
         this.producto = producto;
         this.proxF = proxF;
+        this.a=a;
+        this.b=b;
+        this.fy=fy;
         despaExist = -1;
     }
 
@@ -105,6 +113,9 @@ public class SelectDespa extends AsyncTask<Void,Integer,Integer> {
             this.idMas.setText(idMas);
             this.producto.setText(producto);
             this.proxF.setText(proxF);
+            this.a.setVisibility(View.VISIBLE);
+            this.b.setVisibility(View.VISIBLE);
+            this.fy.setVisibility(View.VISIBLE);
         });
     }
 }

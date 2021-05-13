@@ -4,6 +4,9 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.FrameLayout;
 
 import com.example.drh.utils.Connection;
 import com.example.drh.utils.ModalDialog;
@@ -19,8 +22,11 @@ public class UpdateDespa extends AsyncTask<Void,Integer,Integer> {
     private ModalDialog modalDialog;
     private String idMas, producto, proxF, idDes;
     private int despaExist;
+    Button a, b;
+    FrameLayout fy;
 
-    public UpdateDespa(Context context, String idDes, String idMas, String producto, String proxF){
+    public UpdateDespa(Context context, String idDes, String idMas, String producto, String proxF,
+                       Button a, Button b, FrameLayout fy){
         progressDialog = new ModalProgressDialog(context,"Actualizando Registro",
                 "Por favor espere...", ProgressDialog.STYLE_SPINNER);
         modalDialog= new ModalDialog(context);
@@ -29,6 +35,9 @@ public class UpdateDespa extends AsyncTask<Void,Integer,Integer> {
         this.idMas = idMas;
         this.producto = producto;
         this.proxF = proxF;
+        this.a=a;
+        this.b=b;
+        this.fy=fy;
     }
 
     @Override
@@ -80,6 +89,9 @@ public class UpdateDespa extends AsyncTask<Void,Integer,Integer> {
         progressDialog.hideProgressDialog();
         if(despaExist == 1) {
             modalDialog.setMessage("Registro actualizado con exito!");
+            this.a.setVisibility(View.INVISIBLE);
+            this.b.setVisibility(View.INVISIBLE);
+            this.fy.setVisibility(View.INVISIBLE);
         }else if(despaExist == 0){
             modalDialog.setMessage("El ID de la mascota no existe");
             modalDialog.showModalDialog();

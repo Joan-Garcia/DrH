@@ -4,6 +4,9 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.FrameLayout;
 
 import com.example.drh.utils.Connection;
 import com.example.drh.utils.ModalDialog;
@@ -19,12 +22,17 @@ public class DeleteDespa extends AsyncTask<Void,Integer,Integer> {
     private ModalDialog modalDialog;
     private String idDes;
     private int despaExist;
+    Button a, b;
+    FrameLayout fy;
 
-    public DeleteDespa(Context context, String idDes){
+    public DeleteDespa(Context context, String idDes, Button a, Button b, FrameLayout fy){
         progressDialog = new ModalProgressDialog(context,"Eliminando Registro",
                 "Por favor espere...", ProgressDialog.STYLE_SPINNER);
         modalDialog= new ModalDialog(context);
         this.idDes = idDes;
+        this.a=a;
+        this.b=b;
+        this.fy=fy;
         despaExist = -1;
     }
 
@@ -74,6 +82,9 @@ public class DeleteDespa extends AsyncTask<Void,Integer,Integer> {
         progressDialog.hideProgressDialog();
         if(despaExist == 1) {
             modalDialog.setMessage("Registro eliminado con exito!");
+            this.a.setVisibility(View.INVISIBLE);
+            this.b.setVisibility(View.INVISIBLE);
+            this.fy.setVisibility(View.INVISIBLE);
         }else if(despaExist == 0){
             modalDialog.setMessage("El ID de la desparacitacion no existe");
             modalDialog.showModalDialog();

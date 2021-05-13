@@ -1,7 +1,9 @@
 package com.example.drh;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -15,7 +17,7 @@ import com.example.drh.commands.UpdateVacuna;
 
 public class buscarVacuna extends AppCompatActivity {
 
-    Button btnActualizar, btnBuscar, btnLimpiar,btnEliminar;
+    Button btnActualizar, btnBuscar,btnEliminar;
     FrameLayout fy;
     EditText editIdMas,editVacuna, editProxFe, editidVac;
     String idMas, vacuna, proxF, idVac;
@@ -33,7 +35,6 @@ public class buscarVacuna extends AppCompatActivity {
     public void asignaciones(){
         btnActualizar=(Button)findViewById(R.id.btnActualizarV);
         btnBuscar=(Button)findViewById(R.id.btnBuscarV);
-        btnLimpiar=(Button)findViewById(R.id.btnLimpiarV);
         btnEliminar=(Button)findViewById(R.id.btnEliminarV);
         fy=(FrameLayout)findViewById(R.id.frameVac);
 
@@ -55,35 +56,42 @@ public class buscarVacuna extends AppCompatActivity {
                 obtnerDatos();
                 if(validar()){
                     //Insertar método para actualizar vacuna
-                    uv = new UpdateVacuna(v.getContext(), idVac, idMas, vacuna, proxF);
+                    uv = new UpdateVacuna(v.getContext(), idVac, idMas, vacuna, proxF, btnEliminar, btnActualizar, fy);
                     uv.execute();
-                    btnLimpiar.setVisibility(View.VISIBLE);
+
                 }
             }
         });
-        btnLimpiar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                vaciar();
-                editidVac.setText("");
-                btnLimpiar.setVisibility(View.INVISIBLE);
-                btnEliminar.setVisibility(View.INVISIBLE);
-                btnActualizar.setVisibility(View.INVISIBLE);
-                fy.setVisibility(View.INVISIBLE);
-            }
-        });
+
         btnEliminar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //Insertar método de eliminar
-                dv = new DeleteVacuna(v.getContext(), idVac);
-                dv.execute();
-                vaciar();
-                editidVac.setText("");
-                btnLimpiar.setVisibility(View.INVISIBLE);
-                btnEliminar.setVisibility(View.INVISIBLE);
-                btnActualizar.setVisibility(View.INVISIBLE);
-                fy.setVisibility(View.INVISIBLE);
+                AlertDialog.Builder alerta = new AlertDialog.Builder(buscarVacuna.this);
+                alerta.setMessage("¿DESEAS ELIMINAR EL REGISTRO?")
+
+                        .setCancelable(false)
+                        .setPositiveButton("SI", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dv = new DeleteVacuna(v.getContext(), idVac, btnEliminar,btnActualizar,fy);
+                                dv.execute();
+
+                                editidVac.setText("");
+
+                            }
+                        })
+                        .setNegativeButton("NO", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.cancel();
+                            }
+                        });
+                AlertDialog titulo= alerta.create();
+                titulo.setTitle("ELIMINAR VACUNA");
+                titulo.show();
+
+
             }
         });
     }
@@ -92,11 +100,9 @@ public class buscarVacuna extends AppCompatActivity {
         idVac=editidVac.getText().toString();
     if(!idVac.isEmpty()){
         //Insertar método de busqueda
-        sv = new SelectVacuna(this,editidVac, editIdMas, editVacuna, editProxFe);
+        sv = new SelectVacuna(this,editidVac, editIdMas, editVacuna, editProxFe,btnEliminar,btnActualizar,fy);
         sv.execute();
-        btnActualizar.setVisibility(View.VISIBLE);
-        btnEliminar.setVisibility(View.VISIBLE);
-        fy.setVisibility(View.VISIBLE);
+
     }else{
         editidVac.setError("EL CAMPO IDVACUNA NO PUEDE QUEDAR VACÍO");
     }
@@ -119,11 +125,7 @@ public class buscarVacuna extends AppCompatActivity {
             return true;
         }
     }
-    public void vaciar(){
-        editIdMas.setText("");
-        editVacuna.setText("");
-        editProxFe.setText("");
-    }
+
 
 
 }

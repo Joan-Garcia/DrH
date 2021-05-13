@@ -1,7 +1,9 @@
 package com.example.drh;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -17,7 +19,7 @@ public class buscar_mascota extends AppCompatActivity {
     EditText editIdMascota,editIdusuario, editNombreMascota,editFechaNac, editRaza,editEspecie,editColor,
             editTatuaje, editMicrochip,editSexo;
     String usuario, nombreMascota, fechaNac,raza, especie, color, tatuaje,microchip, sexo, idMas;
-    Button btnBuscaM, btnVaciarM, btnActualizarM, btnEliminar;
+    Button btnBuscaM, btnActualizarM, btnEliminar;
     FrameLayout fy;
     SelectMascota sm;
     UpdateMascota um;
@@ -42,7 +44,7 @@ public class buscar_mascota extends AppCompatActivity {
 
         btnBuscaM=(Button)findViewById(R.id.btnBuscarMas);
         btnActualizarM=(Button)findViewById(R.id.btnActualizarMas);
-        btnVaciarM=(Button)findViewById(R.id.btnLimpiarMas);
+
         btnEliminar=(Button)findViewById(R.id.btnEliminarMas);
         fy=(FrameLayout)findViewById(R.id.frame1Mas);
 
@@ -52,11 +54,9 @@ public class buscar_mascota extends AppCompatActivity {
                 idMas=editIdMascota.getText().toString();
                 if(!idMas.isEmpty()){
                     sm = new SelectMascota(v.getContext(), editIdMascota, editIdusuario, editNombreMascota,
-                            editFechaNac, editRaza, editEspecie, editColor, editTatuaje, editMicrochip, editSexo);
+                            editFechaNac, editRaza, editEspecie, editColor, editTatuaje, editMicrochip, editSexo,
+                            btnActualizarM,btnEliminar,fy);
                     sm.execute();
-                    btnActualizarM.setVisibility(View.VISIBLE);
-                    btnEliminar.setVisibility(View.VISIBLE);
-                    fy.setVisibility(View.VISIBLE);
                 }else{
                     editIdMascota.setError("EL CAMPO IDMASCOTA NO PUEDE QUEDAR VACÍO");
                 }
@@ -68,36 +68,44 @@ public class buscar_mascota extends AppCompatActivity {
                 obtenerDatos();
                 if(validar()){
                     um = new UpdateMascota(v.getContext(), idMas, usuario, nombreMascota, fechaNac,
-                            raza, especie, color, tatuaje, microchip, sexo);
+                            raza, especie, color, tatuaje, microchip, sexo, btnEliminar, btnActualizarM,fy);
                     um.execute();
-                    btnVaciarM.setVisibility(View.VISIBLE);
+
                 }
             }
         });
 
-        btnVaciarM.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
-                vaciar();
-                editIdMascota.setText("");
-            }
-        });
 
         btnEliminar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                AlertDialog.Builder alerta = new AlertDialog.Builder(buscar_mascota.this);
+                alerta.setMessage("¿DESEAS ELIMINAR EL REGISTRO?")
+
+                        .setCancelable(false)
+                        .setPositiveButton("SI", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dm = new DeleteMascota(v.getContext(), idMas, fy,btnActualizarM,btnEliminar);
+                                dm.execute();
+
+                                editIdMascota.setText("");
+
+
+                            }
+                        })
+                        .setNegativeButton("NO", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.cancel();
+                            }
+                        });
+                AlertDialog titulo= alerta.create();
+                titulo.setTitle("ELIMINAR MASCOTA");
+                titulo.show();
                 //Insertar método de eliminar, usar  idMas
-                dm = new DeleteMascota(v.getContext(), idMas);
-                dm.execute();
-                fy.setVisibility(View.INVISIBLE);
-                btnActualizarM.setVisibility(View.INVISIBLE);
-                btnEliminar.setVisibility(View.INVISIBLE);
-                btnVaciarM.setVisibility(View.INVISIBLE);
-                fy.setVisibility(View.INVISIBLE);
-                vaciar();
-                editIdMascota.setText("");
-                Toast.makeText(v.getContext(),"REGISTRO ELIMINADO",Toast.LENGTH_SHORT).show();
+
             }
         });
     }
@@ -114,22 +122,7 @@ public class buscar_mascota extends AppCompatActivity {
         sexo=editSexo.getText().toString();
 
     }
-    public void vaciar(){
-        editIdusuario.setText("");
-        editNombreMascota.setText("");
-        editFechaNac.setText("");
-        editRaza.setText("");
-        editEspecie.setText("");
-        editColor.setText("");
-        editTatuaje.setText("");
-        editMicrochip.setText("");
-        editSexo.setText("");
 
-        btnActualizarM.setVisibility(View.INVISIBLE);
-        btnEliminar.setVisibility(View.INVISIBLE);
-        fy.setVisibility(View.INVISIBLE);
-        btnVaciarM.setVisibility(View.INVISIBLE);
-    }
 
     public boolean validar(){
         if (usuario.isEmpty()) {

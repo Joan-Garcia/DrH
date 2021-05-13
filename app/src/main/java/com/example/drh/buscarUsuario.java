@@ -1,7 +1,9 @@
 package com.example.drh;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -16,7 +18,7 @@ import com.example.drh.commands.UpdateUsuario;
 
 public class buscarUsuario extends AppCompatActivity {
 
-    Button btnBuscar, btnActualizar, btnVaciar, btnEliminar;
+    Button btnBuscar, btnActualizar, btnEliminar;
     EditText textId, textNombre,textAPater, textAMater,textDom, textColo,textCiu, textEdo, textCP,
             textPais,textTel, textTelCel,textCorreo,textContra,textTUser;
     String id;
@@ -37,7 +39,6 @@ public class buscarUsuario extends AppCompatActivity {
     public void asignaciones(){
         btnBuscar=(Button) findViewById(R.id.btnBuscar);
         btnActualizar=(Button) findViewById(R.id.btnActualizar);
-        btnVaciar=(Button)findViewById(R.id.btnLimpiar);
         btnEliminar=(Button)findViewById(R.id.btnEliminarUser);
         textId=(EditText) findViewById(R.id.editIdUsuario);
         fy=(FrameLayout) findViewById(R.id.frame1);
@@ -66,12 +67,9 @@ public class buscarUsuario extends AppCompatActivity {
                 if(validarId()){
                     //INSERTAR MÉTODO DE BÚSQUEDA e inserción en los campos
                     su = new SelectUsuario(v.getContext(), textId, textNombre,textAPater, textAMater,textDom, textColo,textCiu, textEdo, textCP,
-                            textPais,textTel, textTelCel,textCorreo,textContra,textTUser);
+                            textPais,textTel, textTelCel,textCorreo,textContra,textTUser,btnActualizar,btnEliminar,fy);
                     su.execute();
 
-                    btnActualizar.setVisibility(View.VISIBLE);
-                    fy.setVisibility(View.VISIBLE);
-                    btnEliminar.setVisibility(View.VISIBLE);
                 }
             }
         });
@@ -82,36 +80,43 @@ public class buscarUsuario extends AppCompatActivity {
                 if(validar()){
                     //Insertar método para validar el correo si exxiste ya en la bd
                     uu = new UpdateUsuario(v.getContext(), id, nombre, aPater, aMater, domicilio, colonia,ciudad, estado,cp,pais,telFijo,telCel,
-                            correo,contra,tUsuario);
+                            correo,contra,tUsuario,fy,btnEliminar,btnActualizar);
                     uu.execute();
-                    //actualiza();
-                    btnVaciar.setVisibility(View.VISIBLE);
-                }
-                }
-        });
-        btnVaciar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                vaciar();
-                textId.setText("");
 
-            }
+
+                }
+                }
         });
+
 
         btnEliminar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //Insertar método para eliminar, usar id
-                du = new DeleteUsuario(v.getContext(), id);
-                du.execute();
-                fy.setVisibility(View.INVISIBLE);
-                btnActualizar.setVisibility(View.INVISIBLE);
-                btnEliminar.setVisibility(View.INVISIBLE);
-                btnVaciar.setVisibility(View.INVISIBLE);
-                fy.setVisibility(View.INVISIBLE);
-                vaciar();
-                textId.setText("");
-                Toast.makeText(v.getContext(),"REGISTRO ELIMINADO",Toast.LENGTH_SHORT).show();
+                AlertDialog.Builder alerta = new AlertDialog.Builder(buscarUsuario.this);
+                alerta.setMessage("¿DESEAS ELIMINAR EL REGISTRO?")
+                        .setCancelable(false)
+                        .setPositiveButton("SI", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+
+                                du = new DeleteUsuario(v.getContext(), id, btnEliminar, btnActualizar, fy);
+                                du.execute();
+                                textId.setText("");
+
+                            }
+                        })
+                        .setNegativeButton("NO", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.cancel();
+                            }
+                        });
+                AlertDialog titulo= alerta.create();
+                titulo.setTitle("ELIMINAR USUARIO");
+                titulo.show();
+
+
             }
         });
     }
@@ -128,30 +133,6 @@ public class buscarUsuario extends AppCompatActivity {
         return true;
     }
 
-    public void vaciar(){
-
-        textNombre.setText("");
-        textAPater.setText("");
-        textAMater.setText("");
-        textDom.setText("");
-        textColo.setText("");
-        textCiu.setText("");
-        textEdo.setText("");
-        textCP.setText("");
-        textPais.setText("");
-        textTel.setText("");
-        textTelCel.setText("");
-        textCorreo.setText("");
-        textContra.setText("");
-        textTUser.setText("");
-
-        fy.setVisibility(View.INVISIBLE);
-        btnActualizar.setVisibility(View.INVISIBLE);
-        btnActualizar.setEnabled(false);
-        btnVaciar.setVisibility(View.INVISIBLE);
-        btnEliminar.setVisibility(View.INVISIBLE);
-        fy.setVisibility(View.INVISIBLE);
-    }
     public void obtenerDatos(){
         nombre=textNombre.getText().toString();
         aPater=textAPater.getText().toString();

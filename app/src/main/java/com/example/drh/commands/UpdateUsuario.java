@@ -4,6 +4,9 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.FrameLayout;
 
 import com.example.drh.utils.Connection;
 import com.example.drh.utils.ModalDialog;
@@ -20,10 +23,12 @@ public class UpdateUsuario extends AsyncTask<Void,Integer,Integer> {
     private String id, nombre, aPater, aMater, domicilio, colonia, ciudad, estado, cp, pais, telFijo, telCel,
             correo, contra, tUsuario;
     private int userExist;
+    FrameLayout fy;
+    Button a, b;
 
-    public UpdateUsuario(Context context,String id, String nombre, String aPater, String aMater, String domicilio,
+    public UpdateUsuario(Context context, String id, String nombre, String aPater, String aMater, String domicilio,
                          String colonia, String ciudad, String estado, String cp, String pais, String telFijo,
-                         String telCel, String correo, String contra, String tUsuario){
+                         String telCel, String correo, String contra, String tUsuario, FrameLayout fy,Button a, Button b){
         progressDialog = new ModalProgressDialog(context,"Actualizando Registro",
                 "Por favor espere...", ProgressDialog.STYLE_SPINNER);
         modalDialog= new ModalDialog(context);
@@ -43,6 +48,9 @@ public class UpdateUsuario extends AsyncTask<Void,Integer,Integer> {
         this.correo = correo;
         this.contra = contra;
         this.tUsuario = tUsuario;
+        this.fy=fy;
+        this.a=a;
+        this.b=b;
     }
 
     @Override
@@ -78,6 +86,7 @@ public class UpdateUsuario extends AsyncTask<Void,Integer,Integer> {
                             estado+"',cp='"+cp+"',pais='"+pais+"',tel='"+telFijo+"',cel='"+telCel+"',email='"+
                             correo+"',pass='"+contra+"',tipoUsuario='"+tUsuario+"' WHERE idPropietario = "+id+"; ");
                     st.close();
+
                 }
                 cnEnv.close();
                 cn.close();
@@ -99,6 +108,9 @@ public class UpdateUsuario extends AsyncTask<Void,Integer,Integer> {
         progressDialog.hideProgressDialog();
         if(userExist == 0) {
             modalDialog.setMessage("Registro actualizado con exito!");
+            this.fy.setVisibility(View.INVISIBLE);
+            this.a.setVisibility(View.INVISIBLE);
+            this.b.setVisibility(View.INVISIBLE);
 
         }else if(userExist == 1){
             modalDialog.setMessage("El email ya se encuentra registrado");
@@ -108,4 +120,5 @@ public class UpdateUsuario extends AsyncTask<Void,Integer,Integer> {
         }
         modalDialog.showModalDialog();
     }
+
 }
