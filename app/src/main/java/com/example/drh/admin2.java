@@ -16,7 +16,7 @@ public class admin2 extends AppCompatActivity {
     segundoFragmento sF = new segundoFragmento();
     tercerFragmento tF = new tercerFragmento();
     String email, name;
-    Bundle bundle= new Bundle();
+    Bundle bundle = new Bundle();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,33 +30,33 @@ public class admin2 extends AppCompatActivity {
         cargarFragmento(sF);
     }
 
-    private final BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener = new BottomNavigationView.OnNavigationItemSelectedListener(){
-    @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.primerFragmento:
+    private final BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
+        @Override
+        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+            switch (item.getItemId()) {
+                case R.id.primerFragmento:
 
-                cargarFragmento(pF);
-                return true;
-            case R.id.segundoFragmento:
+                    cargarFragmento(pF);
+                    return true;
+                case R.id.segundoFragmento:
 
-                cargarFragmento(sF);
-                return true;
-            case R.id.tercerFragmento:
+                    cargarFragmento(sF);
+                    return true;
+                case R.id.tercerFragmento:
 
-                cargarFragmento(tF);
-                return true;
+                    cargarFragmento(tF);
+                    return true;
+            }
+            return false;
         }
-        return false;
-    }
 
-};
+    };
 
-    public void cargarFragmento(Fragment a){
+    public void cargarFragmento(Fragment a) {
         bundle.putString("correo", email);
         bundle.putString("nombre", name);
         a.setArguments(bundle);
-        FragmentTransaction transaction =getSupportFragmentManager().beginTransaction();//.detach(a);
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();//.detach(a);
         transaction.replace(R.id.contenedor, a);
         transaction.addToBackStack(null);
         transaction.commit();

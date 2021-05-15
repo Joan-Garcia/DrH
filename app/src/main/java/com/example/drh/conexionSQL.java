@@ -18,6 +18,7 @@ public class conexionSQL extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
 
         db.execSQL("CREATE TABLE USUARIOS(correo varchar, pass varchar, nombre varchar, primary key(correo))");
+
     }
 
     @Override

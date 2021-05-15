@@ -13,7 +13,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.DrH">
-        <activity android:name=".buscarDesp"></activity>
+        <activity android:name=".tablaRegistros" />
+        <activity android:name=".buscarDesp" />
         <activity android:name=".buscarVacuna" />
         <activity android:name=".buscar_mascota" />
         <activity android:name=".buscarUsuario" />

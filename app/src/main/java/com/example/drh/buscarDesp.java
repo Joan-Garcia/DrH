@@ -76,10 +76,6 @@ public class buscarDesp extends AppCompatActivity {
                             public void onClick(DialogInterface dialog, int which) {
                                 dd = new DeleteDespa(v.getContext(), idDes, btnActualizar,btnEliminar,fy);
                                 dd.execute();
-
-
-
-
                             }
                         })
                         .setNegativeButton("NO", new DialogInterface.OnClickListener() {
