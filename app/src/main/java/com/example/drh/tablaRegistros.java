@@ -5,19 +5,11 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
 
-import com.example.drh.commands.pruebaSelecU;
+import com.example.drh.commands.SelectAllUsuario;
 import com.example.drh.utils.Connection;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.List;
 
 public class tablaRegistros extends AppCompatActivity {
 
@@ -26,7 +18,7 @@ ArrayList <String> listaInfo;
 ArrayList <lisElement> listaE;
 Connection cn;
 lisElement le;
-pruebaSelecU psu;
+SelectAllUsuario psu;
 listAdapter lA;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +33,7 @@ listAdapter lA;
         vamosaverquepasa();
     }
     public void vamosaverquepasa(){
-        psu= new pruebaSelecU(le,lA,listaE,rv,this);
+        psu= new SelectAllUsuario(le,lA,listaE,rv,this);
         psu.execute();
     }
 

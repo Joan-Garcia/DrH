@@ -26,23 +26,32 @@ import java.util.List;
 
 import com.example.drh.lisElement;
 
-public class pruebaSelecU extends AsyncTask<Void, Integer, Integer> {
+public class SelectAllUsuario extends AsyncTask<Void, Integer, Integer> {
     private Connection cn;
     private ModalProgressDialog progressDialog;
     private ModalDialog modalDialog;
-    int a=0;
+    int status;
     lisElement le;
     listAdapter lA;
     ArrayList <lisElement> listaE;
     RecyclerView rv;
     Context context;
 
-    public pruebaSelecU(lisElement le, listAdapter lA, ArrayList<lisElement> listaE, RecyclerView rv, Context context) {
+    public SelectAllUsuario(lisElement le, listAdapter lA, ArrayList<lisElement> listaE, RecyclerView rv, Context context) {
+        this.context = context;
+        progressDialog = new ModalProgressDialog(this.context,"Recuperando Registros",
+                "Por favor espere...", ProgressDialog.STYLE_SPINNER);
+        modalDialog= new ModalDialog(this.context);
         this.le = le;
         this.lA = lA;
         this.listaE = listaE;
         this.rv = rv;
-        this.context = context;
+        status = -1;
+    }
+
+    @Override
+    protected void onPreExecute() {
+        progressDialog.showModalProgressDialog();
     }
 
     @Override
@@ -52,7 +61,7 @@ public class pruebaSelecU extends AsyncTask<Void, Integer, Integer> {
         if(cnEnv!=null){
             try {
                 Statement st = cnEnv.createStatement();
-                ResultSet rs= st.executeQuery("SELECT* FROM freedbtech_dbVeterinaria.propietario");
+                ResultSet rs= st.executeQuery("SELECT * FROM freedbtech_dbVeterinaria.propietario");
                 while(rs.next()){
                     this.le= new lisElement(rs.getString("nombre")
                             + " " +rs.getString("aPaterno") +" "+ rs.getString("aMaterno"),
@@ -70,18 +79,34 @@ public class pruebaSelecU extends AsyncTask<Void, Integer, Integer> {
                             "#3B4341");
 
                         this.listaE.add(this.le);
-
                 }
                 workerThread();
-                a=1;
-                return a;
-            }catch (SQLException throwables){
-
+                status = 1;
+                return status;
+            }catch (SQLException throwables){ // Para posibles fallos de conexión
+                Log.println(Log.ERROR,"Fail Verify User",
+                        throwables.getMessage());
+                status = -1;
             }
+        }else{ // Para posibles fallos de conexión
+            Log.println(Log.ERROR,"MySQLConnection","Conexión para Verify User FAIL");
         }
-        a=-1;
-        return a;
+        return status;
     }
+
+    @Override
+    protected void onPostExecute(Integer status) {
+        modalDialog.setTitle("Recuperando Registros");
+        progressDialog.hideProgressDialog();
+        if(status == -1) {
+            modalDialog.setMessage("Ocurrió un error al recuperar los registros.");
+            modalDialog.showModalDialog();
+        }else if(status == 1){
+            //modalDialog.setMessage("El email ya se encuentra registrado");
+            //modalDialog.showModalDialog();
+        }
+    }
+
     @WorkerThread
     private void workerThread() {
         ContextCompat.getMainExecutor(context).execute(() -> {
