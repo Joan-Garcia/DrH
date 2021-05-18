@@ -12,7 +12,8 @@ import android.widget.Button;
 
 public class tercerFragmento extends Fragment {
 
-    Button btnConu, btnConM,btnConTablas, btnVacunas, btnDespa;
+    Button btnConu, btnConM, btnVacunas, btnDespa;
+    Button btnConUsuarios,btnConmascotas, btnConVacunas, btnConDespa;
     View vista;
 
     public tercerFragmento() {
@@ -42,8 +43,10 @@ public class tercerFragmento extends Fragment {
         btnConM=(Button) vista.findViewById(R.id.botonConMas);
         btnVacunas=(Button) vista.findViewById(R.id.botonConVac);
         btnDespa=(Button) vista.findViewById(R.id.botonConDes);
-        btnConTablas=(Button) vista.findViewById(R.id.botonConR);
-
+        btnConUsuarios=(Button) vista.findViewById(R.id.botonConTUsuarios);
+        btnConmascotas=(Button) vista.findViewById(R.id.botonConTMascotas);
+        btnConVacunas=(Button) vista.findViewById(R.id.botonConTVacunas);
+        btnConDespa=(Button) vista.findViewById(R.id.botonConTDesparacitaciones);
 
         btnConu.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,13 +63,7 @@ public class tercerFragmento extends Fragment {
             startActivity(a);
             }
         });
-        btnConTablas.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-            Intent a= new Intent(vista.getContext(),tablaRegistros.class);
-            startActivity(a);
-            }
-        });
+
         btnVacunas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -79,6 +76,36 @@ public class tercerFragmento extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent a = new Intent(vista.getContext(),buscarDesp.class);
+                startActivity(a);
+            }
+        });
+
+        btnConUsuarios.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent a= new Intent(vista.getContext(),tablaRegistros.class);
+                startActivity(a);
+            }
+        });
+
+        btnConmascotas.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent a= new Intent(vista.getContext(),tablaMascota.class);
+                startActivity(a);
+            }
+        });
+        btnConVacunas.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent a = new Intent(vista.getContext(),tablaVacunas.class);
+                startActivity(a);
+            }
+        });
+        btnConDespa.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent a = new Intent(vista.getContext(),tablaDesparacitaciones.class);
                 startActivity(a);
             }
         });

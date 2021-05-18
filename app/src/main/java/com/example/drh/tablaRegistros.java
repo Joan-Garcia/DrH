@@ -7,19 +7,16 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 
 import com.example.drh.commands.SelectAllUsuario;
-import com.example.drh.utils.Connection;
 
 import java.util.ArrayList;
 
 public class tablaRegistros extends AppCompatActivity {
 
 RecyclerView rv;
-ArrayList <String> listaInfo;
-ArrayList <lisElement> listaE;
-Connection cn;
-lisElement le;
+ArrayList <lisUsuario> listaE;
+lisUsuario le;
 SelectAllUsuario psu;
-listAdapter lA;
+adapUsuario lA;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,7 +25,7 @@ listAdapter lA;
         rv.setLayoutManager(new LinearLayoutManager(this));
         listaE = new ArrayList<>();
         le = null;
-        lA= new listAdapter(listaE,this);
+        lA= new adapUsuario(listaE,this);
 
         vamosaverquepasa();
     }

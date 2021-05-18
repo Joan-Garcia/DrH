@@ -28,9 +28,14 @@ public class Login extends AppCompatActivity {
         setContentView(R.layout.activity_loggin);
         et_correo=(EditText)findViewById(R.id.editCorreo);
         et_contra=(EditText)findViewById(R.id.editContra);
-
+        vaciar();
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+            vaciar();
+    }
     public void buscarU(View view){
         //vdbc = new VerifyDatabaseConnection(this);
         //vdbc.execute();

@@ -1,6 +1,5 @@
 package com.example.drh;
 
-import android.content.ContentValues;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
@@ -14,12 +13,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-public class listAdapter extends RecyclerView.Adapter<listAdapter.ViewHolder> {
-    private List<lisElement> aData;
+public class adapUsuario extends RecyclerView.Adapter<adapUsuario.ViewHolder> {
+    private List<lisUsuario> aData;
     private LayoutInflater aInflater;
     private Context context;
 
-    public listAdapter(List<lisElement> itemlist, Context context){
+    public adapUsuario(List<lisUsuario> itemlist, Context context){
         this.aInflater=LayoutInflater.from(context);
         this.context=context;
         this.aData=itemlist;
@@ -31,16 +30,16 @@ public class listAdapter extends RecyclerView.Adapter<listAdapter.ViewHolder> {
     public int getItemCount(){ return aData.size(); }
 
     @Override
-    public listAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType){
-        View view= aInflater.inflate(R.layout.list_element,null);
-        return new listAdapter.ViewHolder(view);
+    public adapUsuario.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType){
+        View view= aInflater.inflate(R.layout.listeusuario,null);
+        return new adapUsuario.ViewHolder(view);
     }
 
     @Override
-    public  void onBindViewHolder(final listAdapter.ViewHolder holder, int pos){
+    public  void onBindViewHolder(final adapUsuario.ViewHolder holder, int pos){
         holder.bindData(aData.get(pos));
     }
-    public void setItems(List <lisElement> items){ aData=items; }//Método para volver a llenar las vistas
+    public void setItems(List <lisUsuario> items){ aData=items; }//Método para volver a llenar las vistas
 
     public class ViewHolder extends RecyclerView.ViewHolder{
         ImageView iconImage;
@@ -70,7 +69,7 @@ public class listAdapter extends RecyclerView.Adapter<listAdapter.ViewHolder> {
 
         }
 
-        void bindData(final lisElement item){
+        void bindData(final lisUsuario item){
             iconImage.setColorFilter(Color.parseColor(item.getColor()), PorterDuff.Mode.SRC_IN);
             nombre.setText(item.getNombre());
             domicilio.setText(item.getDomicilio());

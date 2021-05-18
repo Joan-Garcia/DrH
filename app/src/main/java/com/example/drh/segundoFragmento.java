@@ -33,7 +33,7 @@ public class segundoFragmento extends Fragment {
     String correo, nombre;
     ImageButton btnSalir;
     LinearLayout ly;
-
+    admin2 prueba;
 
     public segundoFragmento() {
         // Required empty public constructor
@@ -76,6 +76,7 @@ public class segundoFragmento extends Fragment {
         b = (TextView) vista.findViewById(R.id.textNombre);
         btnSalir = (ImageButton) vista.findViewById(R.id.btnSalir);
         ly =(LinearLayout) vista.findViewById(R.id.layoutP);
+        prueba= new admin2();
         a.setText(nombre);
         b.setText("Bienvenido");
         btnSalir.setOnClickListener(new View.OnClickListener() {
@@ -98,6 +99,9 @@ public class segundoFragmento extends Fragment {
         Toast.makeText(vista.getContext(), "CERRANDO SESIÓN", Toast.LENGTH_SHORT).show();
         Intent a = new Intent(vista.getContext(), Login.class);
         startActivity(a);
+        this.getActivity().finish();
+
+
 
     }
 

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Dr Huellitas2</string>
+    <string name="app_name">Dr Huellitas</string>
     <string name="imagen">Imagen</string>
     <string name="bienvenido">Bienvenido a Dr Huellitas</string>
     <string name="continuar">Para continuar inicie sesión</string>
@@ -59,7 +59,10 @@
     <string name="btnConM">CONSULTAR MASCOTA</string>
     <string name="btnConD">CONSULTAR DESPARACITACIONES</string>
     <string name="btnConV">CONSULTAR VACUNAS</string>
-    <string name="btnConTablas">CONSULTAR TODOS LOS REGISTROS</string>
+    <string name="btnConUsuarios">CONSULTAR TODOS LOS USUARIOS</string>
+    <string name="btnConMascotas">CONSULTAR TODAS LAS MASCOTAS</string>
+    <string name="btnConVacunas">CONSULTAR TODAS LAS VACUNAS</string>
+    <string name="btnConDesparacitaciones">CONSULTAR TODAS LAS DESPARACITACIONES</string>
 
     <!-- DATOS PARA BUSCAR USUARIO -->
     <string name="ingreseIdU">INGRESE EL IDUSUARIO QUE DESEA BUSCAR</string>
@@ -74,6 +77,4 @@
     <string name="ingreseIdD">INGRESE EL IDDESPARACITACIÓN QUE DESEA BUSCAR</string>
 
 
-    <string name="pruebaNSV">ENDENCEJCEJDNENDKSJDKSDMW,SJDKEHFNJKRHFGNKJVSDGJESH JRHGUER HGUIER HGFYKFBKYQ3U4WTGFY WEGFY
-    FUHR UHFEROU HGFURGLERUIHGLIENGUILREH GUIE GUIERHGUIERHG</string>
 </resources>

@@ -1,10 +1,10 @@
 package com.example.drh;
 
-public class lisElement {
+public class lisUsuario {
 
     public String nombre, domicilio,colonia,cp,pais,estado,correo, tel, celu,id,tipoU,ciudad,color;
 
-    public lisElement(String nombre, String domicilio, String colonia, String cp, String pais, String estado, String correo, String tel, String celu, String id, String tipoU, String ciudad, String color) {
+    public lisUsuario(String nombre, String domicilio, String colonia, String cp, String pais, String estado, String correo, String tel, String celu, String id, String tipoU, String ciudad, String color) {
         this.nombre = nombre;
         this.domicilio = domicilio;
         this.colonia = colonia;
