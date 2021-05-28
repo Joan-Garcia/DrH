@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".segundoFragmentUsuario"
+    android:background="#3B4341">
+    <ImageView
+        android:layout_width="180dp"
+        android:layout_height="180dp"
+        android:layout_marginTop="-180dp"
+        android:layout_gravity="center"
+        android:background="@drawable/asss"/>
+    <ImageButton
+        android:id="@+id/btnSalirUsuario"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/salir"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        />
+
+    <TextView
+        android:id="@+id/textBienvenido"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="-60dp"
+        android:fontFamily="@font/balthazar"
+        android:text="@string/hola"
+        android:textColor="@color/white"
+        android:textSize="25sp" />
+
+    <TextView
+        android:id="@+id/textNomUsuario"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="-18dp"
+        android:fontFamily="@font/balthazar"
+        android:text="NOMBRE VETERINARIO"
+        android:textColor="@color/white"
+        android:textSize="30sp" />
+
+    <LinearLayout
+        android:id="@+id/layoutGUIA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        android:layout_marginTop="180dp"
+        >
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginLeft="30dp"
+            android:background="@drawable/guiauser"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/guiaU"
+            android:fontFamily="@font/balthazar"
+            android:textColor="@color/white"
+            android:textSize="20dp"/>
+
+    </LinearLayout>
+
+
+</FrameLayout>

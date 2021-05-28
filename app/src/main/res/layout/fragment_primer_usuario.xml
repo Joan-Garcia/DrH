@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".primerFragmentUsuario"
+    android:background="#3B4341">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="-300dp"
+        android:text="MASCOTAS"
+        android:fontFamily="@font/balthazar"
+        android:textColor="@color/white"
+        android:textSize="36dp"
+        />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recViewMasUsuario"
+        android:layout_width="match_parent"
+        android:layout_height="620dp"
+        android:layout_marginTop="120dp">
+
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+</FrameLayout>

@@ -14,12 +14,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-public class adapMascota extends RecyclerView.Adapter<adapMascota.ViewHolder> {
-    private List<lisEMascota> aData;
+public class adapMasUsu extends RecyclerView.Adapter<adapMasUsu.ViewHolder> {
+    private List<lisMascotaU> aData;
     private LayoutInflater aInflater;
     private Context context;
 
-    public adapMascota(List<lisEMascota> aData, Context context) {
+    public adapMasUsu(List<lisMascotaU> aData, Context context) {
         this.aData = aData;
         this.aInflater = LayoutInflater.from(context);
         this.context = context;
@@ -27,41 +27,39 @@ public class adapMascota extends RecyclerView.Adapter<adapMascota.ViewHolder> {
 
     @NonNull
     @Override
-    public adapMascota.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view= aInflater.inflate(R.layout.lisemascota,null);
-        return new adapMascota.ViewHolder(view);
+    public adapMasUsu.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view= aInflater.inflate(R.layout.lismasusuario,null);
+        return new adapMasUsu.ViewHolder(view);
     }
-
-    @Override
-    public void onBindViewHolder(@NonNull adapMascota.ViewHolder holder, int position) {
-        holder.binData(aData.get(position));
-    }
-
     @Override
     public int getItemCount() {
         return aData.size();
     }
 
+    @Override
+    public void onBindViewHolder(@NonNull adapMasUsu.ViewHolder holder, int position) {
+        holder.binData(aData.get(position));
+    }
     public class ViewHolder extends RecyclerView.ViewHolder{
         ImageView iv;
-        TextView idM,  nombre, fechaNac, especie, raza, color, sexo, tatuajes, microchip, nombrePro;
+        TextView idM, nombre, fechaNac, especie, raza, color, sexo, tatuajes, microchip, nombrePro;
 
         ViewHolder( View itemView) {
             super(itemView);
-            iv= itemView.findViewById(R.id.iconImageViewMas);
-            idM= itemView.findViewById(R.id.idMasc);
-            nombre=itemView.findViewById(R.id.nombreMascota);
-            fechaNac= itemView.findViewById(R.id.fechaNacimiento);
-            especie= itemView.findViewById(R.id.especie);
-            raza= itemView.findViewById(R.id.raza);
-            color= itemView.findViewById(R.id.color);
-            sexo= itemView.findViewById(R.id.sexo);
-            tatuajes= itemView.findViewById(R.id.tatuaje);
-            microchip= itemView.findViewById(R.id.microchip);
-            nombrePro=itemView.findViewById(R.id.nombreProp);
+            iv= itemView.findViewById(R.id.iconImageViewMasU);
+            idM= itemView.findViewById(R.id.idMascU);
+            nombre=itemView.findViewById(R.id.nombreMascotaU);
+            fechaNac= itemView.findViewById(R.id.fechaNacimientoU);
+            especie= itemView.findViewById(R.id.especieU);
+            raza= itemView.findViewById(R.id.razaU);
+            color= itemView.findViewById(R.id.colorU);
+            sexo= itemView.findViewById(R.id.sexoU);
+            tatuajes= itemView.findViewById(R.id.tatuajeU);
+            microchip= itemView.findViewById(R.id.microchipU);
+
         }
 
-        void binData(final lisEMascota item){
+        void binData(final lisMascotaU item){
             iv.setColorFilter(Color.parseColor(item.getColorImg()), PorterDuff.Mode.SRC_IN);
             idM.setText(item.getIdMascota());
             nombre.setText(item.getNombre());
@@ -72,7 +70,7 @@ public class adapMascota extends RecyclerView.Adapter<adapMascota.ViewHolder> {
             sexo.setText(item.getSexo());
             tatuajes.setText(item.getTatuaje());
             microchip.setText(item.getMicrochip());
-            nombrePro.setText(item.getNombrepro());
+
         }
     }
 

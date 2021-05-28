@@ -74,7 +74,8 @@ public class SelectUsuario extends AsyncTask<Void,Integer,Integer> {
             Log.println(Log.INFO,"MySQLConnection","Conexión para Verificar email user OK");
             try {
                 Statement st = cnEnv.createStatement();
-                ResultSet rs = st.executeQuery("SELECT * FROM freedbtech_dbVeterinaria.propietario WHERE idPropietario = "+id.getText().toString()+"; ");
+                ResultSet rs = st.executeQuery("SELECT * FROM freedbtech_dbVeterinaria.propietario " +
+                        "WHERE idPropietario = "+id.getText().toString()+"; ");
                 rs.next();
                 Log.println(Log.INFO, "Dato", "Rows: "+ rs.getRow());
                 if(rs.getRow() == 1) {

@@ -1,12 +1,12 @@
 package com.example.drh;
 
-import android.annotation.SuppressLint;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,33 +18,23 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
-public class segundoFragmento extends Fragment {
+public class segundoFragmentUsuario extends Fragment {
+View vista;
+RecyclerView rv;
+TextView a, b;
+String correo, nombre;
+ImageButton btnSalir;
+LinearLayout ly;
+admin2 prueba;
 
-
-    TextView a, b;
-    View vista;
-    String correo, nombre;
-    ImageButton btnSalir;
-    LinearLayout ly;
-    admin2 prueba;
-
-    public segundoFragmento() {
+    public segundoFragmentUsuario() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment segundoFragmento.
-     */
     // TODO: Rename and change types and number of parameters
-    public static segundoFragmento newInstance(String param1, String param2) {
-        segundoFragmento fragment = new segundoFragmento();
+    public static segundoFragmentUsuario newInstance(String param1, String param2) {
+        segundoFragmentUsuario fragment = new segundoFragmentUsuario();
         Bundle args = new Bundle();
-
         return fragment;
     }
 
@@ -57,19 +47,20 @@ public class segundoFragmento extends Fragment {
         }
     }
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        vista = inflater.inflate(R.layout.fragment_segundo_fragmento, container, false);
-        a = (TextView) vista.findViewById(R.id.textAdmin);
-        b = (TextView) vista.findViewById(R.id.textNombre);
-        btnSalir = (ImageButton) vista.findViewById(R.id.btnSalir);
-        ly =(LinearLayout) vista.findViewById(R.id.layoutP);
+       vista= inflater.inflate(R.layout.fragment_segundo_usuario, container, false);
+
+
+        a = (TextView) vista.findViewById(R.id.textBienvenido);
+        b = (TextView) vista.findViewById(R.id.textNomUsuario);
+        btnSalir = (ImageButton) vista.findViewById(R.id.btnSalirUsuario);
+        ly =(LinearLayout) vista.findViewById(R.id.layoutGUIA);
         prueba= new admin2();
-        a.setText(nombre);
-        b.setText("Bienvenido");
+        a.setText("BIENVENIDO");
+        b.setText(nombre);
         btnSalir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -77,7 +68,7 @@ public class segundoFragmento extends Fragment {
             }
         });
 
-      ly.setOnClickListener(new View.OnClickListener() {
+        ly.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 tutorial();
@@ -85,7 +76,6 @@ public class segundoFragmento extends Fragment {
         });
         return vista;
     }
-
     public void salirCuenta() {
         Toast.makeText(vista.getContext(), "CERRANDO SESIÓN", Toast.LENGTH_SHORT).show();
         Intent a = new Intent(vista.getContext(), Login.class);
@@ -97,14 +87,17 @@ public class segundoFragmento extends Fragment {
     }
 
     public void tutorial(){
-        Uri uri= Uri.parse("https://www.youtube.com/playlist?list=PLWHjFiWxfNZ8v3raZrdJPWVlk-5YPefuM");
+        Uri uri= Uri.parse("https://youtube.com/playlist?list=PLWHjFiWxfNZ_fF5SLauGQXH679LqB7DVU");
         Intent ab = new Intent(Intent.ACTION_VIEW,uri);
         try {
             startActivity(ab);
         }catch(ActivityNotFoundException a){
             startActivity(new Intent
-                    (Intent.ACTION_VIEW,Uri.parse("https://www.youtube.com/playlist?list=PLWHjFiWxfNZ8v3raZrdJPWVlk-5YPefuM")));
+                    (Intent.ACTION_VIEW,Uri.parse("https://youtube.com/playlist?list=PLWHjFiWxfNZ_fF5SLauGQXH679LqB7DVU")));
         }
     }
+
+
+
 
 }

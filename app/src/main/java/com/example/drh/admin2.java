@@ -61,8 +61,6 @@ public class admin2 extends AppCompatActivity {
         transaction.addToBackStack(null);
         transaction.commit();
     }
-    public void terminar(){
-        finish();
-    }
+
 
 }
