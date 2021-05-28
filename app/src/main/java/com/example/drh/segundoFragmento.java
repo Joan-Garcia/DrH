@@ -69,7 +69,7 @@ public class segundoFragmento extends Fragment {
         ly =(LinearLayout) vista.findViewById(R.id.layoutP);
         prueba= new admin2();
         a.setText(nombre);
-        b.setText("Bienvenido");
+        b.setText("Bienvenido/a");
         btnSalir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

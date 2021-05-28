@@ -68,7 +68,8 @@ public class buscarDesp extends AppCompatActivity {
             public void onClick(View v) {
                 //Insertar método de eliminar
                 AlertDialog.Builder alerta = new AlertDialog.Builder(buscarDesp.this);
-                alerta.setMessage("¿DESEAS ELIMINAR EL REGISTRO?")
+                alerta.setMessage("¿Estás seguro de que quieres eliminar el registro?\n\n"+
+                        "Esta operación será irreversible.")
 
                         .setCancelable(true)
                         .setPositiveButton("SI", new DialogInterface.OnClickListener() {
@@ -85,7 +86,7 @@ public class buscarDesp extends AppCompatActivity {
                             }
                         });
                 AlertDialog titulo= alerta.create();
-                titulo.setTitle("ELIMINAR DESPARACITACIÓN");
+                titulo.setTitle("Eliminar Desparasitación");
                 titulo.show();
 
 

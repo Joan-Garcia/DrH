@@ -59,7 +59,7 @@ public class SelectAllDespa  extends AsyncTask<Void, Integer, Integer> {
         if(cnEnv!=null){
             try{
                 Statement st = cnEnv.createStatement();
-                ResultSet rs= st.executeQuery("SELECT * FROM freedbtech_dbVeterinaria.vistadesparacitaciones");
+                ResultSet rs= st.executeQuery("SELECT * FROM freedbtech_dbVeterinaria.vistadesparacitaciones ORDER BY idDesparacitacion;");
                 while(rs.next()){
                     this.lD= new lisEDespa(rs.getString("idDesparacitacion"),
                             rs.getString("Mascota"),

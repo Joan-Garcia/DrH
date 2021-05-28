@@ -66,7 +66,7 @@ public class SelectAllMascota extends AsyncTask <Void, Integer, Integer> {
         if(cnEnv!=null){
             try{
                 Statement st =cnEnv.createStatement();
-                ResultSet rs=st.executeQuery("SELECT * FROM freedbtech_dbVeterinaria.vistamascotas");
+                ResultSet rs=st.executeQuery("SELECT * FROM freedbtech_dbVeterinaria.vistamascotas ORDER BY idMascota;");
                 while(rs.next()){
                     this.le = new lisEMascota(rs.getString("idMascota"),
                             rs.getString("nombre"),

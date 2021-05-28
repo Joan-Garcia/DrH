@@ -64,9 +64,11 @@ public class UpdateMascota extends AsyncTask<Void,Integer,Integer> {
                 ResultSet rs = st.executeQuery("SELECT * FROM freedbtech_dbVeterinaria.propietario WHERE idPropietario = "+idUsu+"; ");
                 rs.next();
                 Log.println(Log.INFO, "Dato", "Rows: "+ rs.getRow());
-                if(rs.getRow() == 1)
+                if(rs.getRow() == 1) {
                     mascotaExist = 1;
-                else
+                    if(rs.getString("tipoUsuario").equals("A"))
+                        mascotaExist = 2;
+                }else
                     mascotaExist = 0;
                 Log.println(Log.INFO,"VerifyUser","Usuario encontrado: "+ mascotaExist);
                 rs.close();
@@ -106,6 +108,10 @@ public class UpdateMascota extends AsyncTask<Void,Integer,Integer> {
             modalDialog.showModalDialog();
         }else if(mascotaExist == -1){
             modalDialog.setMessage("Error al intentar actualizar el registro");
+        }else if(mascotaExist == 2){
+            modalDialog.setMessage("El usuario es Administrador, no puede tener mascotas.\n\n"+
+                    "Si es empleado y desea registrar sus mascotas registre una cuenta tipo Usuario.");
+            modalDialog.showModalDialog();
         }
         modalDialog.showModalDialog();
     }

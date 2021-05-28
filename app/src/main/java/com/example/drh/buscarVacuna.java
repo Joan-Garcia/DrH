@@ -68,7 +68,8 @@ public class buscarVacuna extends AppCompatActivity {
             public void onClick(View v) {
                 //Insertar método de eliminar
                 AlertDialog.Builder alerta = new AlertDialog.Builder(buscarVacuna.this);
-                alerta.setMessage("¿DESEAS ELIMINAR EL REGISTRO?")
+                alerta.setMessage("¿Estás seguro de que quieres eliminar el registro?\n\n"+
+                        "Esta operación será irreversible.")
 
                         .setCancelable(false)
                         .setPositiveButton("SI", new DialogInterface.OnClickListener() {
@@ -88,7 +89,7 @@ public class buscarVacuna extends AppCompatActivity {
                             }
                         });
                 AlertDialog titulo= alerta.create();
-                titulo.setTitle("ELIMINAR VACUNA");
+                titulo.setTitle("Eliminar Vacuna");
                 titulo.show();
 
 

@@ -59,7 +59,7 @@ admin2 prueba;
         btnSalir = (ImageButton) vista.findViewById(R.id.btnSalirUsuario);
         ly =(LinearLayout) vista.findViewById(R.id.layoutGUIA);
         prueba= new admin2();
-        a.setText("BIENVENIDO");
+        a.setText("Bienvenido/a");
         b.setText(nombre);
         btnSalir.setOnClickListener(new View.OnClickListener() {
             @Override

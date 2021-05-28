@@ -94,7 +94,8 @@ public class buscarUsuario extends AppCompatActivity {
             public void onClick(View v) {
                 //Insertar método para eliminar, usar id
                 AlertDialog.Builder alerta = new AlertDialog.Builder(buscarUsuario.this);
-                alerta.setMessage("¿DESEAS ELIMINAR EL REGISTRO?")
+                alerta.setMessage("¿Estás seguro de que quieres eliminar el registro?\n\n"+
+                        "Esta operación será irreversible.")
                         .setCancelable(false)
                         .setPositiveButton("SI", new DialogInterface.OnClickListener() {
                             @Override
@@ -113,7 +114,7 @@ public class buscarUsuario extends AppCompatActivity {
                             }
                         });
                 AlertDialog titulo= alerta.create();
-                titulo.setTitle("ELIMINAR USUARIO");
+                titulo.setTitle("Eliminar Usuario");
                 titulo.show();
 
 

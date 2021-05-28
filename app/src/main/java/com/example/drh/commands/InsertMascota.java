@@ -59,9 +59,11 @@ public class InsertMascota extends AsyncTask<Void,Integer,Integer> {
                 ResultSet rs = st.executeQuery("SELECT * FROM freedbtech_dbVeterinaria.propietario WHERE idPropietario = "+usuarioId+"; ");
                 rs.next();
                 Log.println(Log.INFO, "Dato", "Rows: "+ rs.getRow());
-                if(rs.getRow() == 1)
+                if(rs.getRow() == 1) {
                     userExist = 1;
-                else
+                    if(rs.getString("tipoUsuario").equals("A"))
+                        userExist = 2;
+                }else
                     userExist = 0;
                 Log.println(Log.INFO,"VerifyUser","Usuario encontrado"+ userExist);
                 rs.close();
@@ -92,8 +94,12 @@ public class InsertMascota extends AsyncTask<Void,Integer,Integer> {
         if(userExist == 1) {
             modalDialog.setMessage("Registro insertado con exito!");
 
-        }else{
+        }else if(userExist == 0){
             modalDialog.setMessage("El ID del usuario no existe");
+            modalDialog.showModalDialog();
+        }else if(userExist == 2){
+            modalDialog.setMessage("El usuario es Administrador, no puede tener mascotas.\n\n"+
+                    "Si es empleado y desea registrar sus mascotas registre una cuenta tipo Usuario.");
             modalDialog.showModalDialog();
         }
         modalDialog.showModalDialog();

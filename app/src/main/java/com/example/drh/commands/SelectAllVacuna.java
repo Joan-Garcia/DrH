@@ -57,7 +57,7 @@ public class SelectAllVacuna extends AsyncTask<Void, Integer, Integer> {
         if(cnEnv!=null){
             try{
                 Statement st= cnEnv.createStatement();
-                ResultSet rs= st.executeQuery("SELECT * FROM freedbtech_dbVeterinaria.vistavacunas");
+                ResultSet rs= st.executeQuery("SELECT * FROM freedbtech_dbVeterinaria.vistavacunas ORDER BY idVacuna;");
                 while(rs.next()){
                     this.le= new lisEVacuna(rs.getString("idVacuna"),
                             rs.getString("Mascota"),

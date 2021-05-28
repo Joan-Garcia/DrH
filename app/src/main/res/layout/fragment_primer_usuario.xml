@@ -12,15 +12,15 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="-300dp"
-        android:text="MASCOTAS"
         android:fontFamily="@font/balthazar"
+        android:text="MASCOTAS"
         android:textColor="@color/white"
-        android:textSize="36dp"
-        />
+        android:textSize="36dp" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recViewMasUsuario"
         android:layout_width="match_parent"
-        android:layout_height="620dp"
+        android:layout_height="570dp"
         android:layout_marginTop="120dp">
 
 

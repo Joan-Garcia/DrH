@@ -122,7 +122,7 @@ public class SelectMasUsuario extends AsyncTask<Void,Integer,Integer> {
             //modalDialog.setMessage("El email ya se encuentra registrado");
             //modalDialog.showModalDialog();
         }else if( status==2){
-            modalDialog.setMessage("NO CUENTAS CON MASCOTAS");
+            modalDialog.setMessage("No se encontraron mascostas registradas.\n\nAcude al hospital para registrarlas!");
             modalDialog.showModalDialog();
         }
     }
