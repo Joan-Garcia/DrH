@@ -15,6 +15,9 @@ import com.example.drh.commands.DeleteDespa;
 import com.example.drh.commands.SelectDespa;
 import com.example.drh.commands.UpdateDespa;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 public class buscarDesp extends AppCompatActivity {
 
     Button btnActualizar, btnBuscar,btnEliminar;
@@ -54,7 +57,10 @@ public class buscarDesp extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 obtnerDatos();
-                if(validar()){
+                Calendar c = Calendar.getInstance();
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd ");
+                String fechaHoy = sdf.format(c.getTime());
+                if(validar(fechaHoy)){
                     //Insertar método para actualizar vacuna
                     ud = new UpdateDespa(v.getContext(), idDes, idMas, despa, proxF, btnActualizar,btnEliminar,fy);
                     ud.execute();
@@ -112,17 +118,23 @@ public class buscarDesp extends AppCompatActivity {
         idMas=editIdMas.getText().toString();
         proxF=editProxFe.getText().toString();
     }
-    public boolean validar(){
+    public boolean validar(String fecha){
         if(idMas.isEmpty()){
             editIdMas.setError("EL CAMPO IDMASCOTA NO PUEDE QUEDAR VACÍO");
             return false;
         }else if(despa.isEmpty()){
             editDes.setError("EL CAMPO NOMBRE DEL PRODUCTO APLICADO NO PUEDE QUEDAR VACÍO");
             return false;
-        }else {
+        }else if(proxF.isEmpty()){
+            proxF=fecha;
+            return true;
+        }else if(fecha.compareTo(proxF)>0){
+            editProxFe.setError("LA PRÓXIMA FECHA DE DESPARACITACIÓN NO PUEDE SER EN EL PASADO");
+            return false;
+        }
             return true;
         }
-    }
+
 
 
 

@@ -162,6 +162,9 @@ public class buscarUsuario extends AppCompatActivity {
         } else if (telCel.isEmpty()) {
             textTelCel.setError("EL CAMPO TELÉFONO CELELULAR NO PUEDE QUEDAR VACÍO");
             return false;
+        }else if(telCel.length()!=10){
+            textTelCel.setError("EL CAMPO TELÉFONO CELELULAR DEBE DE CONTENER 10 DIGITOS");
+            return false;
         } else if (correo.isEmpty()) {
             textCorreo.setError("EL CAMPO CORREO NO PUEDE QUEDAR VACÍO");
             return false;

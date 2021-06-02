@@ -15,6 +15,9 @@ import com.example.drh.commands.DeleteVacuna;
 import com.example.drh.commands.SelectVacuna;
 import com.example.drh.commands.UpdateVacuna;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 public class buscarVacuna extends AppCompatActivity {
 
     Button btnActualizar, btnBuscar,btnEliminar;
@@ -54,7 +57,10 @@ public class buscarVacuna extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 obtnerDatos();
-                if(validar()){
+                Calendar c = Calendar.getInstance();
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd ");
+                String fechaHoy = sdf.format(c.getTime());
+                if(validar(fechaHoy)){
                     //Insertar método para actualizar vacuna
                     uv = new UpdateVacuna(v.getContext(), idVac, idMas, vacuna, proxF, btnEliminar, btnActualizar, fy);
                     uv.execute();
@@ -115,17 +121,23 @@ public class buscarVacuna extends AppCompatActivity {
         idMas=editIdMas.getText().toString();
         proxF=editProxFe.getText().toString();
     }
-    public boolean validar(){
+    public boolean validar(String fecha){
         if(idMas.isEmpty()){
             editIdMas.setError("EL CAMPO IDMASCOTA NO PUEDE QUEDAR VACÍO");
             return false;
         }else if(vacuna.isEmpty()){
             editVacuna.setError("EL CAMPO NOMBRE DE LA VACUNA NO PUEDE QUEDAR VACÍO");
             return false;
-        }else {
+        }else if(proxF.isEmpty()){
+            proxF=fecha;
+            return true;
+        }else if(fecha.compareTo(proxF)>0){
+            editProxFe.setError("LA PRÓXIMA FECHA DE VACUNACIÓN NO PUEDE SER EN EL PASADO");
+            return false;
+        }
             return true;
         }
-    }
+
 
 
 

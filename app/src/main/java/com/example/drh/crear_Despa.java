@@ -13,6 +13,9 @@ import android.widget.Toast;
 
 import com.example.drh.commands.InsertDesparasitacion;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link crear_Despa#newInstance} factory method to
@@ -82,7 +85,10 @@ public class crear_Despa extends Fragment {
             @Override
             public void onClick(View v) {
                 obtenerDatos();
-                if (validar()) {
+                Calendar c = Calendar.getInstance();
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd ");
+                String fechaHoy = sdf.format(c.getTime());
+                if (validar(fechaHoy)) {
                     //INSERTAR MÉTODO PARA INGRESAR A LA BASE DE DATOS
                     id = new InsertDesparasitacion(getActivity(), idMasDes, producto, proxFec);
                     id.execute();
@@ -104,17 +110,23 @@ public class crear_Despa extends Fragment {
         producto=editProducto.getText().toString();
         proxFec=editProxFec.getText().toString();
     }
-    public boolean validar(){
+    public boolean validar(String fecha){
         if(idMasDes.isEmpty()){
             editIdMasDes.setError("EL CAMPO IDMASCOTA NO PUEDE QUEDAR VACÍO");
             return false;
-        }else if(producto.isEmpty()){
+        }else if(producto.isEmpty()) {
             editProducto.setError("EL CAMPO NOMBRE PRODUCTO NO PUEDE QUEDAR VACÍO");
             return false;
-        }else{
+        }else if(proxFec.isEmpty()){
+            proxFec=fecha;
+            return true;
+        }else if(fecha.compareTo(proxFec)>0){
+            editProxFec.setError("LA PRÓXIMA FECHA DE DESPARACITACIÓN NO PUEDE SER EN EL PASADO");
+            return false;
+        }
             return true;
         }
-    }
+
     public void vaciar(){
         editIdMasDes.setText("");
         editProducto.setText("");

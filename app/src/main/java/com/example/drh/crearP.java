@@ -146,9 +146,12 @@ public class crearP extends Fragment {
             return false;
         } else if (telCel.isEmpty()) {
 
-            et_TelCel.setError("EL CAMPO TELÉFONO CELELULAR NO PUEDE QUEDAR VACÍO");
+            et_TelCel.setError("EL CAMPO TELÉFONO CELULAR NO PUEDE QUEDAR VACÍO");
             return false;
-        } else if (correo.isEmpty()) {
+        }else if(telCel.length()!=10){
+            et_TelCel.setError("EL CAMPO TELÉFONO CELELULAR DEBE DE CONTENER 10 DIGITOS");
+            return false;
+        }else if (correo.isEmpty()) {
 
             et_Correo.setError("EL CAMPO CORREO NO PUEDE QUEDAR VACÍO");
             return false;

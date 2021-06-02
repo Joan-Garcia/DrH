@@ -15,6 +15,9 @@ import com.example.drh.commands.DeleteMascota;
 import com.example.drh.commands.SelectMascota;
 import com.example.drh.commands.UpdateMascota;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 public class buscar_mascota extends AppCompatActivity {
     EditText editIdMascota,editIdusuario, editNombreMascota,editFechaNac, editRaza,editEspecie,editColor,
             editTatuaje, editMicrochip,editSexo;
@@ -65,8 +68,12 @@ public class buscar_mascota extends AppCompatActivity {
         btnActualizarM.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                obtenerDatos();
-                if(validar()){
+                Calendar c = Calendar.getInstance();
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd ");
+                String getCurrentDateTime = sdf.format(c.getTime());
+                obtenerDatos(getCurrentDateTime);
+
+                if(validar(getCurrentDateTime)){
                     um = new UpdateMascota(v.getContext(), idMas, usuario, nombreMascota, fechaNac,
                             raza, especie, color, tatuaje, microchip, sexo, btnEliminar, btnActualizarM,fy);
                     um.execute();
@@ -110,7 +117,7 @@ public class buscar_mascota extends AppCompatActivity {
             }
         });
     }
-    public void obtenerDatos(){
+    public void obtenerDatos(String fecha){
 
         usuario=editIdusuario.getText().toString();
         nombreMascota=editNombreMascota.getText().toString();
@@ -125,12 +132,19 @@ public class buscar_mascota extends AppCompatActivity {
     }
 
 
-    public boolean validar(){
+    public boolean validar(String fecha){
+
         if (usuario.isEmpty()) {
             editIdusuario.setError("EL CAMPO IDPROPIETARIO NO PUEDE QUEDAR VACÍO");
             return false;
-        } else if (fechaNac.length()!=10) {
+        } else if(nombreMascota.isEmpty()) {
+            editNombreMascota.setError("EL CAMPO NOMBRE NO PUEDE QUEDAR VACÍO");
+            return false;
+        }else if (fechaNac.length()!=10) {
             editFechaNac.setError("INGRESA LOS DATOS EN EL FORMATO PEDIDO AAAA-MM-DD");
+            return false;
+        }else if(fecha.compareTo(fechaNac)<0) {
+            editFechaNac.setError("LA MASCOTA NO PUEDE TENER UNA FECHA DE NACIMIENTO MAYOR AL DIA DE HOY");
             return false;
         } else if (especie.isEmpty()) {
             editEspecie.setError("EL CAMPO ESPECIE NO PUEDE QUEDAR VACÍO");

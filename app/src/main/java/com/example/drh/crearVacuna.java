@@ -13,6 +13,9 @@ import android.widget.Toast;
 
 import com.example.drh.commands.InsertVacuna;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link crearVacuna#newInstance} factory method to
@@ -85,7 +88,10 @@ public class crearVacuna extends Fragment {
             @Override
             public void onClick(View v) {
                 obtenerDatos();
-                if(validar()){
+                Calendar c = Calendar.getInstance();
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd ");
+               String fechaHoy = sdf.format(c.getTime());
+                if(validar(fechaHoy)){
                     //INSERTAR MÉTODO PARA INGRESAR A LA BASE DE DATOS
                     iv = new InsertVacuna(getActivity(), idMascota, nomVac, proxFech);
                     iv.execute();
@@ -110,16 +116,21 @@ public class crearVacuna extends Fragment {
         proxFech=editProxFechVac.getText().toString();
     }
 
-    public boolean validar(){
+    public boolean validar(String fecha){
         if(idMascota.isEmpty()){
             editIdMascota.setError("EL CAMPO IDMASCOTA NO PUEDE QUEDAR VACÍO");
             return false;
         }else if(nomVac.isEmpty()){
             editNomVac.setError("EL CAMPO NOMBRE DE LA VACUNA NO PUEDE QUEDAR VACÍO");
             return false;
-        }else {
-            return true;
+        }else if(proxFech.isEmpty()){
+         proxFech=fecha;
+         return true;
+        }else if(fecha.compareTo(proxFech)>0){
+            editProxFechVac.setError("LA PRÓXIMA FECHA DE VACUNACIÓN NO PUEDE SER EN EL PASADO");
+            return false;
         }
+        return true;
     }
     public void vaciar(){
         editIdMascota.setText("");

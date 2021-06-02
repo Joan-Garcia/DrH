@@ -17,6 +17,9 @@ import android.widget.Toast;
 
 import com.example.drh.commands.InsertMascota;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link crear_Mascota#newInstance} factory method to
@@ -32,7 +35,7 @@ public class crear_Mascota extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-    String [] sexoMascota= new String[]{"","M","H"};
+
     EditText editIdusuario, editNombreMascota,editFechaNac, editRaza,editEspecie,editColor,
             edirTatuaje, editMicrochip,editSexo;
     String usuario, nombreMascota, fechaNac,raza, especie, color, tatuaje,microchip, sexo;
@@ -62,6 +65,7 @@ public class crear_Mascota extends Fragment {
         args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
         return fragment;
+
     }
 
     @Override
@@ -100,8 +104,12 @@ public class crear_Mascota extends Fragment {
         btnCrearM.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 obtenerDatos();
-                if(validar()){
+                Calendar c = Calendar.getInstance();
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd ");
+                String getCurrentDateTime = sdf.format(c.getTime());
+                if(validar(getCurrentDateTime)){
                     //INSERTAR MÉTODO QUE COMPRUEBE EN LA BASE DE DATOS SI EL USUARIO YA EXISTE
                     vui = new InsertMascota(getActivity(), usuario, nombreMascota, fechaNac,raza, especie, color, tatuaje,microchip, sexo);
                     vui.execute();
@@ -134,16 +142,25 @@ public class crear_Mascota extends Fragment {
         tatuaje= edirTatuaje.getText().toString();
         microchip= editMicrochip.getText().toString();
         sexo=editSexo.getText().toString().trim();
+
     }
 
-    public boolean validar() {
+    public boolean validar(String fecha) {
+
+
         if (usuario.isEmpty()) {
             editIdusuario.setError("EL CAMPO IDPROPIETARIO NO PUEDE QUEDAR VACÍO");
             return false;
-            } else if (fechaNac.length()!=10) {
+            }else if(nombreMascota.isEmpty()) {
+            editNombreMascota.setError("EL CAMPO NOMBRE NO PUEDE QUEDAR VACÍO");
+            return false;
+            }else if (fechaNac.length()!=10) {
                 editFechaNac.setError("INGRESA LOS DATOS EN EL FORMATO PEDIDO AAAA-MM-DD");
                 return false;
-            } else if (especie.isEmpty()) {
+            }else if(fecha.compareTo(fechaNac)<0) {
+            editFechaNac.setError("LA MASCOTA NO PUEDE TENER UNA FECHA DE NACIMIENTO MAYOR AL DIA DE HOY");
+            return false;
+            }else if (especie.isEmpty()) {
                 editEspecie.setError("EL CAMPO ESPECIE NO PUEDE QUEDAR VACÍO");
                 return false;
             } else if (raza.isEmpty()) {

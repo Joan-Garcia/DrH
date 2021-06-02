@@ -12,6 +12,8 @@ import com.example.drh.utils.ModalProgressDialog;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 public class InsertDesparasitacion extends AsyncTask<Void,Integer,Integer> {
     private Connection cn;
@@ -19,6 +21,7 @@ public class InsertDesparasitacion extends AsyncTask<Void,Integer,Integer> {
     private ModalDialog modalDialog;
     private String idMasDes, producto, proxFec;
     private int mascotaExist;
+    String fecha;
 
     public InsertDesparasitacion(Context context, String idMasDes, String producto, String proxFec){
         progressDialog = new ModalProgressDialog(context,"Insertando Registro",
@@ -28,6 +31,9 @@ public class InsertDesparasitacion extends AsyncTask<Void,Integer,Integer> {
         this.producto = producto;
         this.proxFec = proxFec;
         mascotaExist = -1;
+        Calendar c = Calendar.getInstance();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd ");
+        fecha = sdf.format(c.getTime());
     }
 
     @Override
@@ -55,7 +61,7 @@ public class InsertDesparasitacion extends AsyncTask<Void,Integer,Integer> {
                 st.close();
                 if(mascotaExist == 1){
                     st = cnEnv.createStatement();
-                    st.executeUpdate("INSERT INTO freedbtech_dbVeterinaria.desparacitacion(idMascota, fecha, producto, proxFecha) VALUES("+idMasDes+", CURRENT_TIMESTAMP(), '"+producto+"', '"+proxFec+"');");
+                    st.executeUpdate("INSERT INTO freedbtech_dbVeterinaria.desparacitacion(idMascota, fecha, producto, proxFecha) VALUES("+idMasDes+",'"+fecha+"', '"+producto+"', '"+proxFec+"');");
                     st.close();
                 }
                 cnEnv.close();

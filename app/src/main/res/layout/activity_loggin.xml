@@ -9,18 +9,18 @@
 
     <ImageView
         android:id="@+id/imageView"
+        android:layout_height="300dp"
         android:layout_width="match_parent"
-        android:layout_height="142dp"
-        android:layout_marginBottom="668dp"
-        android:background="@drawable/perr"
+        android:background="@drawable/logodos"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        android:transitionName="logoImageTrans"/>
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="150dp"
+        android:layout_marginTop="260dp"
         android:fontFamily="@font/balthazar"
         android:text="@string/bienvenido"
         android:textColor="#FFFFFF"
@@ -32,7 +32,7 @@
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="190dp"
+        android:layout_marginTop="300dp"
         android:fontFamily="@font/balthazar"
         android:text="@string/continuar"
         android:textColor="#FFFFFF"
@@ -45,7 +45,7 @@
         android:id="@+id/textInputLayout1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="250dp"
+        android:layout_marginTop="360dp"
         android:gravity="center"
         android:textColorHint="@android:color/black"
         app:boxStrokeColor="#FF03DAC5"
@@ -61,6 +61,7 @@
             android:hint="@string/ingresarC"
             android:inputType="textPersonName"
             android:textColor="@color/black"
+
             android:textColorHint="@android:color/darker_gray"
             android:textSize="20sp"
             android:textColorLink="@color/black"/>
@@ -70,7 +71,7 @@
         android:id="@+id/textInputLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="310dp"
+        android:layout_marginTop="420dp"
         android:gravity="center"
         android:textColorHint="@android:color/black"
         app:boxStrokeColor="#FF03DAC5"
@@ -98,7 +99,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="140dp"
-        android:layout_marginTop="420dp"
+        android:layout_marginTop="530dp"
         android:background="#02DFCB"
         android:fontFamily="@font/balthazar"
         android:onClick="buscarU"
