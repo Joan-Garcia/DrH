@@ -104,7 +104,7 @@
                 android:text="@string/vaciar"
                 android:fontFamily="@font/balthazar"
                 android:visibility="invisible"
-                android:layout_marginBottom="10dp"
+
                 />
         </LinearLayout>
 

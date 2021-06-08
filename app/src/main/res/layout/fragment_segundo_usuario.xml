@@ -6,17 +6,17 @@
     tools:context=".segundoFragmentUsuario"
     android:background="#3B4341">
     <ImageView
-        android:layout_width="180dp"
-        android:layout_height="180dp"
-        android:layout_marginTop="-180dp"
+        android:layout_width="wrap_content"
+        android:layout_height="250dp"
+        android:layout_marginTop="-170dp"
         android:layout_gravity="center"
-        android:background="@drawable/asss"/>
+        android:background="@drawable/usuario1"/>
     <ImageButton
         android:id="@+id/btnSalirUsuario"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:background="@drawable/salir"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:layout_marginLeft="20dp"
         />
 
@@ -25,7 +25,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="-60dp"
+        android:layout_marginTop="-30dp"
         android:fontFamily="@font/balthazar"
         android:text="@string/hola"
         android:textColor="@color/white"
@@ -36,7 +36,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="-18dp"
+        android:layout_marginTop="2dp"
         android:fontFamily="@font/balthazar"
         android:text="NOMBRE VETERINARIO"
         android:textColor="@color/white"
@@ -54,14 +54,23 @@
         <ImageView
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:layout_marginLeft="30dp"
-            android:background="@drawable/guiauser"
+            android:background="@drawable/pregunta"
+            android:layout_gravity="center"
             />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/guiaU"
+            android:text="¿TIENES DUDAS O PROBLEMAS?"
+            android:layout_gravity="center"
+            android:fontFamily="@font/balthazar"
+            android:textColor="@color/white"
+            android:textSize="20dp"/>
+        <TextView
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="CONTÁCTANOS"
             android:fontFamily="@font/balthazar"
             android:textColor="@color/white"
             android:textSize="20dp"/>

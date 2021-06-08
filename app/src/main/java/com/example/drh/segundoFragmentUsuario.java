@@ -87,14 +87,11 @@ admin2 prueba;
     }
 
     public void tutorial(){
-        Uri uri= Uri.parse("https://youtube.com/playlist?list=PLWHjFiWxfNZ_fF5SLauGQXH679LqB7DVU");
-        Intent ab = new Intent(Intent.ACTION_VIEW,uri);
-        try {
-            startActivity(ab);
-        }catch(ActivityNotFoundException a){
-            startActivity(new Intent
-                    (Intent.ACTION_VIEW,Uri.parse("https://youtube.com/playlist?list=PLWHjFiWxfNZ_fF5SLauGQXH679LqB7DVU")));
-        }
+       Intent intent = new Intent (Intent.ACTION_DIAL);
+       intent.setData(Uri.parse("tel:4773767637"));
+       startActivity(intent);
+
+
     }
 
 

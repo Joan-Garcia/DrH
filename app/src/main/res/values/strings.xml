@@ -23,7 +23,7 @@
     <string name="tipoUsuario">INGRESE TIPO USUARIO</string>
     <string name="creU">CREAR USUARIO</string>
     <string name="cuentaCreada">¿YA TIENES UNA CUENTA? INICIA SESIÓN</string>
-    <string name="insertar">BIENVENIDO ¿QUÉ DESEA HACER?</string>
+    <string name="insertar">¿QUÉ DESEA HACER?</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">CONSULTAR</string>
     <string name="hello_blank_fragment3">ELIMINAR</string>

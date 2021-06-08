@@ -24,7 +24,7 @@ public class segundoFragmento extends Fragment {
     TextView a, b;
     View vista;
     String correo, nombre;
-    ImageButton btnSalir;
+    ImageButton btnSalir, btnInsta;
     LinearLayout ly;
     admin2 prueba;
 
@@ -67,6 +67,7 @@ public class segundoFragmento extends Fragment {
         b = (TextView) vista.findViewById(R.id.textNombre);
         btnSalir = (ImageButton) vista.findViewById(R.id.btnSalir);
         ly =(LinearLayout) vista.findViewById(R.id.layoutP);
+        btnInsta=(ImageButton) vista.findViewById(R.id.btnAyuda);
         prueba= new admin2();
         a.setText(nombre);
         b.setText("Bienvenido/a");
@@ -83,6 +84,12 @@ public class segundoFragmento extends Fragment {
                 tutorial();
             }
         });
+      btnInsta.setOnClickListener(new View.OnClickListener() {
+          @Override
+          public void onClick(View v) {
+              pregunta();
+          }
+      });
         return vista;
     }
 
@@ -105,6 +112,11 @@ public class segundoFragmento extends Fragment {
             startActivity(new Intent
                     (Intent.ACTION_VIEW,Uri.parse("https://www.youtube.com/playlist?list=PLWHjFiWxfNZ8v3raZrdJPWVlk-5YPefuM")));
         }
+    }
+
+    public void pregunta(){
+        Intent a = new Intent(vista.getContext(),datosContacto.class);
+        startActivity(a);
     }
 
 }
