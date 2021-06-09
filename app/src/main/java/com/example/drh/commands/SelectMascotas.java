@@ -11,6 +11,7 @@ import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.drh.R;
 import com.example.drh.adapDespa;
 import com.example.drh.adapFech;
 import com.example.drh.adapMasUsu;
@@ -44,6 +45,8 @@ public class SelectMascotas extends AsyncTask<Void, Integer, Integer> {
     ArrayList<lisMasFech> lisFech;
     RecyclerView rv;
     Context context;
+    Integer[] imagenesID;
+    String[] prueba;
 
     public SelectMascotas(int id, lisMasFech lMU, adapFech aF, ArrayList<lisMasFech> lisFech, RecyclerView rv, Context context) {
         this.id = id;
@@ -56,6 +59,8 @@ public class SelectMascotas extends AsyncTask<Void, Integer, Integer> {
         progressDialog = new ModalProgressDialog(this.context, "Recuperando Registros",
                 "Por favor espere...", ProgressDialog.STYLE_SPINNER);
         modalDialog = new ModalDialog(this.context);
+        imagenesID= new Integer[]{R.drawable.vacuna, R.drawable.desparacitacion};
+        prueba= new String[]{"IDV","IDD"};
     }
 
     @Override
@@ -97,7 +102,9 @@ public class SelectMascotas extends AsyncTask<Void, Integer, Integer> {
                             a,
                             rs.getDate("proxFecha"),
                             rs.getDate("fecha"),
-                            "VACUNA");
+
+                            imagenesID[0],
+                            prueba[0]);
                     this.lisFech.add(this.lMU);
                     status = 1;
                 }
@@ -119,7 +126,9 @@ public class SelectMascotas extends AsyncTask<Void, Integer, Integer> {
                             a,
                             rs.getDate("fecha"),
                             rs.getDate("proxFecha"),
-                            "DESPARACITACIÓN");
+
+                            imagenesID[1],
+                            prueba[1]);
                     this.lisFech.add(this.lMU);
                     status = 1;
                 }

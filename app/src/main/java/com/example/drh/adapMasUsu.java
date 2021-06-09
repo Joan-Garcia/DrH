@@ -42,7 +42,7 @@ public class adapMasUsu extends RecyclerView.Adapter<adapMasUsu.ViewHolder> {
     }
     public class ViewHolder extends RecyclerView.ViewHolder{
         ImageView iv;
-        TextView idM, nombre, fechaNac, especie, raza, color, sexo, tatuajes, microchip, nombrePro;
+        TextView idM, nombre, fechaNac, especie, raza, color, sexo, tatuajes, microchip;
 
         ViewHolder( View itemView) {
             super(itemView);

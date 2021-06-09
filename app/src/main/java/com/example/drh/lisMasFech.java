@@ -1,28 +1,43 @@
 package com.example.drh;
 
+import android.widget.ImageView;
+
 import java.sql.Date;
 
 public class lisMasFech {
-    String idAplicacion, nombremascota, producto, color, descripcion;
+    String idAplicacion, nombremascota, producto, color, idAp;
     Date fechaApli, proxFecV;
+    Integer iv;
 
-    public lisMasFech(String idAplicacion, String nombremascota, String producto, String color, Date fechaApli, Date proxFecV, String descripcion) {
+    public lisMasFech(String idAplicacion, String nombremascota, String producto, String color, Date fechaApli, Date proxFecV,
+                      Integer a, String idp) {
         this.idAplicacion = idAplicacion;
         this.nombremascota = nombremascota;
         this.producto = producto;
         this.color = color;
         this.fechaApli = fechaApli;
         this.proxFecV = proxFecV;
-        this.descripcion=descripcion;
+        this.iv=a;
+        this.idAp=idp;
     }
 
-    public String getDescripcion() {
-        return descripcion;
+    public String getIdAp() {
+        return idAp;
     }
 
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
+    public void setIdAp(String idAp) {
+        this.idAp = idAp;
     }
+
+    public Integer getIv() {
+        return iv;
+    }
+
+    public void setIv(Integer iv) {
+        this.iv = iv;
+    }
+
+
 
     public String getIdAplicacion() {
         return idAplicacion;

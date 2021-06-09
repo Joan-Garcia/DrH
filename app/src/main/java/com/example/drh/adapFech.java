@@ -43,25 +43,30 @@ public class adapFech extends RecyclerView.Adapter<adapFech.ViewHolder > {
     }
     public class ViewHolder extends RecyclerView.ViewHolder {
         ImageView iv;
-        TextView idA, nombreMascota, nombreDes, fechaAp, proxFecha, tipoA;
+        TextView idA, nombreMascota, nombreDes, fechaAp, proxFecha, tAp;
         ViewHolder(@NonNull View itemView) {
             super(itemView);
             iv=itemView.findViewById(R.id.iconImageViewFechas);
             idA=itemView.findViewById(R.id.idFecUser);
+            tAp=itemView.findViewById(R.id.idAplicacion);
             nombreMascota=itemView.findViewById(R.id.nombreMascotaFec);
             nombreDes=itemView.findViewById(R.id.nombreAppF);
             fechaAp=itemView.findViewById(R.id.fechavacFec);
             proxFecha=itemView.findViewById(R.id.proxFFEchas);
-            tipoA=itemView.findViewById(R.id.tipoApp);
+
+
         }
         void binData(final lisMasFech item){
             iv.setColorFilter(Color.parseColor(item.getColor()), PorterDuff.Mode.SRC_IN);
+            iv.setImageResource(item.getIv());
             idA.setText(item.getIdAplicacion());
+            tAp.setText(item.getIdAp());
             nombreMascota.setText(item.getNombremascota());
             nombreDes.setText(item.getVacuna());
             fechaAp.setText(item.getFechaApli().toString());
             proxFecha.setText(item.getProxFecV().toString());
-            tipoA.setText(item.getDescripcion());
+
+
         }
     }
 
