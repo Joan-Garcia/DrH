@@ -1,6 +1,9 @@
 package com.example.drh;
 
+import android.content.ActivityNotFoundException;
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -44,7 +47,7 @@ public class adapContaco extends RecyclerView.Adapter<adapContaco.ViewHolder> {
 
 
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         ImageView imagenCon, imagenRed;
         TextView puesto, nombre, correo,  numero, redS;
         public ViewHolder(@NonNull View itemView) {
@@ -55,7 +58,7 @@ public class adapContaco extends RecyclerView.Adapter<adapContaco.ViewHolder> {
             nombre=itemView.findViewById(R.id.nombreContacto);
             correo=itemView.findViewById(R.id.correoContacto);
             numero=itemView.findViewById(R.id.numeroContac);
-            redS=itemView.findViewById(R.id.linkRS);
+            imagenRed.setOnClickListener(this);
 
         }
         void binData(final contacto item){
@@ -65,7 +68,30 @@ public class adapContaco extends RecyclerView.Adapter<adapContaco.ViewHolder> {
             nombre.setText(item.getNombre());
             correo.setText(item.getCorreo());
             numero.setText(item.getNumero());
-            redS.setText(item.getRedSocial());
+
+        }
+
+        @Override
+        public void onClick(View v) {
+            int position = getAdapterPosition();
+            if(position==0){
+                Uri uri= Uri.parse("https://www.instagram.com/carreonchis_/");
+                Intent instagram = new Intent(Intent.ACTION_VIEW,uri);
+                try {
+                   context.startActivity(instagram);
+                }catch(ActivityNotFoundException a){
+                    context.startActivity(new Intent (Intent.ACTION_VIEW,Uri.parse("https://www.instagram.com/carreonchis_/")));
+                }
+            }else if(position==1){
+                Uri uri= Uri.parse("https://www.facebook.com/joangarcia2015");
+                Intent instagram = new Intent(Intent.ACTION_VIEW,uri);
+                try {
+                    context.startActivity(instagram);
+                }catch(ActivityNotFoundException a){
+                    context.startActivity(new Intent (Intent.ACTION_VIEW,Uri.parse("https://www.facebook.com/joangarcia2015")));
+                }
+            }
+
         }
     }
 

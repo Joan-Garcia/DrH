@@ -1,26 +1,19 @@
 package com.example.drh;
 
 public class contacto {
-    String puesto,nombre, correo,  numero, redSocial;
+    String puesto,nombre, correo,  numero;
     Integer imagen1, imagen2;
 
-    public contacto(String puesto, String nombre,  String correo, String numero, String rS,Integer imagen1, Integer imagen2) {
+    public contacto(String puesto, String nombre,  String correo, String numero,Integer imagen1, Integer imagen2) {
         this.puesto = puesto;
         this.nombre = nombre;
         this.correo = correo;
         this.numero = numero;
-        this.redSocial=rS;
         this.imagen1 = imagen1;
         this.imagen2 = imagen2;
     }
 
-    public String getRedSocial() {
-        return redSocial;
-    }
 
-    public void setRedSocial(String redSocial) {
-        this.redSocial = redSocial;
-    }
 
     public String getPuesto() {
         return puesto;

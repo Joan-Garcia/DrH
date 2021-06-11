@@ -38,11 +38,11 @@ public class datosContacto extends AppCompatActivity {
         listaV= new ArrayList<>();
         aC = new adapContaco(listaV, this);
         con= new contacto("PROGRAMADOR","JORGE CARREÓN",
-                          "jace62@hotmail.es","4773767637",
-                "/carreonchis_", imagenesContaco[0],imagenesRedS[0]);
+                          "jace62@hotmail.es","4773767637"
+                , imagenesContaco[0],imagenesRedS[0]);
         listaV.add(con);
         con= new contacto("ADMINISTRADOR BD", "JOAN GARCÍA",
-                "joan.garcia@gmail.com","4771234567","/joangarcia2015",
+                "joan.garcia@gmail.com","4771234567",
                 imagenesContaco[1],imagenesRedS[1]);
 
         listaV.add(con);
