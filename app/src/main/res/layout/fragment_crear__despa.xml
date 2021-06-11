@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#3B4341"
+    android:background="#b7a986"
     tools:context=".crear_Despa">
     <ScrollView
         android:layout_width="match_parent"
@@ -20,9 +20,9 @@
                 android:layout_height="match_parent"
                 android:layout_marginTop="10dp"
                 android:gravity="center"
-                android:textColorHint="@android:color/black"
-                app:boxStrokeColor="#FF03DAC5"
-                app:hintTextColor="@android:color/darker_gray">
+                android:textColorHint="@android:color/white"
+                app:boxStrokeColor="#FFFFFF"
+                app:hintTextColor="@android:color/white">
 
                 <EditText
                     android:id="@+id/editIdMascotDes"
@@ -32,8 +32,9 @@
                     android:fontFamily="@font/balthazar"
                     android:hint="@string/idMascota"
                     android:inputType="text"
-                    android:textColor="@android:color/black"
-                    android:textColorHint="@android:color/darker_gray" />
+                    android:background="#f57f5b"
+                    android:textColor="@android:color/white"
+                    android:textColorHint="@android:color/white" />
             </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -44,9 +45,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:textColorHint="@android:color/black"
-                app:boxStrokeColor="#FF03DAC5"
-                app:hintTextColor="@android:color/darker_gray">
+                android:textColorHint="@android:color/white"
+                app:boxStrokeColor="#FFFFFF"
+                app:hintTextColor="@android:color/white">
             <EditText
                 android:id="@+id/editDes"
                 android:layout_width="match_parent"
@@ -55,8 +56,9 @@
                 android:fontFamily="@font/balthazar"
                 android:hint="@string/producto"
                 android:inputType="text"
-                android:textColor="@android:color/black"
-                android:textColorHint="@android:color/darker_gray" />
+                android:background="#f57f5b"
+                android:textColor="@android:color/white"
+                android:textColorHint="@android:color/white" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -65,9 +67,9 @@
                 android:layout_height="match_parent"
 
                 android:gravity="center"
-                android:textColorHint="@android:color/black"
-                app:boxStrokeColor="#FF03DAC5"
-                app:hintTextColor="@android:color/darker_gray">
+                android:textColorHint="@android:color/white"
+                app:boxStrokeColor="#FFFFFF"
+                app:hintTextColor="@android:color/white">
             <EditText
                 android:id="@+id/editProxDes"
                 android:layout_width="match_parent"
@@ -76,20 +78,21 @@
                 android:fontFamily="@font/balthazar"
                 android:hint="@string/proxDes"
                 android:inputType="date"
-                android:textColor="@android:color/black"
-                android:textColorHint="@android:color/darker_gray" />
+                android:background="#f57f5b"
+                android:textColor="@android:color/white"
+                android:textColorHint="@android:color/white"/>
             </com.google.android.material.textfield.TextInputLayout>
             <Button
                 android:id="@+id/btnDes"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="85dp"
+                android:layout_gravity="center"
                 android:layout_marginTop="10dp"
-                android:background="#02DFCB"
+                android:background="#f57f5a"
                 android:fontFamily="@font/balthazar"
                 android:text="@string/aplicarD"
-                android:textColor="#000000"
-                app:backgroundTint="#02DFCB" />
+                android:textColor="#ffffff"
+                app:backgroundTint="#f57f5a" />
 
             <Button
                 android:id="@+id/btnVaciarD"
@@ -97,8 +100,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="130dp"
                 android:layout_marginTop="10dp"
-                android:textColor="#000000"
-                app:backgroundTint="#02DFCB"
+                android:textColor="#ffffff"
+                app:backgroundTint="#f57f5a"
                 android:text="@string/vaciar"
                 android:fontFamily="@font/balthazar"
                 android:visibility="invisible"

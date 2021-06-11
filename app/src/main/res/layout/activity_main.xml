@@ -4,16 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#3b4341"
+    android:background="#b7a986"
     tools:context=".MainActivity">
 
 
 
     <ImageView
         android:id="@+id/iV2"
-        android:layout_width="match_parent"
+        android:layout_width="300dp"
         android:layout_height="300dp"
         android:layout_gravity="center"
 
-        app:srcCompat="@drawable/logodos" />
+        app:srcCompat="@drawable/logopantalla" />
 </FrameLayout>

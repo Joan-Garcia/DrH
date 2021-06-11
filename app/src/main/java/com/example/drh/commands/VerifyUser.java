@@ -7,10 +7,7 @@ import android.os.AsyncTask;
 import android.util.Log;
 import android.widget.EditText;
 
-import androidx.fragment.app.FragmentTransaction;
-
 import com.example.drh.admin2;
-import com.example.drh.administrador;
 import com.example.drh.primerActivity;
 import com.example.drh.utils.Connection;
 import com.example.drh.utils.ModalDialog;

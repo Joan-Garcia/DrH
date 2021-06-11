@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".tablaRegistros"
-    android:background="#3B4341">
+    android:background="#b7a986">
 <TextView
     android:id="@+id/reV"
     android:layout_width="wrap_content"
@@ -19,6 +19,7 @@
     />
 <androidx.recyclerview.widget.RecyclerView
     android:id="@+id/recView"
+    android:background="#b7a986"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_marginTop="120dp">

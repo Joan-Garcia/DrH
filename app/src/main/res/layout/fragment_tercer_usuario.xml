@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".tercerFragmentUsuario"
-    android:background="#3B4341">
+    android:background="#b7a986">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
@@ -114,7 +114,8 @@
         android:id="@+id/rViewMasUsuarioT"
         android:layout_width="match_parent"
         android:layout_height="490dp"
-        android:layout_marginTop="200dp">
+        android:layout_marginTop="200dp"
+        android:background="#b7a986">
 
 
     </androidx.recyclerview.widget.RecyclerView>

@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#3B4341"
+    android:background="#b7a986"
     tools:context=".primerFragmento">
 
     <!-- TODO: Update blank fragment layout -->
@@ -30,7 +30,7 @@
         android:layout_marginTop="85dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#3B4341">
+        android:background="#b7a986">
 
     </FrameLayout>
 

@@ -24,6 +24,7 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentLeft="true"
         app:labelVisibilityMode="selected"
-        style="@style/BottomNavigation"/>
+        style="@style/BottomNavigation"
+        android:background="#b7a986"/>
 
 </RelativeLayout>

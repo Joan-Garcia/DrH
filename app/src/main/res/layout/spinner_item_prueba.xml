@@ -6,5 +6,5 @@
     android:padding="10sp"
     android:textColor="#FFFFFF"
     android:fontFamily="@font/balthazar"
-    android:background="#3B4341"
+    android:background="#b7a986"
     xmlns:android="http://schemas.android.com/apk/res/android"/>

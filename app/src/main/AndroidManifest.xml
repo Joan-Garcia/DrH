@@ -25,7 +25,6 @@
         <activity
             android:name=".admin2"
             android:windowSoftInputMode="adjustPan" />
-        <activity android:name=".administrador" />
         <activity android:name=".primerActivity" />
         <activity android:name=".crearUsuario" />
         <activity android:name=".Login" />

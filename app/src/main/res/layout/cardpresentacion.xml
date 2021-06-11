@@ -8,7 +8,7 @@
     app:cardCornerRadius="20dp"
     app:cardElevation="4dp"
     app:cardUseCompatPadding="true"
-    android:background="#3B4341"
+    
     >
     <LinearLayout
         android:layout_width="match_parent"
@@ -25,6 +25,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
+                android:background="#f57f5a"
                 android:padding="6dp">
                 <FrameLayout
                     android:layout_width="70dp"
@@ -76,7 +77,8 @@
                                 android:paddingRight="2dp"
                                 android:fontFamily="@font/balthazar"
                                 android:textSize="12sp"
-                                android:textStyle="bold"/>
+                                android:textStyle="bold"
+                                android:textColor="#3B4341"/>
                             <TextView
                                 android:id="@+id/nombreContacto"
                                 android:layout_width="wrap_content"
@@ -84,7 +86,7 @@
                                 android:paddingLeft="2dp"
                                 android:text="JORGE CARREÓN"
                                 android:textStyle="bold"
-                                android:textColor="@color/black"
+                                android:textColor="@color/white"
                                 android:fontFamily="@font/balthazar"/>
                         </LinearLayout>
                         <LinearLayout
@@ -99,6 +101,7 @@
                                 android:paddingRight="2dp"
                                 android:fontFamily="@font/balthazar"
                                 android:textSize="12sp"
+                                android:textColor="#3B4341"
                                 android:textStyle="bold"/>
                             <TextView
                                 android:id="@+id/correoContacto"
@@ -107,7 +110,7 @@
                                 android:paddingLeft="2dp"
                                 android:text="jace62@hotmail.es"
                                 android:textStyle="bold"
-                                android:textColor="@color/black"
+                                android:textColor="@color/white"
                                 android:fontFamily="@font/balthazar"/>
                         </LinearLayout>
                         <LinearLayout
@@ -122,7 +125,8 @@
                                 android:paddingRight="2dp"
                                 android:fontFamily="@font/balthazar"
                                 android:textSize="12sp"
-                                android:textStyle="bold"/>
+                                android:textStyle="bold"
+                                android:textColor="#3B4341"/>
                             <TextView
                                 android:id="@+id/numeroContac"
                                 android:layout_width="wrap_content"
@@ -130,7 +134,7 @@
                                 android:paddingLeft="2dp"
                                 android:text="4773767637"
                                 android:textStyle="bold"
-                                android:textColor="@color/black"
+                                android:textColor="@color/white"
                                 android:fontFamily="@font/balthazar"/>
                         </LinearLayout>
                         <LinearLayout
@@ -143,7 +147,8 @@
                                 android:layout_height="30dp"
                                 android:paddingRight="2dp"
                                 android:fontFamily="@font/balthazar"
-                                android:textStyle="bold"/>
+                                android:textStyle="bold"
+                                android:backgroundTint="@color/white"/>
                             <TextView
                                 android:id="@+id/linkRS"
                                 android:layout_marginTop="8dp"
@@ -152,7 +157,7 @@
                                 android:paddingLeft="2dp"
                                 android:text="/carreonchis_"
                                 android:textStyle="bold"
-                                android:textColor="@color/black"
+                                android:textColor="@color/white"
                                 android:fontFamily="@font/balthazar"/>
                         </LinearLayout>
                     </LinearLayout>

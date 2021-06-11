@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#3B4341"
+    android:background="#b7a986"
     tools:context=".crearP">
 
 
@@ -23,9 +23,9 @@
                 android:layout_height="match_parent"
 
                 android:gravity="center"
-                android:textColorHint="@android:color/black"
-                app:boxStrokeColor="#FF03DAC5"
-                app:hintTextColor="@android:color/darker_gray">
+                android:textColorHint="@android:color/white"
+                app:boxStrokeColor="#ffffff"
+                app:hintTextColor="@android:color/white">
 
             <EditText
                 android:id="@+id/editNombre"
@@ -35,8 +35,9 @@
                 android:hint="@string/ingreNom"
                 android:layout_marginTop="10dp"
                 android:inputType="text"
-                android:textColor="@android:color/black"
-                android:textColorHint="@android:color/darker_gray" />
+                android:background="#f57f5b"
+                android:textColor="@android:color/white"
+                android:textColorHint="@android:color/white" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -45,9 +46,9 @@
                 android:layout_height="match_parent"
 
                 android:gravity="center"
-                android:textColorHint="@android:color/black"
-                app:boxStrokeColor="#FF03DAC5"
-                app:hintTextColor="@android:color/darker_gray">
+                android:textColorHint="@android:color/white"
+                app:boxStrokeColor="#FFFFFF"
+                app:hintTextColor="@android:color/white">
             <EditText
                 android:id="@+id/editAppater"
                 android:layout_width="match_parent"
@@ -56,8 +57,10 @@
                 android:layout_marginTop="10dp"
                 android:hint="@string/apPaterno"
                 android:inputType="text"
-                android:textColor="@android:color/black"
-                android:textColorHint="@android:color/darker_gray" />
+                android:background="#f57f5b"
+                android:textColor="@android:color/white"
+                android:textColorHint="@android:color/white"
+                />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -66,9 +69,9 @@
                 android:layout_height="match_parent"
 
                 android:gravity="center"
-                android:textColorHint="@android:color/black"
-                app:boxStrokeColor="#FF03DAC5"
-                app:hintTextColor="@android:color/darker_gray">
+                android:textColorHint="@android:color/white"
+                app:boxStrokeColor="#FFFFFF"
+                app:hintTextColor="@android:color/white">
             <EditText
                 android:id="@+id/editApMater"
                 android:layout_width="match_parent"
@@ -77,8 +80,9 @@
                 android:layout_marginTop="10dp"
                 android:hint="@string/apMaterno"
                 android:inputType="text"
-                android:textColor="@android:color/black"
-                android:textColorHint="@android:color/darker_gray" />
+                android:background="#f57f5b"
+                android:textColor="@android:color/white"
+                android:textColorHint="@android:color/white" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -87,9 +91,9 @@
                 android:layout_height="match_parent"
 
                 android:gravity="center"
-                android:textColorHint="@android:color/black"
-                app:boxStrokeColor="#FF03DAC5"
-                app:hintTextColor="@android:color/darker_gray">
+                android:textColorHint="@android:color/white"
+                app:boxStrokeColor="#FFffff"
+                app:hintTextColor="@android:color/white">
             <EditText
                 android:id="@+id/editDomicilio"
                 android:layout_width="match_parent"
@@ -98,8 +102,9 @@
                 android:fontFamily="@font/balthazar"
                 android:hint="@string/domicilio"
                 android:inputType="text"
-                android:textColor="@android:color/black"
-                android:textColorHint="@android:color/darker_gray" />
+                android:background="#f57f5b"
+                android:textColor="@android:color/white"
+                android:textColorHint="@android:color/white"  />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -108,9 +113,9 @@
                 android:layout_height="match_parent"
                 android:layout_marginTop="10dp"
                 android:gravity="center"
-                android:textColorHint="@android:color/black"
-                app:boxStrokeColor="#FF03DAC5"
-                app:hintTextColor="@android:color/darker_gray">
+                android:textColorHint="@android:color/white"
+                app:boxStrokeColor="#FFFFFF"
+                app:hintTextColor="@android:color/white">
             <EditText
                 android:id="@+id/editColonia"
                 android:layout_width="match_parent"
@@ -118,8 +123,9 @@
                 android:fontFamily="@font/balthazar"
                 android:hint="@string/colonia"
                 android:inputType="text"
-                android:textColor="@android:color/black"
-                android:textColorHint="@android:color/darker_gray" />
+                android:background="#f57f5b"
+                android:textColor="@android:color/white"
+                android:textColorHint="@android:color/white" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -128,9 +134,9 @@
                 android:layout_height="match_parent"
                 android:layout_marginTop="10dp"
                 android:gravity="center"
-                android:textColorHint="@android:color/black"
-                app:boxStrokeColor="#FF03DAC5"
-                app:hintTextColor="@android:color/darker_gray">
+                android:textColorHint="@android:color/white"
+                app:boxStrokeColor="#FFFFFF"
+                app:hintTextColor="@android:color/white">
             <EditText
                 android:id="@+id/editCiudad"
                 android:layout_width="match_parent"
@@ -138,8 +144,9 @@
                 android:fontFamily="@font/balthazar"
                 android:hint="@string/ciudad"
                 android:inputType="text"
-                android:textColor="@android:color/black"
-                android:textColorHint="@android:color/darker_gray" />
+                android:background="#f57f5b"
+                android:textColor="@android:color/white"
+                android:textColorHint="@android:color/white" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -148,9 +155,9 @@
                 android:layout_height="match_parent"
                 android:layout_marginTop="10dp"
                 android:gravity="center"
-                android:textColorHint="@android:color/black"
-                app:boxStrokeColor="#FF03DAC5"
-                app:hintTextColor="@android:color/darker_gray">
+                android:textColorHint="@android:color/white"
+                app:boxStrokeColor="#FFFFFF"
+                app:hintTextColor="@android:color/white">
             <EditText
                 android:id="@+id/editEstado"
                 android:layout_width="match_parent"
@@ -158,8 +165,9 @@
                 android:fontFamily="@font/balthazar"
                 android:hint="@string/estado"
                 android:inputType="text"
-                android:textColor="@android:color/black"
-                android:textColorHint="@android:color/darker_gray" />
+                android:background="#f57f5b"
+                android:textColor="@android:color/white"
+                android:textColorHint="@android:color/white" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -168,9 +176,9 @@
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:layout_marginTop="10dp"
-                android:textColorHint="@android:color/black"
-                app:boxStrokeColor="#FF03DAC5"
-                app:hintTextColor="@android:color/darker_gray">
+                android:textColorHint="@android:color/white"
+                app:boxStrokeColor="#FFFFFF"
+                app:hintTextColor="@android:color/white">
             <EditText
                 android:id="@+id/editCP"
                 android:layout_width="match_parent"
@@ -178,8 +186,9 @@
                 android:fontFamily="@font/balthazar"
                 android:hint="@string/cp"
                 android:inputType="number"
-                android:textColor="@android:color/black"
-                android:textColorHint="@android:color/darker_gray" />
+                android:background="#f57f5b"
+                android:textColor="@android:color/white"
+                android:textColorHint="@android:color/white"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -187,9 +196,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:textColorHint="@android:color/black"
-                app:boxStrokeColor="#FF03DAC5"
-                app:hintTextColor="@android:color/darker_gray">
+                android:textColorHint="@android:color/white"
+                app:boxStrokeColor="#FFFFFF"
+                app:hintTextColor="@android:color/white">
             <EditText
                 android:id="@+id/editPais"
                 android:layout_width="match_parent"
@@ -198,8 +207,9 @@
                 android:hint="@string/pais"
                 android:layout_marginTop="10dp"
                 android:inputType="text"
-                android:textColor="@android:color/black"
-                android:textColorHint="@android:color/darker_gray" />
+                android:background="#f57f5b"
+                android:textColor="@android:color/white"
+                android:textColorHint="@android:color/white" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -208,9 +218,9 @@
                 android:layout_height="match_parent"
                 android:layout_marginTop="10dp"
                 android:gravity="center"
-                android:textColorHint="@android:color/black"
-                app:boxStrokeColor="#FF03DAC5"
-                app:hintTextColor="@android:color/darker_gray">
+                android:textColorHint="@android:color/white"
+                app:boxStrokeColor="#FFFFFF"
+                app:hintTextColor="@android:color/white">
             <EditText
                 android:id="@+id/editTelFijo"
                 android:layout_width="match_parent"
@@ -218,8 +228,9 @@
                 android:fontFamily="@font/balthazar"
                 android:hint="@string/teleCasa"
                 android:inputType="number"
-                android:textColor="@android:color/black"
-                android:textColorHint="@android:color/darker_gray" />
+                android:background="#f57f5b"
+                android:textColor="@android:color/white"
+                android:textColorHint="@android:color/white"  />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -228,9 +239,9 @@
                 android:layout_height="match_parent"
                 android:layout_marginTop="10dp"
                 android:gravity="center"
-                android:textColorHint="@android:color/black"
-                app:boxStrokeColor="#FF03DAC5"
-                app:hintTextColor="@android:color/darker_gray">
+                android:textColorHint="@android:color/white"
+                app:boxStrokeColor="#FFFFFF"
+                app:hintTextColor="#ffffff">
             <EditText
                 android:id="@+id/editTelCelu"
                 android:layout_width="match_parent"
@@ -238,8 +249,9 @@
                 android:fontFamily="@font/balthazar"
                 android:hint="@string/teleCel"
                 android:inputType="number"
-                android:textColor="@android:color/black"
-                android:textColorHint="@android:color/darker_gray" />
+                android:background="#f57f5b"
+                android:textColor="@android:color/white"
+                android:textColorHint="@android:color/white" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -247,9 +259,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:textColorHint="@android:color/black"
-                app:boxStrokeColor="#FF03DAC5"
-                app:hintTextColor="@android:color/darker_gray">
+                android:textColorHint="@android:color/white"
+                app:boxStrokeColor="#FFFFFF"
+                app:hintTextColor="@android:color/white">
             <EditText
                 android:id="@+id/editEmail"
                 android:layout_width="match_parent"
@@ -258,8 +270,9 @@
                 android:layout_marginTop="10dp"
                 android:hint="@string/ingresarC"
                 android:inputType="text"
-                android:textColor="@android:color/black"
-                android:textColorHint="@android:color/darker_gray" />
+                android:background="#f57f5b"
+                android:textColor="@android:color/white"
+                android:textColorHint="@android:color/white" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -268,11 +281,11 @@
                 android:layout_height="match_parent"
                 android:layout_marginTop="10dp"
                 android:gravity="center"
-                android:textColorHint="@android:color/black"
-                app:boxStrokeColor="#FF03DAC5"
-                app:hintTextColor="@android:color/darker_gray"
+                android:textColorHint="@android:color/white"
+                app:boxStrokeColor="#FFFFFF"
+                app:hintTextColor="@android:color/white"
                 app:passwordToggleEnabled="true"
-                app:passwordToggleTint="@android:color/darker_gray">
+                app:passwordToggleTint="@android:color/white">
             <EditText
                 android:id="@+id/editContra"
                 android:layout_width="match_parent"
@@ -280,8 +293,9 @@
                 android:fontFamily="@font/balthazar"
                 android:hint="@string/ingresarContra"
                 android:inputType="textPassword"
-                android:textColor="@android:color/black"
-                android:textColorHint="@android:color/darker_gray" />
+                android:background="#f57f5b"
+                android:textColor="@android:color/white"
+                android:textColorHint="@android:color/white"  />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -290,11 +304,11 @@
                 android:layout_height="match_parent"
                 android:layout_marginTop="10dp"
                 android:gravity="center"
-                android:textColorHint="@android:color/black"
-                app:boxStrokeColor="#FF03DAC5"
-                app:hintTextColor="@android:color/darker_gray"
+                android:textColorHint="@android:color/white"
+                app:boxStrokeColor="#FFFFFF"
+                app:hintTextColor="@android:color/white"
                 app:passwordToggleEnabled="true"
-                app:passwordToggleTint="@android:color/darker_gray">
+                app:passwordToggleTint="@android:color/white">
             <EditText
                 android:id="@+id/editConfContra"
                 android:layout_width="match_parent"
@@ -302,8 +316,9 @@
                 android:fontFamily="@font/balthazar"
                 android:hint="@string/confContr"
                 android:inputType="textPassword"
-                android:textColor="@android:color/black"
-                android:textColorHint="@android:color/darker_gray" />
+                android:background="#f57f5b"
+                android:textColor="@android:color/white"
+                android:textColorHint="@android:color/white"  />
             </com.google.android.material.textfield.TextInputLayout>
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/textInputLayout13"
@@ -311,9 +326,9 @@
                 android:layout_height="match_parent"
                 android:layout_marginTop="10dp"
                 android:gravity="center"
-                android:textColorHint="@android:color/black"
-                app:boxStrokeColor="#FF03DAC5"
-                app:hintTextColor="@android:color/darker_gray">
+                android:textColorHint="@android:color/white"
+                app:boxStrokeColor="#FFFFFF"
+                app:hintTextColor="@android:color/white">
 
                 <EditText
                     android:id="@+id/editTipoUsuario"
@@ -322,8 +337,9 @@
                     android:fontFamily="@font/balthazar"
                     android:hint="@string/tipoUsuario"
                     android:inputType="text"
-                    android:textColor="@android:color/black"
-                    android:textColorHint="@android:color/darker_gray" />
+                    android:background="#f57f5b"
+                    android:textColor="@android:color/white"
+                    android:textColorHint="@android:color/white"  />
 
             </com.google.android.material.textfield.TextInputLayout>
            <LinearLayout
@@ -337,22 +353,22 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="50dp"
-                android:background="#02DFCB"
+                android:background="#f57f5b"
                 android:fontFamily="@font/balthazar"
                 android:text="@string/creU"
-                android:textColor="#000000"
-                app:backgroundTint="#02DFCB" />
+                android:textColor="#ffffff"
+                app:backgroundTint="#f57f5b" />
             <Button
                 android:id="@+id/btnVaciarP"
                 android:layout_marginTop="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="50dp"
-                app:backgroundTint="#02DFCB"
+                app:backgroundTint="#f57f5b"
                 android:fontFamily="@font/balthazar"
                 android:text="@string/vaciar"
-                android:textColor="#000000"
-                android:background="#02DFCB"
+                android:textColor="#ffffff"
+                android:background="#f57f5b"
                 android:visibility="invisible"
                 />
            </LinearLayout>

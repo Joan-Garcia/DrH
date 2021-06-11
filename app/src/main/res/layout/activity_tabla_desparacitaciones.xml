@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".tablaDesparacitaciones"
-    android:background="#3B4341">
+    android:background="#b7a986">
     <TextView
         android:id="@+id/reV"
         android:layout_width="wrap_content"
@@ -21,7 +21,8 @@
         android:id="@+id/recViewDes"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="120dp">
+        android:layout_marginTop="120dp"
+        android:background="#b7a986">
 
 
     </androidx.recyclerview.widget.RecyclerView>

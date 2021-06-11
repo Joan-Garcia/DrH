@@ -4,18 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#3B4341"
+    android:background="#b7a986"
     tools:context=".Login">
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_height="300dp"
-        android:layout_width="match_parent"
-        android:background="@drawable/logodos"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:transitionName="logoImageTrans"/>
+        android:layout_height="250dp"
+        android:layout_width="250dp"
+        app:srcCompat="@drawable/logopantalla"
+        android:transitionName="logoImageTrans"
+        android:layout_gravity="center"
+        android:layout_marginTop="-250dp"/>
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
@@ -23,7 +22,7 @@
         android:layout_marginTop="260dp"
         android:fontFamily="@font/balthazar"
         android:text="@string/bienvenido"
-        android:textColor="#FFFFFF"
+        android:textColor="#ffffff"
         android:textSize="30sp"
 
         />
@@ -35,8 +34,9 @@
         android:layout_marginTop="300dp"
         android:fontFamily="@font/balthazar"
         android:text="@string/continuar"
-        android:textColor="#FFFFFF"
+        android:textColor="#ffffff"
         android:textSize="18sp"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
@@ -47,9 +47,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="360dp"
         android:gravity="center"
-        android:textColorHint="@android:color/black"
-        app:boxStrokeColor="#FF03DAC5"
-        app:hintTextColor="@android:color/darker_gray"
+        android:textColorHint="@color/white"
+        app:boxStrokeColor="#FFFFFF"
+        app:hintTextColor="#ffffff"
         >
 
         <EditText
@@ -60,11 +60,11 @@
             android:fontFamily="@font/balthazar"
             android:hint="@string/ingresarC"
             android:inputType="textPersonName"
-            android:textColor="@color/black"
-
-            android:textColorHint="@android:color/darker_gray"
+            android:textColor="@color/white"
+            android:background="#f57f5b"
+            android:textColorHint="@android:color/white"
             android:textSize="20sp"
-            android:textColorLink="@color/black"/>
+            android:textColorLink="@color/white"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -73,10 +73,11 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="420dp"
         android:gravity="center"
-        android:textColorHint="@android:color/black"
-        app:boxStrokeColor="#FF03DAC5"
+        android:textColorHint="@android:color/white"
+        app:boxStrokeColor="#FFffff"
+        app:hintTextColor="#ffffff"
         app:passwordToggleEnabled="true"
-        app:passwordToggleTint="@android:color/darker_gray">
+        app:passwordToggleTint="@android:color/white">
 
         <EditText
             android:id="@+id/editContra"
@@ -86,11 +87,12 @@
             android:fontFamily="@font/balthazar"
             android:hint="@string/ingresarContra"
             android:inputType="textPassword"
-            android:textColor="@color/black"
-            android:textColorHighlight="#FF03DAC5"
-            android:textColorHint="@android:color/darker_gray"
+            android:textColor="@color/white"
+            android:background="#f57f5b"
+            android:textColorHighlight="#FFFFFF"
+            android:textColorHint="#ffffff"
             android:textSize="20sp"
-            android:textColorLink="@color/black"/>
+            android:textColorLink="@color/white"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -100,12 +102,12 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="140dp"
         android:layout_marginTop="500dp"
-        android:background="#02DFCB"
+        android:background="#f57f5b"
         android:fontFamily="@font/balthazar"
         android:onClick="buscarU"
         android:text="@string/iniciar"
-        android:textColor="#000000"
-        app:backgroundTint="#02DFCB" />
+        android:textColor="#ffffff"
+        app:backgroundTint="#f57f5b" />
 
 
 </FrameLayout>

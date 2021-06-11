@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#3B4341"
+    android:background="#b7a986"
     tools:context=".crear_Mascota">
 
     <ScrollView
@@ -22,9 +22,9 @@
                 android:layout_height="match_parent"
                 android:layout_marginTop="10dp"
                 android:gravity="center"
-                android:textColorHint="@android:color/black"
-                app:boxStrokeColor="#FF03DAC5"
-                app:hintTextColor="@android:color/darker_gray">
+                android:textColorHint="@android:color/white"
+                app:boxStrokeColor="#FFFFFF"
+                app:hintTextColor="@android:color/white">
 
         <EditText
                 android:id="@+id/editPropietario"
@@ -33,8 +33,9 @@
                 android:fontFamily="@font/balthazar"
                 android:hint="@string/idPropietario"
                 android:inputType="text"
-            android:textColor="@android:color/black"
-                android:textColorHint="@android:color/darker_gray" />
+                android:background="#f57f5b"
+                android:textColor="@android:color/white"
+                android:textColorHint="@android:color/white" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -43,9 +44,9 @@
                 android:layout_height="match_parent"
                 android:layout_marginTop="10dp"
                 android:gravity="center"
-                android:textColorHint="@android:color/black"
-                app:boxStrokeColor="#FF03DAC5"
-                app:hintTextColor="@android:color/darker_gray">
+                android:textColorHint="@android:color/white"
+                app:boxStrokeColor="#FFFFFF"
+                app:hintTextColor="@android:color/white">
             <EditText
                 android:id="@+id/editNombreMasco"
                 android:layout_width="match_parent"
@@ -53,8 +54,9 @@
                 android:fontFamily="@font/balthazar"
                 android:hint="@string/nombreMascota"
                 android:inputType="text"
-                android:textColor="@android:color/black"
-                android:textColorHint="@android:color/darker_gray" />
+                android:background="#f57f5b"
+                android:textColor="@android:color/white"
+                android:textColorHint="@android:color/white" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -63,9 +65,9 @@
                 android:layout_height="match_parent"
                 android:layout_marginTop="10dp"
                 android:gravity="center"
-                android:textColorHint="@android:color/black"
-                app:boxStrokeColor="#FF03DAC5"
-                app:hintTextColor="@android:color/darker_gray">
+                android:textColorHint="@android:color/white"
+                app:boxStrokeColor="#FFFFFF"
+                app:hintTextColor="@android:color/white">
             <EditText
                 android:id="@+id/editFechaNac"
                 android:layout_width="match_parent"
@@ -73,8 +75,9 @@
                 android:fontFamily="@font/balthazar"
                 android:hint="@string/fechaNac"
                 android:inputType="date"
-                android:textColor="@android:color/black"
-                android:textColorHint="@android:color/darker_gray" />
+                android:background="#f57f5b"
+                android:textColor="@android:color/white"
+                android:textColorHint="@android:color/white" />
             </com.google.android.material.textfield.TextInputLayout>
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/textInputLayout"
@@ -82,9 +85,9 @@
                 android:layout_height="match_parent"
                 android:layout_marginTop="10dp"
                 android:gravity="center"
-                android:textColorHint="@android:color/black"
-                app:boxStrokeColor="#FF03DAC5"
-                app:hintTextColor="@android:color/darker_gray">
+                android:textColorHint="@android:color/white"
+                app:boxStrokeColor="#FFFFFF"
+                app:hintTextColor="@android:color/white">
 
             <EditText
                 android:id="@+id/editEspecie"
@@ -93,8 +96,9 @@
                 android:fontFamily="@font/balthazar"
                 android:hint="@string/especie"
                 android:inputType="text"
-                android:textColor="@android:color/black"
-                android:textColorHint="@android:color/darker_gray" />
+                android:background="#f57f5b"
+                android:textColor="@android:color/white"
+                android:textColorHint="@android:color/white" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -103,9 +107,9 @@
                 android:layout_height="match_parent"
                 android:layout_marginTop="10dp"
                 android:gravity="center"
-                android:textColorHint="@android:color/black"
-                app:boxStrokeColor="#FF03DAC5"
-                app:hintTextColor="@android:color/darker_gray">
+                android:textColorHint="@android:color/white"
+                app:boxStrokeColor="#FFFFFF"
+                app:hintTextColor="@android:color/white">
 
             <EditText
                 android:id="@+id/editRaza"
@@ -114,8 +118,9 @@
                 android:fontFamily="@font/balthazar"
                 android:hint="@string/raza"
                 android:inputType="text"
-                android:textColor="@android:color/black"
-                android:textColorHint="@android:color/darker_gray" />
+                android:background="#f57f5b"
+                android:textColor="@android:color/white"
+                android:textColorHint="@android:color/white" />
             </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -125,9 +130,9 @@
                 android:layout_height="match_parent"
                 android:layout_marginTop="10dp"
                 android:gravity="center"
-                android:textColorHint="@android:color/black"
-                app:boxStrokeColor="#FF03DAC5"
-                app:hintTextColor="@android:color/darker_gray">
+                android:textColorHint="@android:color/white"
+                app:boxStrokeColor="#FFFFFF"
+                app:hintTextColor="@android:color/white">
             <EditText
                 android:id="@+id/editColor"
                 android:layout_width="match_parent"
@@ -135,8 +140,9 @@
                 android:fontFamily="@font/balthazar"
                 android:hint="@string/color"
                 android:inputType="text"
-                android:textColor="@android:color/black"
-                android:textColorHint="@android:color/darker_gray" />
+                android:background="#f57f5b"
+                android:textColor="@android:color/white"
+                android:textColorHint="@android:color/white" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -145,9 +151,9 @@
                 android:layout_height="match_parent"
                 android:layout_marginTop="10dp"
                 android:gravity="center"
-                android:textColorHint="@android:color/black"
-                app:boxStrokeColor="#FF03DAC5"
-                app:hintTextColor="@android:color/darker_gray">
+                android:textColorHint="@android:color/white"
+                app:boxStrokeColor="#FFFFFF"
+                app:hintTextColor="@android:color/white">
              <EditText
                 android:id="@+id/editTatuaje"
                 android:layout_width="match_parent"
@@ -155,8 +161,10 @@
                 android:inputType="text"
                 android:fontFamily="@font/balthazar"
                 android:textSize="18sp"
-                android:hint="@string/tatuaje" android:textColor="@android:color/black"
-                android:textColorHint="@android:color/darker_gray"
+                android:hint="@string/tatuaje"
+                 android:background="#f57f5b"
+                 android:textColor="@android:color/white"
+                 android:textColorHint="@android:color/white"
                  />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -166,19 +174,21 @@
                 android:layout_height="match_parent"
                 android:layout_marginTop="10dp"
                 android:gravity="center"
-                android:textColorHint="@android:color/black"
-                app:boxStrokeColor="#FF03DAC5"
-                app:hintTextColor="@android:color/darker_gray">
+                android:textColorHint="@android:color/white"
+                app:boxStrokeColor="#FFFFFF"
+                app:hintTextColor="@android:color/white">
             <EditText
                 android:id="@+id/editMicrochip"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="text"
                 android:fontFamily="@font/balthazar"
-                android:textColor="@android:color/black"
+
                 android:textSize="18sp"
                 android:hint="@string/microchip"
-                android:textColorHint="@android:color/darker_gray"
+                android:background="#f57f5b"
+                android:textColor="@android:color/white"
+                android:textColorHint="@android:color/white"
                 />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -188,19 +198,21 @@
                 android:layout_height="match_parent"
                 android:layout_marginTop="10dp"
                 android:gravity="center"
-                android:textColorHint="@android:color/black"
-                app:boxStrokeColor="#FF03DAC5"
-                app:hintTextColor="@android:color/darker_gray">
+                android:textColorHint="@android:color/white"
+                app:boxStrokeColor="#FFFFFF"
+                app:hintTextColor="@android:color/white">
                 <EditText
                     android:id="@+id/editSexo1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="text"
                     android:fontFamily="@font/balthazar"
-                    android:textColor="@android:color/black"
+
                     android:textSize="18sp"
                     android:hint="@string/sexo"
-                    android:textColorHint="@android:color/darker_gray"
+                    android:background="#f57f5b"
+                    android:textColor="@android:color/white"
+                    android:textColorHint="@android:color/white"
                     />
             </com.google.android.material.textfield.TextInputLayout>
             <LinearLayout
@@ -212,11 +224,12 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="50dp"
                 android:layout_marginTop="10dp"
-                android:background="#02DFCB"
+                android:background="#f57f5b"
                 android:fontFamily="@font/balthazar"
                 android:text="@string/crearM"
-                android:textColor="#000000"
-                app:backgroundTint="#02DFCB" />
+                android:textColor="#FFFFFF"
+                app:backgroundTint="#f57f5b"
+                />
 
             <Button
                 android:id="@+id/btnVaciarM"
@@ -224,9 +237,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="50dp"
                 android:layout_marginTop="10dp"
-                android:textColor="#000000"
-                android:background="#02DFCB"
-                app:backgroundTint="#02DFCB"
+                android:textColor="#FFFFFF"
+                android:background="#f57f5b"
+                app:backgroundTint="#f57f5b"
                 android:text="@string/vaciar"
                 android:fontFamily="@font/balthazar"
                 android:visibility="invisible"

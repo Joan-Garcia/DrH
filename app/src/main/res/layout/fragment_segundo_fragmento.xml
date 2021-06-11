@@ -3,15 +3,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".segundoFragmento"
-    android:background="#3B4341">
+    android:background="#b7a986">
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="250dp"
         android:layout_marginTop="-170dp"
         android:layout_gravity="center"
-        android:background="@drawable/veterinario"/>
+        android:background="@drawable/loggin"/>
     <ImageButton
         android:id="@+id/btnSalir"
         android:layout_width="50dp"
@@ -64,7 +65,8 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_marginLeft="30dp"
-            android:background="@drawable/guiauser"
+            app:srcCompat="@drawable/guiauser"
+            android:backgroundTint="#b7a986"
             />
 
         <TextView

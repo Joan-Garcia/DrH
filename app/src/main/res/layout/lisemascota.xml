@@ -8,7 +8,7 @@
     app:cardCornerRadius="20dp"
     app:cardElevation="4dp"
     app:cardUseCompatPadding="true"
-    android:background="#3B4341"
+    
     >
     <LinearLayout
         android:layout_width="match_parent"
@@ -26,7 +26,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:padding="6dp">
+                android:padding="6dp"
+                android:background="#f57f5b">
                 <FrameLayout
                     android:layout_width="70dp"
                     android:layout_height="match_parent">
@@ -41,7 +42,8 @@
                         android:paddingLeft="14dp"
                         android:paddingRight="14dp"
                         app:srcCompat="@drawable/mascota"
-                        android:layout_alignParentLeft="true"/>
+                        android:layout_alignParentLeft="true"
+                        app:tint="@color/white"/>
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -50,6 +52,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="IDM"
+                            android:textColor="#3B4341"
                             android:paddingLeft="14dp"
                             android:paddingRight="5dp"
                             android:layout_marginTop="60dp"
@@ -66,7 +69,7 @@
                             android:layout_marginTop="60dp"
                             android:fontFamily="@font/balthazar"
                             android:textStyle="bold"
-                            android:textColor="@color/black"
+                            android:textColor="@color/white"
                             />
                     </LinearLayout>
 
@@ -88,6 +91,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="NOMBRE MASCOTA"
+                                android:textColor="#3B4341"
                                 android:paddingRight="2dp"
                                 android:fontFamily="@font/balthazar"
                                 android:textSize="12sp"
@@ -99,7 +103,7 @@
                                 android:paddingLeft="2dp"
                                 android:text="ZEUS"
                                 android:textStyle="bold"
-                                android:textColor="@color/black"
+                                android:textColor="@color/white"
                                 android:fontFamily="@font/balthazar"/>
                         </LinearLayout>
                         <LinearLayout
@@ -107,6 +111,7 @@
                             android:layout_height="wrap_content"
                             android:orientation="horizontal">
                             <TextView
+                                android:textColor="#3B4341"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="NOMPRO"
@@ -121,7 +126,7 @@
                                 android:paddingLeft="2dp"
                                 android:text="CARREÓN ESTRADA JORGE ARMANDO"
                                 android:textStyle="bold"
-                                android:textColor="@color/black"
+                                android:textColor="@color/white"
                                 android:fontFamily="@font/balthazar"/>
                         </LinearLayout>
                         <LinearLayout
@@ -129,6 +134,7 @@
                             android:layout_height="wrap_content"
                             android:orientation="horizontal">
                             <TextView
+                                android:textColor="#3B4341"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="FECHA DE NACIMIENTO"
@@ -143,7 +149,7 @@
                                 android:paddingLeft="2dp"
                                 android:text="2020/08/15"
                                 android:textStyle="bold"
-                                android:textColor="@color/black"
+                                android:textColor="@color/white"
                                 android:fontFamily="@font/balthazar"/>
                         </LinearLayout>
                         <LinearLayout
@@ -151,6 +157,7 @@
                             android:layout_height="wrap_content"
                             android:orientation="horizontal">
                             <TextView
+                                android:textColor="#3B4341"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="ESPECIE"
@@ -159,15 +166,17 @@
                                 android:textSize="12sp"
                                 android:textStyle="bold"/>
                             <TextView
+
                                 android:id="@+id/especie"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:paddingLeft="2dp"
                                 android:text="PERRO"
                                 android:textStyle="bold"
-                                android:textColor="@color/black"
+                                android:textColor="@color/white"
                                 android:fontFamily="@font/balthazar"/>
                             <TextView
+                                android:textColor="#3B4341"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="ESPECIE"
@@ -182,7 +191,7 @@
                                 android:paddingLeft="2dp"
                                 android:text="HUSKY"
                                 android:textStyle="bold"
-                                android:textColor="@color/black"
+                                android:textColor="@color/white"
                                 android:fontFamily="@font/balthazar"/>
 
                         </LinearLayout>
@@ -191,6 +200,7 @@
                             android:layout_height="wrap_content"
                             android:orientation="horizontal">
                             <TextView
+                                android:textColor="#3B4341"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="SEXO"
@@ -205,9 +215,10 @@
                                 android:paddingLeft="2dp"
                                 android:text="M"
                                 android:textStyle="bold"
-                                android:textColor="@color/black"
+                                android:textColor="@color/white"
                                 android:fontFamily="@font/balthazar"/>
                             <TextView
+                                android:textColor="#3B4341"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="COLOR"
@@ -222,7 +233,7 @@
                                 android:paddingLeft="2dp"
                                 android:text="CAFE"
                                 android:textStyle="bold"
-                                android:textColor="@color/black"
+                                android:textColor="@color/white"
                                 android:fontFamily="@font/balthazar"/>
 
                         </LinearLayout>
@@ -231,6 +242,7 @@
                             android:layout_height="wrap_content"
                             android:orientation="horizontal">
                             <TextView
+                                android:textColor="#3B4341"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="TATUAJE"
@@ -245,9 +257,10 @@
                                 android:paddingLeft="2dp"
                                 android:text="NO"
                                 android:textStyle="bold"
-                                android:textColor="@color/black"
+                                android:textColor="@color/white"
                                 android:fontFamily="@font/balthazar"/>
                             <TextView
+                                android:textColor="#3B4341"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="MICROCHIP"
@@ -262,7 +275,7 @@
                                 android:paddingLeft="2dp"
                                 android:text="NO"
                                 android:textStyle="bold"
-                                android:textColor="@color/black"
+                                android:textColor="@color/white"
                                 android:fontFamily="@font/balthazar"/>
 
                         </LinearLayout>

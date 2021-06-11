@@ -8,7 +8,7 @@
     app:cardCornerRadius="20dp"
     app:cardElevation="4dp"
     app:cardUseCompatPadding="true"
-    android:background="#3B4341"
+    
     >
     <LinearLayout
         android:layout_width="match_parent"
@@ -26,7 +26,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:padding="6dp">
+        android:padding="6dp"
+        android:background="#f57f5b">
     <FrameLayout
         android:layout_width="70dp"
         android:layout_height="match_parent">
@@ -41,12 +42,14 @@
         android:paddingLeft="14dp"
         android:paddingRight="14dp"
         app:srcCompat="@drawable/vacuna"
-        android:layout_alignParentLeft="true"/>
+        android:layout_alignParentLeft="true"
+        app:tint="@color/white"/>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
             <TextView
+                android:textColor="#3B4341"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="IDV"
@@ -66,7 +69,7 @@
                 android:layout_marginTop="60dp"
                 android:fontFamily="@font/balthazar"
                 android:textStyle="bold"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 />
         </LinearLayout>
 
@@ -85,6 +88,7 @@
                     android:layout_height="match_parent"
                     android:orientation="horizontal">
                     <TextView
+                        android:textColor="#3B4341"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="NOMBRE MASCOTA"
@@ -99,7 +103,7 @@
                         android:paddingLeft="2dp"
                         android:text="DRACO"
                         android:textStyle="bold"
-                        android:textColor="@color/black"
+                        android:textColor="@color/white"
                         android:fontFamily="@font/balthazar"/>
                 </LinearLayout>
                 <LinearLayout
@@ -107,6 +111,7 @@
                     android:layout_height="match_parent"
                     android:orientation="horizontal">
                     <TextView
+                        android:textColor="#3B4341"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="FECHA DE VACUNACIÓN"
@@ -121,7 +126,7 @@
                         android:paddingLeft="2dp"
                         android:text="2020-12-09 02:39:32"
                         android:textStyle="bold"
-                        android:textColor="@color/black"
+                        android:textColor="@color/white"
                         android:fontFamily="@font/balthazar"/>
                 </LinearLayout>
                 <LinearLayout
@@ -129,6 +134,7 @@
                     android:layout_height="match_parent"
                     android:orientation="horizontal">
                     <TextView
+                        android:textColor="#3B4341"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="VACUNA APLICADA"
@@ -143,7 +149,7 @@
                         android:paddingLeft="2dp"
                         android:text="Leptospirosis 1er aplicacion"
                         android:textStyle="bold"
-                        android:textColor="@color/black"
+                        android:textColor="@color/white"
                         android:fontFamily="@font/balthazar"/>
                 </LinearLayout>
                 <LinearLayout
@@ -151,6 +157,7 @@
                     android:layout_height="match_parent"
                     android:orientation="horizontal">
                     <TextView
+                        android:textColor="#3B4341"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="PRÓXIMA FECHA VACUNACIÓN"
@@ -165,7 +172,7 @@
                         android:paddingLeft="2dp"
                         android:text="2021-01-04"
                         android:textStyle="bold"
-                        android:textColor="@color/black"
+                        android:textColor="@color/white"
                         android:fontFamily="@font/balthazar"/>
                 </LinearLayout>
 
