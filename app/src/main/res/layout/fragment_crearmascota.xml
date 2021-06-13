@@ -21,7 +21,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="10dp"
-                android:gravity="center"
                 android:textColorHint="@android:color/white"
                 app:boxStrokeColor="#FFFFFF"
                 app:hintTextColor="@android:color/white">
@@ -32,7 +31,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/balthazar"
                 android:hint="@string/idPropietario"
-                android:inputType="text"
+                android:inputType="number"
                 android:background="#f57f5b"
                 android:textColor="@android:color/white"
                 android:textColorHint="@android:color/white" />
@@ -59,26 +58,38 @@
                 android:textColorHint="@android:color/white" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/textInputLayout1"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="10dp"
-                android:gravity="center"
-                android:textColorHint="@android:color/white"
-                app:boxStrokeColor="#FFFFFF"
-                app:hintTextColor="@android:color/white">
-            <EditText
-                android:id="@+id/editFechaNac"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/balthazar"
-                android:hint="@string/fechaNac"
-                android:inputType="date"
-                android:background="#f57f5b"
-                android:textColor="@android:color/white"
-                android:textColorHint="@android:color/white" />
-            </com.google.android.material.textfield.TextInputLayout>
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp">
+                <Button
+                    android:id="@+id/botonFecha"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="FECHA NACIMIENTO"
+                    app:backgroundTint="#f57f5b"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/balthazar"
+                    />
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#f57f5b"
+                    android:layout_marginLeft="50dp">
+                   <TextView
+                       android:id="@+id/textoFecha"
+                       android:layout_width="120dp"
+                       android:layout_height="wrap_content"
+                       android:text="AAAA/MM/DD"
+                       android:layout_gravity="center"
+                       android:textAlignment="center"
+                       android:textColor="@color/white"
+                       android:fontFamily="@font/balthazar"
+                       android:textSize="18sp"
+                       />
+                </FrameLayout>
+            </LinearLayout>
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/textInputLayout"
                 android:layout_width="match_parent"
