@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
+import android.widget.TextView;
 
 import androidx.annotation.WorkerThread;
 import androidx.core.content.ContextCompat;
@@ -25,7 +26,8 @@ public class SelectMascota extends AsyncTask<Void,Integer,Integer> {
     private ModalProgressDialog progressDialog;
     private ModalDialog modalDialog;
     Context context;
-    private EditText idMas, idUsu, nombreMascota, fechaNac, especie, raza, sexo, color, tatuaje, microchip;
+    private EditText idMas, idUsu, nombreMascota, especie, raza, sexo, color, tatuaje, microchip, editFecha;
+
     private int mascotaExist;
     FrameLayout fy;
     Button a,b;
@@ -40,7 +42,7 @@ public class SelectMascota extends AsyncTask<Void,Integer,Integer> {
         this.idMas = idMas;
         this.idUsu = idUsu;
         this.nombreMascota = nombreMascota;
-        this.fechaNac = fechaNac;
+        this.editFecha = fechaNac;
         this.especie = especie;
         this.raza = raza;
         this.sexo = sexo;
@@ -110,8 +112,7 @@ public class SelectMascota extends AsyncTask<Void,Integer,Integer> {
             modalDialog.setMessage("El ID no existe");
             modalDialog.showModalDialog();
         }else if(mascotaExist == 1){
-            //modalDialog.setMessage("El email ya se encuentra registrado");
-            //modalDialog.showModalDialog();
+
         }else if(mascotaExist == -1){
             modalDialog.setMessage("Error al intentar recuperar el registro");
             modalDialog.showModalDialog();
@@ -125,7 +126,7 @@ public class SelectMascota extends AsyncTask<Void,Integer,Integer> {
         ContextCompat.getMainExecutor(context).execute(()  -> {
             this.idUsu.setText(idUsu);
             this.nombreMascota.setText(nombreMascota);
-            this.fechaNac.setText(fechaNac);
+            this.editFecha.setText(fechaNac);
             this.especie.setText(especie);
             this.raza.setText(raza);
             this.sexo.setText(sexo);

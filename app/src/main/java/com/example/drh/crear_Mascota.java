@@ -31,10 +31,10 @@ public class crear_Mascota extends Fragment {
 
 
     EditText editIdusuario, editNombreMascota, editRaza,editEspecie,editColor,
-            edirTatuaje, editMicrochip,editSexo;
+            edirTatuaje, editMicrochip,editSexo,editFecha;
     String usuario, nombreMascota, fechaNac,raza, especie, color, tatuaje,microchip, sexo, fecha;
     Button btnCrearM, btnVaciar, btnFecha;
-    TextView testFecha;
+
     View vista;
     InsertMascota vui;
     Integer  dia, mes, anyo, dia1=0, mes1=0 ,anyo1=0;
@@ -70,7 +70,7 @@ public class crear_Mascota extends Fragment {
         editIdusuario = (EditText)vista.findViewById(R.id.editPropietario);
         editNombreMascota = (EditText)vista.findViewById(R.id.editNombreMasco);
 
-        testFecha=(TextView) vista.findViewById(R.id.textoFecha);
+        editFecha=(EditText) vista.findViewById(R.id.fechaMasco);
 
         editRaza = (EditText)vista.findViewById(R.id.editRaza);
         editEspecie = (EditText)vista.findViewById(R.id.editEspecie);
@@ -82,18 +82,20 @@ public class crear_Mascota extends Fragment {
         btnVaciar=(Button) vista.findViewById(R.id.btnVaciarM);
         btnFecha=(Button) vista.findViewById(R.id.botonFecha);
 
+        Calendar c = Calendar.getInstance();
+
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy ");
+        String getCurrentDateTime = sdf.format(c.getTime());
+        dia1 = c.get(Calendar.DAY_OF_MONTH);
+        mes1=c.get(Calendar.MONTH);
+        anyo1=c.get(Calendar.YEAR);
+
         btnCrearM.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 obtenerDatos();
-                Calendar c = Calendar.getInstance();
 
-                SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy ");
-                String getCurrentDateTime = sdf.format(c.getTime());
-                 dia1 = c.get(Calendar.DAY_OF_MONTH);
-                 mes1=c.get(Calendar.MONTH);
-                 anyo1=c.get(Calendar.YEAR);
                 if(validar()){
                     //INSERTAR MÉTODO QUE COMPRUEBE EN LA BASE DE DATOS SI EL USUARIO YA EXISTE
                     vui = new InsertMascota(getActivity(), usuario, nombreMascota, fechaNac,raza, especie, color, tatuaje,microchip, sexo);
@@ -123,6 +125,7 @@ public class crear_Mascota extends Fragment {
                DatePickerDialog dPD =  new DatePickerDialog(getActivity(), new DatePickerDialog.OnDateSetListener() {
                    @Override
                    public void onDateSet(DatePicker view, int year,int monthOfYear, int dayOfMonth) {
+
                        if(year>anyo1) {
                            Toast.makeText(getActivity(), "EL AÑO NO PUEDE SER MAYOR AL ACTUAL", Toast.LENGTH_SHORT).show();
                            bandera=1;
@@ -135,20 +138,21 @@ public class crear_Mascota extends Fragment {
                                    Toast.makeText(getActivity(), "EL DIA NO PUEDE SER MAYOR AL ACTUAL", Toast.LENGTH_SHORT).show();
                                    bandera=2;
                                }else if(dayOfMonth<=dia1){
-                                   testFecha.setText(year+"/"+(monthOfYear+1)+"/"+dayOfMonth);
+                                   editFecha.setText(year+"/"+(monthOfYear+1)+"/"+dayOfMonth);
                                    bandera=4;
                                }
                            }else if(monthOfYear<mes1){
-                               testFecha.setText(year+"/"+(monthOfYear+1)+"/"+dayOfMonth);
+                               editFecha.setText(year+"/"+(monthOfYear+1)+"/"+dayOfMonth);
                                bandera=4;
                            }
                        }else if(year<anyo1){
-                           testFecha.setText(year+"/"+(monthOfYear+1)+"/"+dayOfMonth);
+                           editFecha.setText(year+"/"+(monthOfYear+1)+"/"+dayOfMonth);
                            bandera=4;
                        }
 
                    }
                },dia,mes,anyo);
+
                dPD.show();
            }
 
@@ -167,7 +171,7 @@ public class crear_Mascota extends Fragment {
         tatuaje= edirTatuaje.getText().toString();
         microchip= editMicrochip.getText().toString();
         sexo=editSexo.getText().toString();
-        fechaNac=testFecha.getText().toString();
+        fechaNac=editFecha.getText().toString();
 
     }
 
@@ -180,7 +184,6 @@ public class crear_Mascota extends Fragment {
             return false;
 
             } else if(bandera!=4){
-            testFecha.setText("AAAA/MM/DD");
             Toast.makeText(getActivity(),"INGRESA UNA FECHA",Toast.LENGTH_SHORT).show();
             return false;
             } else if (especie.isEmpty()) {
@@ -204,7 +207,7 @@ public class crear_Mascota extends Fragment {
 
                 editIdusuario.setText("");
                 editNombreMascota.setText("");
-                testFecha.setText("DD/MM/AAAA");
+                editFecha.setText("DD/MM/AAAA");
                 editRaza.setText("");
                 editEspecie.setText("");
                 editColor.setText("");

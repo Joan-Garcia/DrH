@@ -22,13 +22,14 @@ public class UpdateMascota extends AsyncTask<Void,Integer,Integer> {
     private ModalProgressDialog progressDialog;
     private ModalDialog modalDialog;
     private String idMas, idUsu, nombreMascota, fechaNac, especie, raza, sexo, color, tatuaje, microchip;
+    private EditText idmas1;
     Button a, b;
     FrameLayout fy;
     private int mascotaExist;
 
     public UpdateMascota(Context context, String idMas, String idUsu, String nombreMascota,
                          String fechaNac, String raza, String especie, String color, String tatuaje,
-                         String microchip, String sexo, Button a, Button b, FrameLayout fy){
+                         String microchip, String sexo, Button a, Button b, FrameLayout fy, EditText idMas1){
         progressDialog = new ModalProgressDialog(context,"Actualizando Registro",
                 "Por favor espere...", ProgressDialog.STYLE_SPINNER);
         modalDialog= new ModalDialog(context);
@@ -46,6 +47,7 @@ public class UpdateMascota extends AsyncTask<Void,Integer,Integer> {
         this.a=a;
         this.b=b;
         this.fy=fy;
+        this.idmas1=idMas1;
     }
 
     @Override
@@ -103,6 +105,7 @@ public class UpdateMascota extends AsyncTask<Void,Integer,Integer> {
             this.a.setVisibility(View.INVISIBLE);
             this.b.setVisibility(View.INVISIBLE);
             this.fy.setVisibility(View.INVISIBLE);
+            this.idmas1.setText("");
         }else if(mascotaExist == 0){
             modalDialog.setMessage("El ID del propietario no existe");
             modalDialog.showModalDialog();
