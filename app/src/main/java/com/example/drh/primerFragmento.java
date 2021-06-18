@@ -76,8 +76,6 @@ public class primerFragmento extends Fragment {
         String [] tablas= new String[]{"Seleccione","CREAR USUARIO","INGRESAR MASCOTA","APLICAR VACUNA","APLICAR DESPARACITACIÓN"};
         ArrayAdapter<String> adapter= new ArrayAdapter<String>(vista.getContext(),
                 R.layout.spinner_item_prueba,tablas);
-
-
         sp.setAdapter(adapter);
         sp.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 

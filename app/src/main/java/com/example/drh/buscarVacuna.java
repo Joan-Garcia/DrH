@@ -3,10 +3,12 @@ package com.example.drh;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.DatePickerDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.Toast;
@@ -20,10 +22,11 @@ import java.util.Calendar;
 
 public class buscarVacuna extends AppCompatActivity {
 
-    Button btnActualizar, btnBuscar,btnEliminar;
+    Button btnActualizar, btnBuscar,btnEliminar, btnF;
     FrameLayout fy;
     EditText editIdMas,editVacuna, editProxFe, editidVac;
     String idMas, vacuna, proxF, idVac;
+    int bandera=0;
 
     SelectVacuna sv;
     UpdateVacuna uv;
@@ -44,7 +47,13 @@ public class buscarVacuna extends AppCompatActivity {
         editidVac=(EditText)findViewById(R.id.editIdVacunaMod);
         editIdMas=(EditText)findViewById(R.id.editIdMascotaVac);
         editVacuna=(EditText)findViewById(R.id.editVacMod);
-        editProxFe=(EditText)findViewById(R.id.editProxVacMod);
+        editProxFe=(EditText)findViewById(R.id.fechaVacuna1M);
+        btnF=(Button)findViewById(R.id.botonFechaVM);
+
+        final Calendar calendario =  Calendar.getInstance();
+        int diaD= calendario.get(Calendar.DAY_OF_MONTH);
+        int mesD=calendario.get(Calendar.MONTH);
+        int anyoD=calendario.get(Calendar.YEAR);
 
         btnBuscar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,10 +66,8 @@ public class buscarVacuna extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 obtnerDatos();
-                Calendar c = Calendar.getInstance();
-                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd ");
-                String fechaHoy = sdf.format(c.getTime());
-                if(validar(fechaHoy)){
+
+                if(validar()){
                     //Insertar método para actualizar vacuna
                     uv = new UpdateVacuna(v.getContext(), idVac, idMas, vacuna, proxF, btnEliminar, btnActualizar, fy);
                     uv.execute();
@@ -101,6 +108,53 @@ public class buscarVacuna extends AppCompatActivity {
 
             }
         });
+        btnF.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(v.getContext(), "INGRESAR LA FECHA DEL DÍA ACTUAL SI LA VACUNA SOLO ES DE UNA APLICACIÓN", Toast.LENGTH_LONG).show();
+                final Calendar calendario =  Calendar.getInstance();
+                int dia= calendario.get(Calendar.DAY_OF_MONTH);
+                int mes=calendario.get(Calendar.MONTH);
+                int anyo=calendario.get(Calendar.YEAR);
+
+                DatePickerDialog dPD =  new DatePickerDialog(v.getContext(), new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+
+                        if(year<anyoD) {
+                            Toast.makeText(v.getContext(), "EL AÑO NO PUEDE SER EN EL PASADO", Toast.LENGTH_SHORT).show();
+                            bandera=1;
+                        }else if(year==anyoD) {
+                            if(monthOfYear<mesD){
+                                Toast.makeText(v.getContext(), "EL MES NO PUEDE SER MENOR AL ACTUAL", Toast.LENGTH_SHORT).show();
+                                bandera=2;
+                            }else if(monthOfYear==mesD){
+                                if(dayOfMonth<diaD){
+                                    Toast.makeText(v.getContext(), "EL DIA NO PUEDE SER MENOR AL ACTUAL", Toast.LENGTH_SHORT).show();
+                                    bandera=2;
+                                }else if(dayOfMonth>=diaD){
+                                    editProxFe.setText(year+"/"+(monthOfYear+1)+"/"+dayOfMonth);
+
+                                    bandera=4;
+                                }
+                            }else if(monthOfYear>mesD){
+                                editProxFe.setText(year+"/"+(monthOfYear+1)+"/"+dayOfMonth);
+                                bandera=4;
+                            }
+                        }else if(year>anyoD){
+                            editProxFe.setText(year+"/"+(monthOfYear+1)+"/"+dayOfMonth);
+                            bandera=4;
+                        }
+
+                    }
+                },dia,mes,anyo);
+
+                dPD.show();
+            }
+
+
+
+        });
     }
 
     public void buscar(){
@@ -113,6 +167,7 @@ public class buscarVacuna extends AppCompatActivity {
     }else{
         editidVac.setError("EL CAMPO IDVACUNA NO PUEDE QUEDAR VACÍO");
     }
+
     }
 
 
@@ -120,19 +175,19 @@ public class buscarVacuna extends AppCompatActivity {
         vacuna=editVacuna.getText().toString();
         idMas=editIdMas.getText().toString();
         proxF=editProxFe.getText().toString();
+        if(!proxF.isEmpty()){
+            bandera=4;
+        }
     }
-    public boolean validar(String fecha){
+    public boolean validar(){
         if(idMas.isEmpty()){
             editIdMas.setError("EL CAMPO IDMASCOTA NO PUEDE QUEDAR VACÍO");
             return false;
         }else if(vacuna.isEmpty()){
             editVacuna.setError("EL CAMPO NOMBRE DE LA VACUNA NO PUEDE QUEDAR VACÍO");
             return false;
-        }else if(proxF.isEmpty()){
-            proxF=fecha;
-            return true;
-        }else if(fecha.compareTo(proxF)>0){
-            editProxFe.setError("LA PRÓXIMA FECHA DE VACUNACIÓN NO PUEDE SER EN EL PASADO");
+        }else if(bandera!=4){
+            Toast.makeText(this,"INGRESA UNA FECHA",Toast.LENGTH_SHORT).show();
             return false;
         }
             return true;
