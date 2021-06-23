@@ -100,8 +100,8 @@ public class SelectMascotas extends AsyncTask<Void, Integer, Integer> {
                             rs.getString("Mascota"),
                             rs.getString("Vacuna"),
                             a,
-                            rs.getDate("proxFecha"),
                             rs.getDate("fecha"),
+                            rs.getDate("proxFecha"),
 
                             imagenesID[0],
                             prueba[0]);
