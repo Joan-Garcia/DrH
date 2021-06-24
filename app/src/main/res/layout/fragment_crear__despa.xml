@@ -98,6 +98,14 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
             </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="PRÓXIMA FECHA ASIGNADA AUTOMATICAMENTE"
+                android:textColor="@color/white"
+                android:fontFamily="@font/balthazar"
+                android:layout_gravity="center"
+                android:textSize="18dp"/>
 
             <Button
                 android:id="@+id/btnDes"

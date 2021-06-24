@@ -153,14 +153,14 @@ public class crear_Despa extends Fragment {
     public void vaciar(){
         editIdMasDes.setText("");
         editProducto.setText("");
-        Toast.makeText(vista.getContext(),"FECHA PROXIMA ASIGNADA AUTOMÁTICAMENTE",Toast.LENGTH_SHORT).show();
+
         llenarFecha(diaD,mesD,anyoD);
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        Toast.makeText(vista.getContext(),"FECHA PROXIMA ASIGNADA AUTOMÁTICAMENTE",Toast.LENGTH_SHORT).show();
+
         llenarFecha(diaD,mesD,anyoD);
     }
 
